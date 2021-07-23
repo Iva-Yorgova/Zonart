@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "Templates";
+}
+
+
+<!--<div class="container container-fluid">
+    <form method="post">
+        <div class="row">
+            <a class="nav-link btn-success btn-sm col text-center" asp-area="" asp-controller="Templates" asp-action="Add">Add Template</a>
+        </div>
+    </form>
+</div>-->
+
+    <div class="row" style="margin: 0px 20px 0px 20px">
+        @foreach (var template in Model)
+        {
+            <div class="col-md-4">
+                <div class="card mb-3 mt-5" style="border-radius: 0">
+                    <img class="card-img-top" style="border-radius: 0" src="@template.ImageUrl" alt="">
+                    <div class="card-body text-center">
+                        <h4 class="card-title text-center">@template.Name</h4>
+                        <a asp-controller="Templates" asp-action="Details" asp-route-id="@template.Id" class="btn btn-primary" style="background-color: orangered; border: none">View</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+
+    <script>
+    $(document).ready(function () {
+        $(".active").removeClass("active");
+        $("#templates").addClass("active");
+    });
+    </script>

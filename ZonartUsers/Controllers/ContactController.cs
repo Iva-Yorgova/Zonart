@@ -18,7 +18,7 @@ namespace ZonartUsers.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(AddContactFormModel contact)
+        public IActionResult Add(AddContactModel contact)
         {          
             if (!ModelState.IsValid)
             {

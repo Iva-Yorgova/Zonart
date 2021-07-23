@@ -1,0 +1,122 @@
+﻿@model AddContactModel
+
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<!--peaces hover effect-->
+<div class="peaces" style="margin-top: -40px">
+    <a class="frame" href="../Images/z-s.svg" target="_blank" style="--img:url('../Images/z-s.svg');--w:141vmin;--h:72vmin;">
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+    </a>
+</div>
+
+
+<div class="container">
+    <div class="row-custom">
+        <div class="offset-sm-1 col-sm-10 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6 offset-md-3 col-md-6">
+            <div class="text-center text-dark mb-4" style="margin-top:-80px">
+                <h1 class="title-contact" style="background-color: white">Hit us up, get a quick cost & time estimate.</h1>
+            </div>
+
+
+            <h6 class="text-center text-dark mb-5"> If you want something made, we can make it for you.</h6>
+
+            <form method="post">
+
+                <div class="form-group">
+                    <input asp-for="Name" class="form-control mb-0" placeholder="Your name...">
+                    <span asp-validation-for="Name" class="small text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input asp-for="Email" class="form-control mb-0" placeholder="Your email...">
+                    <span asp-validation-for="Email" class="small text-danger mt-2"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Message">Tell us about your project</label>
+                    <textarea asp-for="Message" rows="4" class="form-control mb-0" placeholder="Your project...">Tell us about your project</textarea>
+                    <span asp-validation-for="Message" class="small text-danger"></span>
+                </div>
+
+                <div>
+                    <input class="mt-lg-30 mt-30 col-lg-14 btn btn-block spacing-lg" type="submit" value="Submit" style="margin-bottom: 100px" />
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+        $(".active").removeClass("active");
+        $("#contact").addClass("active");
+    });
+</script>

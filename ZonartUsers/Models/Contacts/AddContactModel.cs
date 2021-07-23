@@ -1,11 +1,9 @@
-﻿
-using System.ComponentModel.DataAnnotations;
-
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ZonartUsers.Models.Contacts
 {
     using static Data.GlobalConstants;
-    public class AddContactFormModel
+    public class AddContactModel
     {
         [Required]
         [Display(Name = "Name")]

@@ -1,0 +1,27 @@
+﻿@model TemplateLayoutModel
+
+@{
+    ViewData["Title"] = "Template Details";
+}
+
+
+
+<h1 style="margin-top: 80px; padding-bottom: 10px; text-align: center; font-family: Jost">Waves</h1>
+<h4 style="margin-top: 10px; margin-bottom: 40px; text-align: center; font-style: italic; color: gray">Summer Instagram Posts Collection</h4>
+
+<img src="../../Images/gallery/(@Model.Id).jpg" width="1200" height="1200" style="max-width: 100%; height: auto;" />
+
+
+
+<div class="bg-text">
+    <a href="/Orders/Create?templateId=@Model.Id">Order</a>
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+        $(".active").removeClass("active");
+        $("#templates").addClass("active");
+    });
+</script>
