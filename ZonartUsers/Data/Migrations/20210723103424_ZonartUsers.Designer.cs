@@ -10,7 +10,7 @@ using ZonartUsers.Data;
 namespace ZonartUsers.Data.Migrations
 {
     [DbContext(typeof(ZonartUsersDbContext))]
-    [Migration("20210723040441_ZonartUsers")]
+    [Migration("20210723103424_ZonartUsers")]
     partial class ZonartUsers
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -298,12 +298,12 @@ namespace ZonartUsers.Data.Migrations
                     b.Property<int?>("BagId")
                         .HasColumnType("int");
 
-                    b.Property<string>("ContactEmail")
+                    b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("ContactName")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");

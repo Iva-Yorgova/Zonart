@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ZonartUsers.Data;
 using ZonartUsers.Data.Models;
 using ZonartUsers.Models.Orders;
@@ -27,11 +28,16 @@ namespace Zonart.Controllers
         [HttpPost]
         public IActionResult Create(OrderTemplateModel info)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(info);
+            }
+
             var order = new Order
             {
                 TemplateId = info.TemplateId,
-                ContactName = info.Name,
-                ContactEmail = info.Email,
+                Name = info.Name,
+                Email = info.Email,
             };
 
             this.data.Orders.Add(order);

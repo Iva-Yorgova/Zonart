@@ -296,12 +296,12 @@ namespace ZonartUsers.Data.Migrations
                     b.Property<int?>("BagId")
                         .HasColumnType("int");
 
-                    b.Property<string>("ContactEmail")
+                    b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("ContactName")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");

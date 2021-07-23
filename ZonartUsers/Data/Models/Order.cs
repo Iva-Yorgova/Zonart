@@ -15,11 +15,11 @@ namespace ZonartUsers.Data.Models
 
         [Required]
         [MaxLength(NameMaxLength)]
-        public string ContactName { get; set; }
+        public string Name { get; set; }
 
         [Required]
         [MaxLength(EmailMaxLength)]
-        public string ContactEmail { get; set; }
+        public string Email { get; set; }
 
     }
 }

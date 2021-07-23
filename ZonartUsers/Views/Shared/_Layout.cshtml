@@ -41,11 +41,16 @@
 
 
             <div class="nav-right">
-                <a href="#"><i class="fa fa-search fa-sm"></i></a>
-                    <a style="font-weight:200" asp-area="Identity" asp-page="/Account/Register">Register</a>
 
-                    <a style="font-weight:200" asp-area="Identity" asp-page="/Account/Login">Login</a>
-                    <!--<partial name="_LoginPartial" />-->
+                <a href="#"><i class="fa fa-search fa-sm"></i></a>
+
+                <a href="#"><i class="fas fa-shopping-bag fa-sm"></i></a>
+
+                <a style="font-weight:200" asp-area="Identity" asp-page="/Account/Register">Register</a>
+
+                <a style="font-weight:200" asp-area="Identity" asp-page="/Account/Login">Login</a>
+
+                <!--<partial name="_LoginPartial" />-->
             </div>
         </div>
 
@@ -54,7 +59,7 @@
     </header>
 
 
-    <div class="container-fluid" style="padding-left: 0px; padding-right: 0px">
+    <div class="container-fluid-new" style="padding-left: 0px; padding-right: 0px">
 
         @RenderBody()
 
@@ -62,16 +67,19 @@
 
 
     <footer class="border-top footer text-muted">
-        <div class="horisontal-footer position-relative nav-bottom-text text-center pt-5 pb-5 text-white">
+        <div class="horisontal-footer position-relative text-center pt-5 pb-5 text-white">
+
+            <div class="nav-right" style="float: none; margin-top: -25px; margin-bottom: 20px">
+                <a href="#"><i class="fa fa-instagram fa-sm" style="color: white; margin-right: 20px"></i></a>
+                <a href="#"><i class="fa fa-twitter fa-sm" style="color: white; margin-right: 20px"></i></a>
+                <a href="#"><i class="fa fa-behance fa-sm" style="color: white"></i></a>
+            </div>
+
             <div class="bottom-text-footer">
                 Copyright Zonart  &copy; @DateTime.UtcNow.Year. All rights reserved.
             </div>
 
-            <div class="nav-right">
-                <a href="#"><i class="fa fa-instagram fa-sm"></i></a>
-                <a href="#"><i class="fa fa-twitter fa-sm"></i></a>
-                <a href="#"><i class="fa fa-behance fa-sm"></i></a>
-            </div>
+
         </div>
     </footer>
 
