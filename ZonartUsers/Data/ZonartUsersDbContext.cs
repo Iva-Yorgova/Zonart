@@ -17,6 +17,10 @@ namespace ZonartUsers.Data
 
         public DbSet<Template> Templates { get; set; }
 
+        public DbSet<Bag> Bags { get; set; }
+
+        public DbSet<Client> Clients { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

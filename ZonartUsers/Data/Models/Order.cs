@@ -11,6 +11,7 @@ namespace ZonartUsers.Data.Models
         public int Id { get; set; }
 
         public int TemplateId { get; set; }
+        public Template Template { get; set; }
 
         [Required]
         [MaxLength(NameMaxLength)]
