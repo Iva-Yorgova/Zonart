@@ -35,10 +35,12 @@
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+
+
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html {
@@ -53,14 +55,12 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 }
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
-  text-align: left;
-  background-color: #fff;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    list-style: none;
+
 }
 
 [tabindex="-1"]:focus {
@@ -78,10 +78,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.5rem;
 }
 
-p {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
+
 
 abbr[title],
 abbr[data-original-title] {
@@ -104,7 +101,6 @@ ol,
 ul,
 dl {
   margin-top: 0;
-  margin-bottom: 1rem;
 }
 
 ol ol,
@@ -153,19 +149,16 @@ sup {
 }
 
 a {
-  color: #007bff;
-  text-decoration: none;
-  background-color: transparent;
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+    font-variant-caps: all-petite-caps;
 }
 
-a:hover {
-  color: #0056b3;
-  text-decoration: underline;
-}
+
 
 a:not([href]):not([tabindex]) {
-  color: inherit;
-  text-decoration: none;
+    text-decoration: none;
 }
 
 a:not([href]):not([tabindex]):hover, a:not([href]):not([tabindex]):focus {
@@ -202,7 +195,6 @@ img {
 
 svg {
   overflow: hidden;
-  vertical-align: middle;
 }
 
 table {
@@ -223,7 +215,7 @@ th {
 
 label {
   display: inline-block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.2rem;
 }
 
 button {
@@ -241,7 +233,6 @@ select,
 optgroup,
 textarea {
   margin: 0;
-  font-family: inherit;
   font-size: inherit;
   line-height: inherit;
 }
@@ -547,51 +538,47 @@ pre code {
 
 .container {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
 }
 
 @media (min-width: 576px) {
-  .container {
-    max-width: 540px;
-  }
+    .container {
+        width: 100%;     
+    }
 }
 
 @media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
+    .container {
+        width: 100%;
+    }
 }
 
 @media (min-width: 992px) {
-  .container {
-    max-width: 960px;
-  }
+    .container {
+        width: 100%;
+    }
 }
 
 @media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
-  }
+    .container {
+        width: 100%;
+    }
 }
 
 .container-fluid {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .row {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
 }
 
 .no-gutters {
@@ -613,8 +600,10 @@ pre code {
 .col-xl-auto {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 5px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  padding-top: 5px;
 }
 
 .col {
@@ -1866,7 +1855,6 @@ pre code {
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
-  border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -1919,9 +1907,15 @@ pre code {
   opacity: 1;
 }
 
+select input  {
+   
+    border: 5px solid orangered;
+}
+
 select.form-control:focus::-ms-value {
   color: #495057;
   background-color: #fff;
+  border: 20px solid orangered;
 }
 
 .form-control-file,
@@ -1995,7 +1989,11 @@ textarea.form-control {
 }
 
 .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+select.form-group {
+    border: 10px solid orangered;
 }
 
 .form-text {
@@ -3771,7 +3769,7 @@ input[type="button"].btn-block {
 }
 
 .custom-select:focus {
-  border-color: #80bdff;
+  border-color: orangered;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
@@ -4144,18 +4142,7 @@ input[type="button"].btn-block {
   display: block;
 }
 
-.navbar {
-  position: relative;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 0.5rem 1rem;
-}
+
 
 .navbar > .container,
 .navbar > .container-fluid {
@@ -4188,9 +4175,9 @@ input[type="button"].btn-block {
   display: flex;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  padding-left: 10px;
 }
 
 .navbar-nav .nav-link {
@@ -4219,12 +4206,12 @@ input[type="button"].btn-block {
 }
 
 .navbar-toggler {
-  padding: 0.25rem 0.75rem;
-  font-size: 1.25rem;
-  line-height: 1;
-  background-color: transparent;
-  border: 1px solid transparent;
-  border-radius: 0.25rem;
+    font-size: 1rem;
+    line-height: 1;
+    margin-left: 30px;
+    border: 1px solid;
+    border-radius: 0rem;
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 .navbar-toggler:hover, .navbar-toggler:focus {
@@ -4232,13 +4219,14 @@ input[type="button"].btn-block {
 }
 
 .navbar-toggler-icon {
-  display: inline-block;
-  width: 1.5em;
-  height: 1.5em;
-  vertical-align: middle;
-  content: "";
-  background: no-repeat center center;
-  background-size: 100% 100%;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    content: section-note;
+    background: no-repeat center center;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 @media (max-width: 575.98px) {
@@ -4264,8 +4252,8 @@ input[type="button"].btn-block {
     position: absolute;
   }
   .navbar-expand-sm .navbar-nav .nav-link {
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
+    padding-right: 0.7rem;
+    padding-left: 0.7rem;
   }
   .navbar-expand-sm > .container,
   .navbar-expand-sm > .container-fluid {
@@ -4510,7 +4498,7 @@ input[type="button"].btn-block {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.5);
+    color: #ff6000;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
@@ -7009,7 +6997,6 @@ button.bg-dark:focus {
 
 .flex-grow-1 {
   -ms-flex-positive: 1 !important;
-  flex-grow: 1 !important;
 }
 
 .flex-shrink-0 {
@@ -7135,23 +7122,18 @@ button.bg-dark:focus {
 @media (min-width: 576px) {
   .flex-sm-row {
     -ms-flex-direction: row !important;
-    flex-direction: row !important;
   }
   .flex-sm-column {
     -ms-flex-direction: column !important;
-    flex-direction: column !important;
   }
   .flex-sm-row-reverse {
     -ms-flex-direction: row-reverse !important;
-    flex-direction: row-reverse !important;
   }
   .flex-sm-column-reverse {
     -ms-flex-direction: column-reverse !important;
-    flex-direction: column-reverse !important;
   }
   .flex-sm-wrap {
     -ms-flex-wrap: wrap !important;
-    flex-wrap: wrap !important;
   }
   .flex-sm-nowrap {
     -ms-flex-wrap: nowrap !important;
@@ -8002,12 +7984,12 @@ button.bg-dark:focus {
 
 .mb-3,
 .my-3 {
-  margin-bottom: 1rem !important;
+  margin-bottom: unset;
 }
 
 .ml-3,
 .mx-3 {
-  margin-left: 1rem !important;
+  margin-left: 0.2rem;
 }
 
 .m-4 {
@@ -8136,7 +8118,7 @@ button.bg-dark:focus {
 
 .pt-3,
 .py-3 {
-  padding-top: 1rem !important;
+  padding-top: 1.2rem !important;
 }
 
 .pr-3,
@@ -8146,7 +8128,7 @@ button.bg-dark:focus {
 
 .pb-3,
 .py-3 {
-  padding-bottom: 1rem !important;
+    list-style: none;
 }
 
 .pl-3,
@@ -9897,7 +9879,7 @@ a.text-danger:hover, a.text-danger:focus {
 }
 
 .text-light {
-  color: #f8f9fa !important;
+
 }
 
 a.text-light:hover, a.text-light:focus {
