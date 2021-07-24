@@ -1,9 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Zonart Users</title>
+    <title>Zonart @ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="shortcut icon" href="/Images/favicon.ico" />
@@ -45,16 +50,23 @@
                 <a href="#"><i class="fa fa-search fa-sm"></i></a>
 
                 <a href="#"><i class="fas fa-shopping-bag fa-sm"></i></a>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <a style="font-weight:200" asp-area="">@User.Identity.Name</a>
 
-                <a style="font-weight:200" asp-area="" asp-controller="Users" asp-action="Register" id="register">Register</a>
+                    <a style="font-weight:200" asp-area="" asp-controller="Users" asp-action="Logout" id="login">Logout</a>
+                }
+                else
+                {
+                    <a style="font-weight:200" asp-area="" asp-controller="Users" asp-action="Register" id="register">Register</a>
 
-                <a style="font-weight:200" asp-area="Identity" asp-page="/Account/Login">Login</a>
-
+                    <a style="font-weight:200" asp-area="" asp-controller="Users" asp-action="Login" id="login">Login</a>
+                }
                 <!--<partial name="_LoginPartial" />-->
             </div>
         </div>
 
-        
+
 
     </header>
 

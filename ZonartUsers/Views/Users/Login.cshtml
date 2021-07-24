@@ -1,4 +1,4 @@
-﻿@model RegisterUserModel
+﻿@model LoginUserModel
 
 
 
@@ -7,7 +7,7 @@
             <div class="offset-sm-1 col-sm-10 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6 offset-md-3 col-md-6">
 
                 <div class="text-center text-dark mb-4" style="margin-top:80px">
-                    <h1 class="title-contact" style="background-color: white">Register</h1>
+                    <h1 class="title-contact" style="background-color: white">Login</h1>
                 </div>
 
                 <form method="post">
@@ -26,14 +26,8 @@
                         <span asp-validation-for="Password" class="small text-danger mt-2"></span>
                     </div>
 
-                    <div class="form-group">
-                        <label asp-for="FullName"></label>
-                        <input asp-for="FullName" class="form-control mb-0" placeholder="">
-                        <span asp-validation-for="FullName" class="small text-danger mt-2"></span>
-                    </div>
-
                     <div>
-                        <input class="mt-lg-30 mt-30 col-lg-14 btn btn-block spacing-lg" type="submit" value="Register" style="margin-bottom: 100px" />
+                        <input class="mt-lg-30 mt-30 col-lg-14 btn btn-block spacing-lg" type="submit" value="Login" style="margin-bottom: 100px" />
                     </div>
 
                 </form>
@@ -46,6 +40,6 @@
     <script>
     $(document).ready(function () {
         $(".active").removeClass("active");
-        $("#register").addClass("active");
+        $("#login").addClass("active");
     });
     </script>

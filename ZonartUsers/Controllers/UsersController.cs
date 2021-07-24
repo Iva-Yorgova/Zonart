@@ -51,10 +51,54 @@ namespace ZonartUsers.Controllers
                     ModelState.AddModelError(string.Empty, error);
                 }
             }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View(user);
+
+        }
 
 
+        public IActionResult Login()
+        {
+            return View();
+        }
 
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginUserModel user)
+        {
+            var loggedInUser = this.userManager.FindByEmailAsync(user.Email).Result;
+
+            if (loggedInUser ==  null)
+            {
+                ModelState.AddModelError(string.Empty, "Credentials invalid!");
+                return View(user);
+            }
+   
+            var passwordIsValid = await this.userManager.CheckPasswordAsync(loggedInUser, user.Password);
+
+            if (!passwordIsValid)
+            {
+                ModelState.AddModelError(string.Empty, "Credentials invalid!");
+                return View(user);
+            }
+
+            else
+            {
+                await this.signInManager.SignInAsync(loggedInUser, true);
+                return RedirectToAction("Index", "Home");
+            }
+
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
+
     }
 }
