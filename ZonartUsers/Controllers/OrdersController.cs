@@ -23,35 +23,31 @@ namespace Zonart.Controllers
             this.signInManager = signInManager;
         }
 
-        public async Task<IActionResult> Create([FromQuery] int templateId)
+        public IActionResult Create([FromQuery] int templateId)
         {
-            var user = await this.userManager.GetUserAsync(this.User);
 
             return View(new OrderTemplateModel
             {
                 TemplateId = templateId,
-                UserId = user.Id
+       
             });
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> Create(OrderTemplateModel info)
+        public IActionResult Create(OrderTemplateModel info)
         {
 
-            var user = await this.userManager.GetUserAsync(this.User);
-
-
-            //if (!ModelState.IsValid)
-            //{
-            //    return View(info);
-            //}
+            if (!ModelState.IsValid)
+            {
+                return View(info);
+            }
 
             var order = new Order
             {
                 TemplateId = info.TemplateId,
-                UserId = user.Id,
-                Email = user.UserName,
+                Name = info.Name,
+                Email = info.Email,
             };
 
             this.data.Orders.Add(order);

@@ -51,7 +51,7 @@
 
                 @if (SignInManager.IsSignedIn(User))
                 {
-                    <a href="#"><i class="fas fa-shopping-bag fa-sm"></i></a>
+                    <a asp-area="" asp-controller="Users" asp-action="Bag" id="bag"><i class="fas fa-shopping-bag fa-sm"></i></a>
 
                     <a style="font-weight:200" asp-area="">@User.Identity.Name</a>
 

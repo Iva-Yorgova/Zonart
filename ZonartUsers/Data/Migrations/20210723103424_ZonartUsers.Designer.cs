@@ -221,23 +221,23 @@ namespace ZonartUsers.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("ZonartUsers.Data.Models.Bag", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<int>("ClientId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ClientId")
-                        .IsUnique();
-
-                    b.ToTable("Bags");
-                });
+            //modelBuilder.Entity("ZonartUsers.Data.Models.Bag", b =>
+            //    {
+            //        b.Property<int>("Id")
+            //            .ValueGeneratedOnAdd()
+            //            .HasColumnType("int")
+            //            .UseIdentityColumn();
+            //
+            //        b.Property<int>("ClientId")
+            //            .HasColumnType("int");
+            //
+            //        b.HasKey("Id");
+            //
+            //        b.HasIndex("ClientId")
+            //            .IsUnique();
+            //
+            //        b.ToTable("Bags");
+            //    });
 
             modelBuilder.Entity("ZonartUsers.Data.Models.Client", b =>
                 {
@@ -295,8 +295,8 @@ namespace ZonartUsers.Data.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int?>("BagId")
-                        .HasColumnType("int");
+                    //b.Property<int?>("BagId")
+                    //    .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -313,7 +313,7 @@ namespace ZonartUsers.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BagId");
+                   // b.HasIndex("BagId");
 
                     b.HasIndex("TemplateId");
 
@@ -394,22 +394,22 @@ namespace ZonartUsers.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ZonartUsers.Data.Models.Bag", b =>
-                {
-                    b.HasOne("ZonartUsers.Data.Models.Client", "Client")
-                        .WithOne("Bag")
-                        .HasForeignKey("ZonartUsers.Data.Models.Bag", "ClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Client");
-                });
+           //modelBuilder.Entity("ZonartUsers.Data.Models.Bag", b =>
+           //    {
+           //        b.HasOne("ZonartUsers.Data.Models.Client", "Client")
+           //            .WithOne("Bag")
+           //            .HasForeignKey("ZonartUsers.Data.Models.Bag", "ClientId")
+           //            .OnDelete(DeleteBehavior.Cascade)
+           //            .IsRequired();
+           //
+           //        b.Navigation("Client");
+           //    });
 
             modelBuilder.Entity("ZonartUsers.Data.Models.Order", b =>
                 {
-                    b.HasOne("ZonartUsers.Data.Models.Bag", null)
-                        .WithMany("Orders")
-                        .HasForeignKey("BagId");
+                    //b.HasOne("ZonartUsers.Data.Models.Bag", null)
+                    //    .WithMany("Orders")
+                    //    .HasForeignKey("BagId");
 
                     b.HasOne("ZonartUsers.Data.Models.Template", "Template")
                         .WithMany()
@@ -420,15 +420,15 @@ namespace ZonartUsers.Data.Migrations
                     b.Navigation("Template");
                 });
 
-            modelBuilder.Entity("ZonartUsers.Data.Models.Bag", b =>
-                {
-                    b.Navigation("Orders");
-                });
+            //modelBuilder.Entity("ZonartUsers.Data.Models.Bag", b =>
+            //    {
+            //        b.Navigation("Orders");
+            //    });
 
-            modelBuilder.Entity("ZonartUsers.Data.Models.Client", b =>
-                {
-                    b.Navigation("Bag");
-                });
+            //modelBuilder.Entity("ZonartUsers.Data.Models.Client", b =>
+            //    {
+            //        b.Navigation("Bag");
+            //    });
 #pragma warning restore 612, 618
         }
     }

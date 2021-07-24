@@ -248,7 +248,7 @@ namespace ZonartUsers.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BagId");
+                    //b.HasIndex("BagId");
 
                     b.HasIndex("TemplateId");
 

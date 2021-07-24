@@ -55,12 +55,17 @@
         <h1 style="margin-bottom: 3rem">@templateName</h1>
 
         <div class="form-group">
+            <input asp-for="Name" class="form-control mb-0" placeholder="Your name...">
+            <span asp-validation-for="Name" class="small text-danger mt-2"></span>
+        </div>
+
+        <div class="form-group">
             <input asp-for="Email" class="form-control mb-0" placeholder="Your email...">
             <span asp-validation-for="Email" class="small text-danger mt-2"></span>
         </div>
 
         <div>
-            <input class="mt-lg-30 mt-30 col-lg-14 btn btn-block spacing-lg" type="submit" value="Submit" style="margin-bottom: 20px" />
+            <input class="mt-lg-30 mt-30 col-lg-14 btn btn-block spacing-lg" type="submit" value="Order" style="margin-bottom: 20px" />
         </div>
 
     </form>

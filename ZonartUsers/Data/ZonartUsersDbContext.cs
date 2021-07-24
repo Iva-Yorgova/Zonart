@@ -21,11 +21,7 @@ namespace ZonartUsers.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Order>()
-                .HasOne(u => u.User)
-                .WithMany(b => b.Orders)
-                .HasForeignKey(u => u.UserId)
-                .OnDelete(DeleteBehavior.Restrict);
+            
 
             base.OnModelCreating(builder);
         }
