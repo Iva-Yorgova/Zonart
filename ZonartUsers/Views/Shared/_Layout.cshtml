@@ -36,7 +36,7 @@
 
         <div class="topnav" id="hidingnavbar">
             <a asp-area="" asp-controller="Home" asp-action="Index" id="home">
-                <i class="fa fa-home fa-sm active" style="color: white"></i>
+                <i class="fa fa-home fa-sm"></i>
             </a>
             <a asp-area="" asp-controller="Projects" asp-action="All" id="projects">Projects</a>
             <a asp-area="" asp-controller="Categories" asp-action="All" id="categories">Categories</a>
@@ -49,9 +49,10 @@
 
                 <a href="#"><i class="fa fa-search fa-sm"></i></a>
 
-                <a href="#"><i class="fas fa-shopping-bag fa-sm"></i></a>
                 @if (SignInManager.IsSignedIn(User))
                 {
+                    <a href="#"><i class="fas fa-shopping-bag fa-sm"></i></a>
+
                     <a style="font-weight:200" asp-area="">@User.Identity.Name</a>
 
                     <a style="font-weight:200" asp-area="" asp-controller="Users" asp-action="Logout" id="login">Logout</a>

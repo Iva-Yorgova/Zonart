@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using ZonartUsers.Data.Models;
 
 namespace ZonartUsers.Models.Orders
 {
@@ -8,9 +9,10 @@ namespace ZonartUsers.Models.Orders
         public int TemplateId { get; set; }
 
         [Required]
-        [Display(Name = "Name")]
-        [StringLength(NameMaxLength, MinimumLength = NameMinLength)]
-        public string Name { get; set; }
+        public string UserId { get; set; }
+        public User User { get; set; }
+
+
 
         [Required]
         [Display(Name = "Email")]

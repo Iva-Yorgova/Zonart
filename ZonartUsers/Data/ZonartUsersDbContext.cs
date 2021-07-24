@@ -17,15 +17,15 @@ namespace ZonartUsers.Data
 
         public DbSet<Template> Templates { get; set; }
 
-        public DbSet<Bag> Bags { get; set; }
-
-        public DbSet<Client> Clients { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            
-
+            builder.Entity<Order>()
+                .HasOne(u => u.User)
+                .WithMany(b => b.Orders)
+                .HasForeignKey(u => u.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             base.OnModelCreating(builder);
         }
