@@ -3,22 +3,37 @@
 }
 
 
-<div>
-    <img src="../Images/projects/brochures/brochures.jpg" style="max-width: 100%; height: auto;" />
+<div class="container text-center" style="background-color: #949598;  height: 100px; padding-top: 80px; font-family: Jost; padding-bottom: 50px">
+
+    <a class="mr-1 pr-3 pl-3 pb-2 pt-2" asp-area="" asp-controller="Projects" asp-action="Logos" id="logos" style="border: 1px solid white; color: white">Logos</a>
+
+    <a class="mr-1 pr-3 pl-3 pb-2 pt-2" asp-area="" asp-controller="Projects" asp-action="Books" id="books" style="border: 1px solid white; color: white">Books</a>
+
+    <a class="mr-1 pr-3 pl-3 pb-2 pt-2" asp-area="" asp-controller="Projects" asp-action="Posters" id="posters" style="border: 1px solid white; color: white">Posters</a>
+
+    <a class="mr-1 pr-3 pl-3 pb-2 pt-2" asp-area="" asp-controller="Projects" asp-action="Kids" id="kids" style="border: 1px solid white; color: white">Kids</a>
+
 </div>
 
-<div class="container position-relative text-center" style="background-color: #949598; height: 50px">
-    <a asp-area="" asp-controller="Projects" asp-action="Brochures">
-        <i class="fas fa-chevron-up"></i>
-    </a>
-</div>
+
+    <div>
+        <img src="../Images/projects/brochures/brochures.jpg" style="max-width: 100%; height: auto; z-index: -1" />
+    </div>
+
+    <div class="container position-relative text-center" style="background-color: #949598; height: 50px">
+        <a asp-area="" asp-controller="Projects" asp-action="Brochures">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+    </div>
 
 
 
 
-<script>
-    $(document).ready(function () {
-        $(".active").removeClass("active");
-        $("#projects").addClass("active");
-    });
-</script>
+    <script>
+        $(document).ready(function () {
+            $(".active").removeClass("active");
+            $("#projects").addClass("active");
+        });
+    </script>
+
+   
