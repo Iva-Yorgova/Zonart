@@ -17,5 +17,10 @@ namespace ZonartUsers.Controllers
         {
             return View();
         }
+
+        public IActionResult Brochures()
+        {
+            return View();
+        }
     }
 }
