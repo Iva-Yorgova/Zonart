@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ZonartUsers.Data;
+using ZonartUsers.Data.Models;
 using ZonartUsers.Infrastructure;
 
 namespace ZonartUsers
@@ -26,8 +27,9 @@ namespace ZonartUsers
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<IdentityUser>(options => 
+            services.AddDefaultIdentity<User>(options => 
             {
+                options.SignIn.RequireConfirmedAccount = false;
                 options.Password.RequireDigit = false;
                 options.Password.RequireLowercase = false;
                 options.Password.RequireNonAlphanumeric = false;

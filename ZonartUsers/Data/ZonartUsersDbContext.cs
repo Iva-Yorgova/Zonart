@@ -4,7 +4,7 @@ using ZonartUsers.Data.Models;
 
 namespace ZonartUsers.Data
 {
-    public class ZonartUsersDbContext : IdentityDbContext
+    public class ZonartUsersDbContext : IdentityDbContext<User>
     {
         public ZonartUsersDbContext(DbContextOptions<ZonartUsersDbContext> options)
             : base(options)
