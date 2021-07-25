@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using System.Threading.Tasks;
 using ZonartUsers.Data;
 using ZonartUsers.Data.Models;
@@ -25,11 +26,15 @@ namespace Zonart.Controllers
 
         public IActionResult Create([FromQuery] int templateId)
         {
+            var templateName = this.data.Templates
+                .Where(t => t.Id == templateId)
+                .Select(t => t.Name)
+                .FirstOrDefault();
 
             return View(new OrderTemplateModel
             {
                 TemplateId = templateId,
-       
+                Name = templateName
             });
         }
 

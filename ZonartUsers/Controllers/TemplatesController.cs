@@ -47,15 +47,5 @@ namespace ZonartUsers.Controllers
 
         }
 
-        public IActionResult TemplateDetails(TemplateLayoutModel model)
-        {
-           
-            return View(model);
-        }
-
-
-
-
-
     }
 }

@@ -12,16 +12,17 @@
     </form>
 </div>-->
 
-    <div class="row" style="margin: 0px 20px 0px 20px">
+    <div class="row mt-2 mb-3" style="margin: 0px 20px 0px 20px">
         @foreach (var template in Model)
         {
             <div class="col-md-4">
                 <div class="card mb-3 mt-5" style="border-radius: 0">
                     <img class="card-img-top" style="border-radius: 0" src="@template.ImageUrl" alt="">
                     <div class="card-body text-center">
-                        <h4 class="card-title text-center">@template.Name</h4>
-                        <h2 class="card-title text-center">@template.Price</h2>
-                        <a asp-controller="Templates" asp-action="Details" asp-route-id="@template.Id" class="btn btn-primary" style="background-color: orangered; border: none">View</a>
+                        <h2 class="card-title text-center" style="font-family: Jost">@template.Name</h2>
+                        <h6 class="card-title text-center" style="font-weight: 100">@template.Price.00 USD</h6>
+
+                        <a asp-controller="Templates" asp-action="Details" asp-route-id="@template.Id" class="details-button mt-lg-30 mt-30 col-lg-14 btn btn-block spacing-lg text-white pt-1 pb-1" style="background-color: black; border: none">View</a>
                     </div>
                 </div>
             </div>

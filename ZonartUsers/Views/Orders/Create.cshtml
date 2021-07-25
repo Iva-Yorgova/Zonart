@@ -21,7 +21,7 @@
             templateName = "Eternity";
             break;
         case 2:
-            templateName = "Joy";
+            templateName = "Elegant";
             break;
         case 3:
             templateName = "Wisdom";
@@ -45,14 +45,10 @@
 }
 
 
-
-
-
-
 <div class="bg-img" style="background-image: url('../../Images/gallery/(@idNumber).jpg')" ; margin-top: 50px">
     <form method="post" class="container-order-form">
-        <h3 class="title-contact" style="margin-top: 1rem; margin-bottom: 1rem">Order for template</h3>
-        <h1 style="margin-bottom: 3rem">@templateName</h1>
+        <h3 class="title-contact" style="margin-top: 1rem; margin-bottom: 1rem; text-align: center">Order for template</h3>
+        <h1 style="margin-bottom: 3rem; text-align: center">@templateName</h1>
 
         <div class="form-group">
             <input asp-for="Name" class="form-control mb-0" placeholder="Your name...">
