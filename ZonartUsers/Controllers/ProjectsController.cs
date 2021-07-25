@@ -47,5 +47,16 @@ namespace ZonartUsers.Controllers
         {
             return View();
         }
+
+        public IActionResult Variety()
+        {
+            return View();
+        }
+
+        public IActionResult Stationary()
+        {
+            return View();
+        }
     }
 }
+
