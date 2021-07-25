@@ -2,7 +2,6 @@
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 
-
 @model OrderTemplateModel
 
 @{
@@ -12,7 +11,9 @@
 
 
 <div class="bg-img" style="background-image: url('../../Images/gallery/(@Model.TemplateId).jpg')" ; margin-top: 50px">
+
     <form method="post" class="container-order-form">
+
         <h3 class="title-contact" style="margin-top: 1rem; margin-bottom: 1rem; text-align: center">Order for template</h3>
         <h1 style="margin-bottom: 3rem; text-align: center">@Model.Name</h1>
 
