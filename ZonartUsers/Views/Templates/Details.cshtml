@@ -4,12 +4,40 @@
     ViewData["Title"] = "Template Details";
 }
 
+@{
+
+    var description = string.Empty;
+
+
+    switch (Model.Id)
+    {
+        case 1:
+            description = "Flat summer instagram posts collection with photo";
+            break;
+        case 2:
+            description = "Elegant minimalist design instagram stories";
+            break;
+        case 3:
+            description = "Instagram botanic puzzle feed";
+            break;
+        case 4:
+            description = "Flat fitness instagram posts collection";
+            break;
+        case 5:
+            description = "Flat school card template";
+            break;
+        case 6:
+            description = "Adopt pet instagram post collection";
+            break;
+    }
+}
+
 
 
 <h1 style="margin-top: 80px; padding-bottom: 10px; text-align: center; font-family: Jost">@Model.Name</h1>
-<h4 style="margin-top: 10px; margin-bottom: 40px; text-align: center; font-style: italic; color: gray">Summer Instagram Posts Collection</h4>
+<h4 style="margin-top: 10px; margin-bottom: 40px; text-align: center; font-style: italic; color: gray">@description</h4>
 
-<img src="../../Images/gallery/(@Model.Id).jpg"style="max-width: 100%; height: auto;" />
+<img src="../../Images/gallery/(@Model.Id).jpg" style="max-width: 100%; height: auto;" />
 
 
 
