@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Logos";
+}
+
+
+
+<div class="container text-center" style="background-color: #949598;  height: 100px; padding-top: 80px; font-family: Jost; padding-bottom: 50px">
+
+    <a class="mr-2 pr-3 pl-3 pb-2 pt-2" asp-area="" asp-controller="Projects" asp-action="Brochures" id="logos" style="border: 1.5px solid white; color: white; ">Brochures</a>
+
+    <a class="mr-2 pr-3 pl-3 pb-2 pt-2" asp-area="" asp-controller="Projects" asp-action="Logos" id="logos" style="border: 1.5px solid white; color: white">Logos</a>
+
+    <a class="mr-2 pr-3 pl-3 pb-2 pt-2" asp-area="" asp-controller="Projects" asp-action="Books" id="books" style="border: 1.5px solid white; color: white">Books</a>
+
+    <a class="mr-2 pr-3 pl-3 pb-2 pt-2" asp-area="" asp-controller="Projects" asp-action="Posters" id="posters" style="border: 1.5px solid white; color: white; background-color: dimgray">Posters</a>
+
+    <a class="mr-2 pr-3 pl-3 pb-2 pt-2" asp-area="" asp-controller="Projects" asp-action="Kids" id="kids" style="border: 1.5px solid white; color: white">Kids</a>
+
+    <a class="mr-2 pr-3 pl-3 pb-2 pt-2" asp-area="" asp-controller="Projects" asp-action="Kids" id="kids" style="border: 1.5px solid white; color: white">Web Design</a>
+
+    <a class="mr-2 pr-3 pl-3 pb-2 pt-2" asp-area="" asp-controller="Projects" asp-action="Kids" id="kids" style="border: 1.5px solid white; color: white">Variety</a>
+
+</div>
+
+
+<div>
+    <img src="../Images/projects/posters/posters.jpg" style="max-width: 100%; height: auto; z-index: -1" />
+</div>
+
+<div class="container position-relative text-center" style="background-color: #949598; height: 50px; padding-top: 15px">
+    <a asp-area="" asp-controller="Projects" asp-action="Posters">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+</div>
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $(".active").removeClass("active");
+        $("#projects").addClass("active");
+    });
+</script>
+
+
+

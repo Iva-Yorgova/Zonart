@@ -22,5 +22,25 @@ namespace ZonartUsers.Controllers
         {
             return View();
         }
+
+        public IActionResult Logos()
+        {
+            return View();
+        }
+
+        public IActionResult Books()
+        {
+            return View();
+        }
+
+        public IActionResult Posters()
+        {
+            return View();
+        }
+
+        public IActionResult Kids()
+        {
+            return View();
+        }
     }
 }
