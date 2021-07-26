@@ -66,3 +66,13 @@ var currentScrollPos = window.pageYOffset;
 
 
 
+
+
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav-all") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav-all";
+        }
+    }

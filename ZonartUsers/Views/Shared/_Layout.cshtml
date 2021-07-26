@@ -25,6 +25,7 @@
 
     <link rel="stylesheet" href="~/css/lightbox.min.css">
 
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script src="https://kit.fontawesome.com/68a5303305.js" crossorigin="anonymous"></script>
@@ -33,40 +34,46 @@
 
 <body>
     <header>
+        <div class="topnav-all" id="myTopnav">
 
-        <div class="topnav" id="hidingnavbar">
-            <a asp-area="" asp-controller="Home" asp-action="Index" id="home">
-                <i class="fa fa-home fa-sm"></i>
-            </a>
-            <a asp-area="" asp-controller="Projects" asp-action="All" id="projects">Projects</a>
-            <a asp-area="" asp-controller="Categories" asp-action="All" id="categories">Categories</a>
-            <a asp-area="" asp-controller="Templates" asp-action="All" id="templates">Templates</a>
-            <a asp-area="" asp-controller="About" asp-action="OurStory" id="about">About</a>
-            <a asp-area="" asp-controller="Contact" asp-action="Add" id="contact">Contact</a>
+            <div class="topnav hidingnavbar">
+                <a asp-area="" asp-controller="Home" asp-action="Index" id="home">
+                    <i class="fa fa-home fa-sm"></i>
+                </a>
+                <a asp-area="" asp-controller="Projects" asp-action="All" id="projects">Projects</a>
+                <a asp-area="" asp-controller="Categories" asp-action="All" id="categories">Categories</a>
+                <a asp-area="" asp-controller="Templates" asp-action="All" id="templates">Templates</a>
+                <a asp-area="" asp-controller="About" asp-action="OurStory" id="about">About</a>
+                <a asp-area="" asp-controller="Contact" asp-action="Add" id="contact">Contact</a>
 
+                <div class="nav-right">
 
-            <div class="nav-right">
+                    <a href="#"><i class="fa fa-search fa-sm"></i></a>
 
-                <a href="#"><i class="fa fa-search fa-sm"></i></a>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <a asp-area="" asp-controller="Users" asp-action="Bag" id="bag"><i class="fas fa-shopping-bag fa-sm"></i></a>
 
-                @if (SignInManager.IsSignedIn(User))
-                {
-                    <a asp-area="" asp-controller="Users" asp-action="Bag" id="bag"><i class="fas fa-shopping-bag fa-sm"></i></a>
+                        <a style="font-weight:200" asp-area="">@User.Identity.Name</a>
 
-                    <a style="font-weight:200" asp-area="">@User.Identity.Name</a>
+                        <a style="font-weight:200" asp-area="" asp-controller="Users" asp-action="Logout" id="login">Logout</a>
+                    }
+                    else
+                    {
+                        <a style="font-weight:200" asp-area="" asp-controller="Users" asp-action="Register" id="register">Register</a>
 
-                    <a style="font-weight:200" asp-area="" asp-controller="Users" asp-action="Logout" id="login">Logout</a>
-                }
-                else
-                {
-                    <a style="font-weight:200" asp-area="" asp-controller="Users" asp-action="Register" id="register">Register</a>
+                        <a style="font-weight:200" asp-area="" asp-controller="Users" asp-action="Login" id="login">Login</a>
+                    }
+                    <!--<partial name="_LoginPartial" />-->
+                </div>
 
-                    <a style="font-weight:200" asp-area="" asp-controller="Users" asp-action="Login" id="login">Login</a>
-                }
-                <!--<partial name="_LoginPartial" />-->
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+
             </div>
-        </div>
 
+        </div>
 
 
     </header>
@@ -101,6 +108,17 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav-all") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav-all";
+            }
+        }
+    </script>
 
 
     <script>
