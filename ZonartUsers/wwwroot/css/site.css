@@ -748,13 +748,13 @@ container-fluid{
     }
 
     .bgimg-3 {
-        background-image: url('../Images/page-1.png');
+        background-image: url('../Images/OurStory/company.png');
         min-height: 400px;
         z-index: -1;
     }
 
     .bgimg-4 {
-        background-image: url('../Images/OurStory/01.jpg');
+        background-image: url('../Images/OurStory/creative.png');
         min-height: 400px;
         z-index: -1;
     }
