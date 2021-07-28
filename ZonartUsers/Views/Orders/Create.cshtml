@@ -10,7 +10,7 @@
 
 
 
-<div class="bg-img" style="background-image: url('../../Images/gallery/(@Model.TemplateId).jpg')" ; margin-top: 50px">
+<div class="bg-img container-fluid-new" style="        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../../Images/gallery/(@Model.TemplateId).jpg')">
 
     <form method="post" class="container-order-form">
 
@@ -18,11 +18,13 @@
         <h1 style="margin-bottom: 3rem; text-align: center">@Model.Name</h1>
 
         <div class="form-group">
+            <label asp-for="Name">Your Full Name</label>
             <input asp-for="Name" class="form-control mb-0" placeholder="Your name...">
             <span asp-validation-for="Name" class="small text-danger mt-2"></span>
         </div>
 
         <div class="form-group">
+            <label asp-for="Email">Your Email</label>
             <input asp-for="Email" class="form-control mb-0" placeholder="Your email...">
             <span asp-validation-for="Email" class="small text-danger mt-2"></span>
         </div>
