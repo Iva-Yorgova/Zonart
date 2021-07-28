@@ -47,7 +47,7 @@
     </div>
 </div>
 
-<div style="position:relative;">
+<div class="position-relative">
     <div style="color:#ddd;background-color:lightgray;text-align:center;padding:50px 100px;text-align: justify;">
 
         <div class="row">
@@ -76,23 +76,41 @@
                 <p style="color:black; text-align: justify center">Good packaging designs reflect your brand’s unique character, while following the latest trends to keep your audience wow’d!</p>
             </div>
 
+            
+
         </div>
 
     </div>
 </div>
 
+
 <div class="bgimg-7">
-    <div class="caption">
-        <span class="border" style="background-color:transparent;font-size:20px;color: #f7f7f7;border: 3px solid white; letter-spacing: 5px; line-height: 51px">GET TO KNOW US</span>
-    </div>
+        <div class="caption">
+
+            <span class="border" style="background-color:transparent;font-size:20px;color: #f7f7f7;border: 3px solid white; letter-spacing: 5px; line-height: 51px">GET TO KNOW US</span>
+            <div>
+                <a>
+                    <i class="fas fa-angle-double-down text-white pt-5"></i>
+                </a>
+            </div>
+        </div>
 </div>
 
+<div class="position-relative">
+    <div style="color:#ddd;background-color:lightgray;text-align:center;text-align: justify center;">
+        <a asp-area="" asp-controller="Contact" asp-action="Add">
+            <i class="far fa-envelope fa-sm pt-3 pb-3"></i>
+        </a>
+    </div>
+    </div>
 
 
 
-<script>
-    $(document).ready(function () {
-        $(".active").removeClass("active");
-        $("#about").addClass("active");
-    });
-</script>
+
+
+        <script>
+            $(document).ready(function () {
+                $(".active").removeClass("active");
+                $("#about").addClass("active");
+            });
+        </script>
