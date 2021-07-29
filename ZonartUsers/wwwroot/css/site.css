@@ -3,9 +3,19 @@ for details on configuring this project to bundle and minify static web assets. 
 
 
 
-.btn-spec:hover {
-    background-color: black;
-    color: white;
+
+.right-side-panel {
+    margin-left: 4000px;
+    white-space: nowrap;
+    transition: margin 3s;
+}
+
+.left-side-panel {
+    margin-left: -400px;
+    width: 400px;
+    text-align: right;
+    white-space: nowrap;
+    transition: margin 3s;
 }
 
 
@@ -14,7 +24,10 @@ for details on configuring this project to bundle and minify static web assets. 
 
 
 
-
+.btn-spec:hover {
+    background-color: black;
+    color: white;
+}
 
 
 
