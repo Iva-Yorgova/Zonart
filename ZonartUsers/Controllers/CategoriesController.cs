@@ -9,19 +9,15 @@ namespace ZonartUsers.Controllers
             return View();
         }
 
-        public IActionResult All2()
+        public IActionResult One()
         {
             return View();
         }
 
-        public IActionResult Logos()
+        public IActionResult Two()
         {
             return View();
         }
 
-        public IActionResult Brochures()
-        {
-            return View();
-        }
     }
 }
