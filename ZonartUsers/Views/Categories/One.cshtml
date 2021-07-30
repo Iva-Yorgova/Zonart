@@ -3,46 +3,34 @@
 }
 
 
-<div class="row">
 
-    <div class="col-sm-6 pl-0 pr-0 pb-0 pt-0" >
-        <div style="background-image:url('../Images/OurStory/art-box-small.png'); height:700px;background-position:center;background-repeat:no-repeat;background-size:cover;">
-        </div>
-    </div>
+    <div class="row-custom" >
+        <div class="offset-sm-1 col-sm-10 offset-lg-2 col-lg-8 offset-xl-2 col-xl-8 offset-md-2 col-md-8">
+            <div id="main">
+                <ul class="grow" style="padding-left: 0">
 
-    <div class="col-sm-6" style="background-color:white; height:700px; text-align:center; display: flex; align-items: center; justify-content: center">
-        <div class="pr-5 pl-5 pb-5 pt-5">
-            <p class="mb-2" style="font-size:70px;font-family:Playfair Display; letter-spacing: -3px">Zonart</p>
-            <p style="line-height: 30px">We believe that creativity and design is the engine of business — and both are more pivotal than ever to the success of a modern brand. Using exceptional craft, brave simplicity and inspiring language we deliver design that changes the way we think, feel and act. We find the true essence of a brand, removing confusion to focus on the essentials.</p>
-            <hr class="solid mt-5 mb-5 pt-3 pb-3" style="border-top: 4px solid orangered;width: 50%">
-            <div class="btn btn-spec">
-                <a class="pt-2 pb-2 pl-4 pr-4" style="font-weight: 400" asp-controller="Projects" asp-action="All">VIEW PROJECTS</a>
+
+                    <li class="list-spec" style="font-size:70px">Two</li>
+                    <li class="list-spec" style="font-size:70px">Three</li>
+                    <li class="list-spec" style="font-size:70px">Four</li>
+                    <li class="list-spec" style="font-size:70px">Five</li>
+                    <li class="list-spec" style="font-size:70px">Six</li>
+                    <li class="list-spec" style="font-size:70px">Seven</li>
+                    <li class="list-spec" style="font-size:70px">Eight</li>
+                    <li class="list-spec" style="font-size:70px">Nine</li>
+                    <li class="list-spec" style="font-size:70px">Ten</li>
+                    <li class="list-spec" style="font-size:70px">Eleven</li>
+                    <li class="list-spec" style="font-size:70px">Twelve</li>
+
+                </ul>
+
             </div>
         </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-6" style="background-color:gainsboro; height:700px; text-align:center; display: flex; align-items: center; justify-content: center">
-        <div class="pr-5 pl-5 pb-5 pt-5">
-            <p class="mb-2" style="font-size: 70px;font-family: Playfair Display">Zonart</p>
-            <p style="">We believe that creativity and design is the engine of business — and both are more pivotal than ever to the success of a modern brand. Using exceptional craft, brave simplicity and inspiring language we deliver design that changes the way we think, feel and act. We find the true essence of a brand, removing confusion to focus on the essentials.</p>
-            <hr class="solid mt-5 mb-5 pt-5 pb-5" style="border-top: 4px solid orangered;width: 40%">
-        </div>
-    </div>
-
-    <div class="col-sm-6 pl-0 pr-0 pb-0 pt-0">
-        <div style="background-image:url('../Images/OurStory/art-box-small.png'); height:700px;background-position:center;background-repeat:no-repeat;background-size:cover;">
-        </div>
-    </div>
+        
 </div>
 
 
-
-
+<script src="../js/stroll.min.js"></script>
 <script>
-    $(document).ready(function () {
-        $(".active").removeClass("active");
-        $("#categories").addClass("active");
-    });
+    stroll.bind('#main ul');
 </script>

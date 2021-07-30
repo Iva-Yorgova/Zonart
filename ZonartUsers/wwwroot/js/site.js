@@ -4,6 +4,37 @@
 // Write your JavaScript code.
 
 
+
+
+// Makes use of the visible plugin
+// https://raw.github.com/teamdf/jquery-visible/master/jquery.visible.min.js
+
+var win = $(window);
+
+var allMods = $(".module");
+
+allMods.each(function (i, el) {
+    var el = $(el);
+    if (el.visible(true)) {
+        el.addClass("already-visible");
+    }
+});
+
+win.scroll(function (event) {
+
+    allMods.each(function (i, el) {
+        var el = $(el);
+        if (el.visible(true)) {
+            el.addClass("come-in");
+        }
+    });
+
+});
+
+
+
+
+
 $(document).on("click", '[data-toggle="lightbox"]', function (event) {
     event.preventDefault();
     $(this).ekkoLightbox();

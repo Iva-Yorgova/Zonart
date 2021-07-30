@@ -3,6 +3,8 @@
 }
 
 
+
+
 <div class="wpb_wrapper" style="margin-bottom: 0">
     <div class="vc_row wpb_row vc_inner vc_row-fluid left_t case-studie-row vc_row-o-equal-height vc_row-o-content-middle vc_row-flex">
 
@@ -15,12 +17,12 @@
 
                             <p class="pt-0 mt-0 pb-0 mb-0" style="font-size:70px;font-family:Playfair Display; letter-spacing: -3px; text-align: center">Zonart</p>
                             <p style="text-align: center" class="pr-5 pl-5 mr-5 ml-5">That’s the name we’ve given to projects with tight deadlines, limited quantities, top quality and complicated logistics that call for an end to end solution from design to sourcing to manufacturing and delivery.</p>
-                           
+
                         </div>
                     </div>
                     <div class=" pt-3 mt-4 vc_btn3-container wpb_animate_when_almost_visible wpb_fadeInRight fadeInRight vc_btn3-center wpb_start_animation animated" style="padding-bottom:0; margin-bottom:0">
 
-                        <a class="btn btn-spec pt-2 pb-2 pl-4 pr-4" style="font-weight: 400" asp-controller="Projects" asp-action="All">VIEW PROJECTS</a>
+                        <a class="btn btn-spec pt-2 pb-2 pl-4 pr-4" style="font-weight: 400" asp-controller="Categories" asp-action="One">VIEW PROJECT</a>
 
                     </div>
 
@@ -41,6 +43,50 @@
 
 
 
+
+
+<script>
+    (function($) {
+
+  $.fn.visible = function(partial) {
+
+      var $t            = $(this),
+          $w            = $(window),
+          viewTop       = $w.scrollTop(),
+          viewBottom    = viewTop + $w.height(),
+          _top          = $t.offset().top,
+          _bottom       = _top + $t.height(),
+          compareTop    = partial === true ? _bottom : _top,
+          compareBottom = partial === true ? _top : _bottom;
+
+    return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+
+  };
+
+})(jQuery);
+
+var win = $(window);
+
+var allMods = $(".module");
+
+allMods.each(function(i, el) {
+  var el = $(el);
+  if (el.visible(true)) {
+    el.addClass("already-visible");
+  }
+});
+
+win.scroll(function(event) {
+
+  allMods.each(function(i, el) {
+    var el = $(el);
+    if (el.visible(true)) {
+      el.addClass("come-in");
+    }
+  });
+
+});
+</script>
 
 
 
