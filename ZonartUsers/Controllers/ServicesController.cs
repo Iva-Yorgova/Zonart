@@ -2,7 +2,7 @@
 
 namespace ZonartUsers.Controllers
 {
-    public class CategoriesController : Controller
+    public class ServicesController : Controller
     {
         public IActionResult All()
         {

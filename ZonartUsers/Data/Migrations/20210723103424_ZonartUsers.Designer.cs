@@ -239,27 +239,27 @@ namespace ZonartUsers.Data.Migrations
             //        b.ToTable("Bags");
             //    });
 
-            modelBuilder.Entity("ZonartUsers.Data.Models.Client", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Clients");
-                });
+            //modelBuilder.Entity("ZonartUsers.Data.Models.Client", b =>
+            //    {
+            //        b.Property<int>("Id")
+            //            .ValueGeneratedOnAdd()
+            //            .HasColumnType("int")
+            //            .UseIdentityColumn();
+            //
+            //        b.Property<string>("Email")
+            //            .IsRequired()
+            //            .HasMaxLength(50)
+            //            .HasColumnType("nvarchar(50)");
+            //
+            //        b.Property<string>("Name")
+            //            .IsRequired()
+            //            .HasMaxLength(50)
+            //            .HasColumnType("nvarchar(50)");
+            //
+            //        b.HasKey("Id");
+            //
+            //        b.ToTable("Clients");
+            //    });
 
             modelBuilder.Entity("ZonartUsers.Data.Models.Contact", b =>
                 {
