@@ -15,7 +15,7 @@ namespace Zonart.Controllers
         private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
 
-        public OrdersController(ZonartUsersDbContext data, 
+        public OrdersController(ZonartUsersDbContext data,
             UserManager<User> userManager,
             SignInManager<User> signInManager)
         {
@@ -58,7 +58,13 @@ namespace Zonart.Controllers
             this.data.Orders.Add(order);
             this.data.SaveChanges();
 
-            return RedirectToAction("All", "Templates");
+            return RedirectToAction("Confirm", "Orders");
+        }
+
+        public IActionResult Confirm()
+        {
+            return View();
         }
     }
+
 }

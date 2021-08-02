@@ -35,7 +35,15 @@ namespace ZonartUsers.Controllers
             this.data.Contacts.Add(newContact);
             this.data.SaveChanges();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Confirm", "Contact");
         }
+
+
+        public IActionResult Confirm()
+        {
+            return View();
+        }
+
+       
     }
 }
