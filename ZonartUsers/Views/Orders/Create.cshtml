@@ -9,18 +9,47 @@
 }
 
 
+@{
+    var templateName = String.Empty;
+
+    switch (Model.TemplateId)
+    {
+        case 1:
+            templateName = "Eternity";
+            break;
+        case 2:
+            templateName = "Elegant";
+            break;
+        case 3:
+            templateName = "Wisdom";
+            break;
+        case 4:
+            templateName = "Waves";
+            break;
+        case 5:
+            templateName = "Happy";
+            break;
+        case 6:
+            templateName = "Wild";
+            break;
+    }
+
+}
+
+
 
 <div class="bg-img container-fluid-new" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../../Images/gallery/(@Model.TemplateId).jpg')">
 
     <form method="post" class="container-order-form">
 
-        <h3 class="title-contact" style="margin-top: 1rem; margin-bottom: 1rem; text-align: center">Order for template</h3>
-        <h1 style="margin-bottom: 3rem; text-align: center">@Model.Name</h1>
+        <p class="" style="margin-top:1rem; margin-bottom:1rem; text-align: center; font-variant-caps:all-petite-caps; font-weight:300; font-family:Montserrat; letter-spacing:1.5px; font-size:24px">Order for template</p>
+
+        <h1 style="margin-bottom: 5rem; text-align: center">@templateName</h1>
 
         <div class="form-group">
-            <label asp-for="Name">Your Full Name</label>
-            <input asp-for="Name" class="form-control mb-0">
-            <span asp-validation-for="Name" class="small text-danger mt-2"></span>
+            <label asp-for="FullName">Your Full Name</label>
+            <input asp-for="FullName" class="form-control mb-0">
+            <span asp-validation-for="FullName" class="small text-danger mt-2"></span>
         </div>
 
         <div class="form-group">

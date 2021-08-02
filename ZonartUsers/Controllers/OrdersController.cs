@@ -15,7 +15,7 @@ namespace Zonart.Controllers
         private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
 
-        public OrdersController(ZonartUsersDbContext data,
+        public OrdersController(ZonartUsersDbContext data, 
             UserManager<User> userManager,
             SignInManager<User> signInManager)
         {
@@ -33,8 +33,7 @@ namespace Zonart.Controllers
 
             return View(new OrderTemplateModel
             {
-                TemplateId = templateId,
-                Name = templateName
+                TemplateId = templateId
             });
         }
 
@@ -51,7 +50,7 @@ namespace Zonart.Controllers
             var order = new Order
             {
                 TemplateId = info.TemplateId,
-                Name = info.Name,
+                Name = info.FullName,
                 Email = info.Email,
             };
 
@@ -65,6 +64,12 @@ namespace Zonart.Controllers
         {
             return View();
         }
-    }
 
+
+        [HttpPost]
+        public IActionResult Confirm(int id)
+        {
+            return RedirectToAction("All", "Templates");
+        }
+    }
 }
