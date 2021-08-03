@@ -1,4 +1,6 @@
-﻿@{
+﻿@model ServicesViewModel
+
+@{
     ViewData["Title"] = "Services";
 }
 
@@ -23,9 +25,6 @@
 <script type='text/javascript' src='~/js/js_composer_front.min.js' id='wpb_composer_front_js-js'></script>
 
 <script type='text/javascript' src='~/js/vc-waypoints.min.js' id='vc_waypoints-js'></script>
-
-
-
 
 
 
@@ -317,9 +316,53 @@
 
         <div class="vc_row-full-width vc_clearfix"></div>
 
-        
+
     </div>
 </div>
+
+
+
+
+<div class="mb-5 mt-5 pt-4 pb-0" id="statistics" style="border: 1px solid black">
+    <div class="row" style="font-family:Montserrat">
+
+        <p class="col-6 text-center " style="border-right: 1px solid black" id="total-users"><i style="font-size:0.8rem;" class="fas fa-user-friends fa-5x pr-1"></i>  <span style="font-size:15px">Users</span><span class="pl-2 pr-2" style="color:orangered; font-family:Jost; font-size:14px">@Model.TotalUsers</span></p>
+
+        <p class="col-6 text-center" style="border-right:1px solid black" id="total-orders"><i style="font-size:0.8rem;" class="fas fa-shopping-basket fa-5x pr-1"></i>  <span style="font-size:15px">Orders</span><span class="pl-2 pr-2" style="color:orangered; font-family:Jost; font-size:14px">@Model.TotalOrders</span></p>
+
+        <!--<h6 class="col-4 text-center" style="border-right: 1px solid black" id="total-templates"><i style="font-size:0.8rem;" class="fas fa-file-image fa-5x pr-1"></i>  <span style="font-size:15px">Templates</span><span class="pl-2 pr-2" style="color:orangered; font-family:Jost; font-size:14px">@Model.TotalTemplates</span></h6-->
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 w-25 text-center">
+        <input id="statistics-button" class="col pl-2 pr-2 mt-3" type="submit" value="Hide Site Statistics" style="margin-bottom:50px; width:300px; text-align:center; font-family:Montserrat; font-variant-caps:all-petite-caps" />
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#statistics-button").click(function () {
+            $("#statistics").hide(1000);
+            $("#statistics-button").hide(1000);
+        });
+    });
+</script>
+
+
+
+<script>
+//        $('#statistics-button').on('click', ev => {
+//                $('#total-templates').text(@Model.TotalTemplates + " Templates");
+//                $('#total-users').text(@Model.TotalUsers + " Users");
+//                $('#total-orders').text(@Model.TotalOrders + " Orders");
+//                $('#statistics').removeClass('d-none');
+//            $('#statistics-button').hide();
+//
+//        });
+//</script>
+
 
 
 <script>

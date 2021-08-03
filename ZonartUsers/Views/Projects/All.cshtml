@@ -68,3 +68,12 @@
         $("#projects").addClass("active");
     });
 </script>
+
+
+@section Scripts{ 
+    <script>
+        $.get('/Projects/All', (data) => {
+            console.log(data);
+        })
+    </script>
+}

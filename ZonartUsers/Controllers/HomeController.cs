@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using ZonartUsers.Models;
+using ZonartUsers.Services.Statistics;
 
 namespace ZonartUsers.Controllers
 {

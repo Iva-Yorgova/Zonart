@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using ZonartUsers.Data;
 using ZonartUsers.Data.Models;
 using ZonartUsers.Infrastructure;
+using ZonartUsers.Services.Statistics;
 
 namespace ZonartUsers
 {
@@ -42,6 +43,8 @@ namespace ZonartUsers
             {
                 options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
             });
+
+            services.AddTransient<IStatisticsService, StatisticsService>();
         }
 
   
