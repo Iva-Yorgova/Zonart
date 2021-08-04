@@ -32,9 +32,9 @@
 <style type="text/css" data-type="vc_shortcodes-custom-css">
 
     .vc_custom_1590422250900 {
-        padding-top: 10% !important;
+        padding-top: 3% !important;
         padding-right: 10% !important;
-        padding-bottom: 10% !important;
+        padding-bottom: 3% !important;
         padding-left: 10% !important;
         background-color: #f9f9f9 !important;
     }
@@ -183,6 +183,26 @@
 
 
 
+<div class="mb-0 mt-5 pt-4 pb-0" id="statistics" style="">
+    <div class="row" style="font-family:Montserrat">
+
+        <p class="col-6 text-center" style="border-right: 1px solid black; padding-right:0; padding-left:0" id="total-users"><i style="font-size:0.8rem;" class="fas fa-user-friends fa-5x pr-1"></i>  <span style="font-size:15px">Users</span><span class="pl-2" style="color:orangered; font-family:Jost; font-size:14px">@Model.TotalUsers</span></p>
+
+        <p class="col-6 text-center" style="border-right:1px solid black" id="total-orders"><i style="font-size:0.8rem;" class="fas fa-shopping-basket fa-5x pr-1"></i>  <span style="font-size:15px">Orders</span><span class="pl-2" style="color:orangered; font-family:Jost; font-size:14px">@Model.TotalOrders</span></p>
+
+        <!--<h6 class="col-4 text-center" style="border-right: 1px solid black" id="total-templates"><i style="font-size:0.8rem;" class="fas fa-file-image fa-5x pr-1"></i>  <span style="font-size:15px">Templates</span><span class="pl-2 pr-2" style="color:orangered; font-family:Jost; font-size:14px">@Model.TotalTemplates</span></h6-->
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 w-25 text-center">
+        <input id="statistics-button" class="col pl-2 pr-2 mt-3" type="submit" value="Hide Site Statistics" style="width:300px; text-align:center; font-family:Montserrat; font-variant-caps:all-petite-caps" />
+    </div>
+</div>
+
+
+
 
 <div id="">
 
@@ -323,23 +343,7 @@
 
 
 
-<div class="mb-5 mt-5 pt-4 pb-0" id="statistics" style="border: 1px solid black">
-    <div class="row" style="font-family:Montserrat">
 
-        <p class="col-6 text-center " style="border-right: 1px solid black" id="total-users"><i style="font-size:0.8rem;" class="fas fa-user-friends fa-5x pr-1"></i>  <span style="font-size:15px">Users</span><span class="pl-2 pr-2" style="color:orangered; font-family:Jost; font-size:14px">@Model.TotalUsers</span></p>
-
-        <p class="col-6 text-center" style="border-right:1px solid black" id="total-orders"><i style="font-size:0.8rem;" class="fas fa-shopping-basket fa-5x pr-1"></i>  <span style="font-size:15px">Orders</span><span class="pl-2 pr-2" style="color:orangered; font-family:Jost; font-size:14px">@Model.TotalOrders</span></p>
-
-        <!--<h6 class="col-4 text-center" style="border-right: 1px solid black" id="total-templates"><i style="font-size:0.8rem;" class="fas fa-file-image fa-5x pr-1"></i>  <span style="font-size:15px">Templates</span><span class="pl-2 pr-2" style="color:orangered; font-family:Jost; font-size:14px">@Model.TotalTemplates</span></h6-->
-
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-12 w-25 text-center">
-        <input id="statistics-button" class="col pl-2 pr-2 mt-3" type="submit" value="Hide Site Statistics" style="margin-bottom:50px; width:300px; text-align:center; font-family:Montserrat; font-variant-caps:all-petite-caps" />
-    </div>
-</div>
 
 <script>
     $(document).ready(function () {

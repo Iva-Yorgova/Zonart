@@ -55,7 +55,7 @@ namespace ZonartUsers.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Users");
             }
 
             return View(user);
@@ -91,7 +91,7 @@ namespace ZonartUsers.Controllers
             else
             {
                 await this.signInManager.SignInAsync(loggedInUser, true);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Welcome", "Users", loggedInUser);
             }
 
         }
@@ -100,6 +100,12 @@ namespace ZonartUsers.Controllers
         {
             await signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+
+        public IActionResult Welcome(LoginUserModel user)
+        {
+            return View(user);
         }
 
     }
