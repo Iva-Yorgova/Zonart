@@ -6,11 +6,11 @@ for details on configuring this project to bundle and minify static web assets. 
 /*fade in effect on page load*/
 body {
 
-    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 2s; /* Firefox < 16 */
-    -ms-animation: fadein 2s; /* Internet Explorer */
-    -o-animation: fadein 2s; /* Opera < 12.1 */
-    animation: fadein 2s;
+    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 1s; /* Firefox < 16 */
+    -ms-animation: fadein 1s; /* Internet Explorer */
+    -o-animation: fadein 1s; /* Opera < 12.1 */
+    animation: fadein 1s;
 }
 
 @keyframes fadein {
@@ -67,6 +67,8 @@ body {
     }
 }
 /*--------------------------*/
+
+
 
 
 .z-logo-icon {
@@ -908,18 +910,14 @@ container-fluid{
 
 body, html {
     /*height: inherit;*/
-    /*font: 400 15px/1.8 "Lato", sans-serif;*/
+    /*font: 400 15px/1.8 "Lato", sans-serif;*/ 
 }
-
-.logo-img {
-}
-
 
 
 .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5, .bgimg-6, .bgimg-7, .bgimg-8 {
     max-width: 100%;
     position: relative;
-    opacity: 0.87;
+    opacity: 1;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -2239,7 +2237,27 @@ input[type="checkbox"]:focus {
 
 
 
+/*scroll to top button*/
+#myBtn {
+    position: fixed; /* Fixed/sticky position */
+    bottom: 10px; /* Place the button at the bottom of the page */
+    right: 10px; /* Place the button 10px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: 2px solid white; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: transparent; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    height: 48px;
+    padding: 10px;
+    opacity: 0.3;
+}
 
+    #myBtn:hover {
+        background-color: transparent;
+        opacity: 1;
+    }
+/*--------------------------------*/
 
 
 

@@ -20,6 +20,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,7 +66,7 @@
 
             <div class="topnav hidingnavbar">
 
-                <a asp-area="" asp-controller="Home" asp-action="Index" id="home" style="padding-top:12.2px; padding-bottom:12.2px">
+                <a asp-area="" asp-controller="Home" asp-action="Index" id="home" style="padding-top:11px; padding-bottom:13px">
                     <img class="z-logo-icon" src="" alt="Zonart logo" style="" />
                     <!--<i class="fa fa-home fa-sm"></i>-->
                 </a>
@@ -110,6 +112,11 @@
     </header>
 
 
+    <button id="myBtn" title="Go to top">
+        <i class="material-icons">arrow_upward</i>
+    </button>
+
+
     <div class="container-fluid-new" style="padding-left: 0px; padding-right: 0px">
 
         @RenderBody()
@@ -120,16 +127,15 @@
         <div class="wpb_wrapper">
             <div class="vc_row wpb_row vc_inner vc_row-fluid left_t case-studie-row vc_row-o-equal-height vc_row-o-content-middle vc_row-flex">
 
-
                 <div class="wpb_column vc_column_container vc_col-sm-6" style="height:500px; background-color: #f5f5f0">
                     <div class="vc_column-inner">
                         <div class="wpb_wrapper">
                             <div class="wpb_text_column wpb_content_element wpb_animate_when_almost_visible wpb_fadeInRight fadeInRight wpb_start_animation animated">
                                 <div class="wpb_wrapper">
 
-                                    <p class="pt-4 pb-0 mb-0" style="font-size:50px;font-family:Playfair Display; letter-spacing: -2px; text-align: center">Have a story <br />to tell?</p>
-                                    <p style="text-align: center" class="pt-2 pr-3 pl-3 mr-5 ml-5 mt-4 mb-4 pb-4">Work with us! We'll help you build out the spine of the narrative and execute a unique brand experience - digital, physical, or otherwise. </p>
-                                    <hr class="solid mt-4 mb-0 pt-0 pb-0" style="border-top:7px solid orangered;width: 10%">
+                                    <p class="pt-4 pb-0 mb-0" style="font-size:50px;font-family:Playfair Display; letter-spacing:-2px; text-align: center">Have a story <br />to tell?</p>
+                                    <p style="text-align:center" class="pt-2 pr-3 pl-3 mr-5 ml-5 mt-4 mb-4 pb-4">Work with us! We'll help you build out the spine of the narrative and execute a unique brand experience - digital, physical, or otherwise. </p>
+                                    <hr class="solid mt-4 mb-0 pt-0 pb-0" style="border-top:7px solid orangered; width:10%">
                                 </div>
                             </div>
 
@@ -152,7 +158,7 @@
                                 <img src="../Images/z-s-bold.svg" style="width:20%; position: center" alt="LOGO" />
                             </div>
 
-                            <p class="" style="font-size:32px;font-family:Jost; text-align: center; color: white; font-weight: 700; letter-spacing: 4px; margin-top: 0; padding-top: 20px">ZONART</p>
+                            <p class="" style="font-size:32px; font-family:Jost; text-align: center; color: white; font-weight: 700; letter-spacing: 4px; margin-top: 0; padding-top: 20px">ZONART</p>
                             <p style="text-align: center; color: white; font-size: 12px" class="pr-5 pl-5 mr-5 ml-5">
                                 &copy; @DateTime.UtcNow.Year Zonart Studio
                                 <br />
@@ -164,9 +170,9 @@
                                 <br />
                                 info@zonart.com
                             </p>
-                            <hr class="solid mt-4 mb-0 pt-0 pb-0" style="border-top:4px solid orangered;width: 25%">
+                            <hr class="solid mt-4 mb-0 pt-0 pb-0" style="border-top:4px solid orangered; width:25%">
 
-                            <div class="" style="text-align: center">
+                            <div class="" style="text-align:center">
                                 <a href="#"><i class="fa fa-instagram fa-sm" style="color: white; margin-right: 20px"></i></a>
                                 <a href="#"><i class="fa fa-twitter fa-sm" style="color: white; margin-right: 20px"></i></a>
                                 <a href="#"><i class="fa fa-behance fa-sm" style="color: white"></i></a>

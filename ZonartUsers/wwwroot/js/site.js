@@ -4,6 +4,14 @@
 // Write your JavaScript code.
 
 
+// smooth scroll to top of page effect
+const btnScrollToTop = document.querySelector("#myBtn");
+
+btnScrollToTop.addEventListener("click", function () {
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+});
+
+
 
 
 // Makes use of the visible plugin
@@ -51,7 +59,7 @@ function myFunction(imgs) {
 
 
 
-//gallery-slide
+// gallery-slide
 var slideIndex = 1;
 showSlides(slideIndex);
 
@@ -82,7 +90,7 @@ function showSlides(n) {
 }
 
 
-//hiding menu
+// hiding menu
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
 var currentScrollPos = window.pageYOffset;
@@ -99,14 +107,13 @@ var currentScrollPos = window.pageYOffset;
 
 
 
-    function myFunction() {
-        var x = document.getElementById("myTopnav");
-        if (x.className === "topnav-all") {
-            x.className += " responsive";
-        } else {
-            x.className = "topnav-all";
-        }
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav-all") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav-all";
     }
-
+}
 
 
