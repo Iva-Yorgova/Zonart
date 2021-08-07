@@ -33,7 +33,6 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" rel="stylesheet" />
 
-
     <link rel="stylesheet" href="~/css/lightbox.min.css">
 
     <link rel="stylesheet" href="~/css/js_composer.min.css">
@@ -46,13 +45,10 @@
     <link rel="stylesheet" href="~/css/skeleton.css" />
     <link rel="stylesheet" href="~/css/style.css" />
 
-
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="../css/example.css">
     <link rel="stylesheet" href="../css/stroll.css">
-
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -61,8 +57,10 @@
 
 
 <body>
+
     <header>
         <div class="topnav-all" id="myTopnav">
+
 
             <div class="topnav hidingnavbar">
 
@@ -85,20 +83,31 @@
 
                     <a href="#"><i class="fa fa-search fa-sm"></i></a>
 
+
                     @if (SignInManager.IsSignedIn(User))
                     {
                         <!--<a asp-area="" asp-controller="Users" asp-action="Bag" id="bag"><i class="fas fa-shopping-bag fa-sm"></i></a>-->
 
                         <!--<a style="font-weight:100" asp-area="" asp-controller="Users" asp-action="Welcome" id="welcome">@User.Identity.Name</a>-->
 
-                        <a style="font-weight:100" asp-area="" asp-controller="Users" asp-action="Logout" id="login">Logout</a>
+
+
+                        <a class="user-logout" style="font-weight:100; width:57px; height:50px" asp-area="" asp-controller="Users" asp-action="Logout" id="logout" title="Logout">
+                            <img class="logout-user" src="../Images/logout.svg" style="width:16px; font-size:12px" alt="Logout" />
+                        </a>
                     }
                     else
                     {
-                        <a style="font-weight:100; width:57px" asp-area="" asp-controller="Users" asp-action="Register" id="register" title="Register"><img class="register-user" src="../Images/register-user.svg" style="width:16px" alt="Alternate Text" /></a>
+                        <a class="user-register" style="font-weight:100; width:57px" asp-area="" asp-controller="Users" asp-action="Register" id="register" title="Register">
+                    <img class="register-user" src="../Images/register-user.svg" style="width:16px" alt="Register" /></a>
 
-                        <a class="user-login" style="font-weight:100; width:57px" asp-area="" asp-controller="Users" asp-action="Login" id="login" title="Login"><img class="login-user" src="../Images/login-user.svg" style="width:16px" alt="Alternate Text" /></a>
+                        <a class="user-login" style="font-weight:100; width:57px" asp-area="" asp-controller="Users" asp-action="Login" id="login" title="Login">
+                            <img class="login-user" src="../Images/enter.svg" style="width:16px" alt="Login" />
+                        </a>
                     }
+
+
+
                     <!--<partial name="_LoginPartial" />-->
                 </div>
 
@@ -109,12 +118,16 @@
             </div>
 
         </div>
+
+
+
     </header>
 
 
     <button id="myBtn" title="Go to top">
         <i class="material-icons">arrow_upward</i>
     </button>
+
 
 
     <div class="container-fluid-new" style="padding-left: 0px; padding-right: 0px">
@@ -188,21 +201,6 @@
     </footer>
 
 
-    <!--<footer class="border-top footer text-muted">
-        <div class="horisontal-footer position-relative text-center pt-5 pb-5 text-white">
-            <div class="nav-right" style="float: none; margin-top: -25px; margin-bottom: 20px">
-                <a href="#"><i class="fa fa-instagram fa-sm" style="color: white; margin-right: 20px"></i></a>
-                <a href="#"><i class="fa fa-twitter fa-sm" style="color: white; margin-right: 20px"></i></a>
-                <a href="#"><i class="fa fa-behance fa-sm" style="color: white"></i></a>
-            </div>
-
-            <div class="bottom-text-footer">
-                Copyright Zonart  &copy; @DateTime.UtcNow.Year. All rights reserved.
-            </div>
-        </div>
-    </footer>-->
-
-
     <script src="~/lib/jquery/dist/jquery.js/jquery.visible.js"></script>
     <script src="~/lib/jquery/dist/jquery.js/jquery.visible.js/jquery.visible.min.js"></script>
 
@@ -214,21 +212,6 @@
 
     @await RenderSectionAsync("Scripts", required: false)
 
-
-
-
-    <script>
-        var prevScrollpos = window.pageYOffset;
-        window.onscroll = function () {
-            var currentScrollPos = window.pageYOffset;
-            if (prevScrollpos > currentScrollPos) {
-                document.getElementById("hidingnavbar").style.top = "0";
-            } else {
-                document.getElementById("hidingnavbar").style.top = "-50px";
-            }
-            prevScrollpos = currentScrollPos;
-        }
-    </script>
 
 </body>
 </html>

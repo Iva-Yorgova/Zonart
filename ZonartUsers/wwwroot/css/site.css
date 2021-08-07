@@ -4,6 +4,55 @@ for details on configuring this project to bundle and minify static web assets. 
 
 
 
+
+
+
+
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -60px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+
+
+
+
+
+
 .login-user:hover {
     background-color: orangered;
    
@@ -278,8 +327,7 @@ li.part-view {
 
 
 .topnav a.active {
-    background-color: dimgray;
-    
+    background-color: #2f302f;
 }
 
 
@@ -684,26 +732,26 @@ container-fluid{
         }
     }
 
-    .description {
-        font-size: 1.25rem;
-        position: absolute;
-        display: block;
-        right: 2rem;
-        left: 1rem;
-        text-align: center;
-        top: 50%;
-        width: 70px;
-        margin: auto;
-        color: white;
-        z-index: 100;
-        opacity: 0;
-        transform: translate3d(0, -50%, 0);
-        transition: 0.3s 0s;
-        font-family: 'Jost';
-        font-size: 15px;
-        letter-spacing: 4px;
-        font-weight: 700;
-    }
+.description {
+    font-size: 1.25rem;
+    position: absolute;
+    display: block;
+    right: 1rem;
+    left: 1rem;
+    text-align: center;
+    top: 50%;
+    /*width: 70px;*/
+    margin: auto;
+    color: white;
+    z-index: 100;
+    opacity: 0;
+    transform: translate3d(0, -50%, 0);
+    transition: 0.3s 0s;
+    font-family: 'Jost';
+    font-size: 15px;
+    letter-spacing: 4px;
+    font-weight: 700;
+}
 
     li:hover .description {
         opacity: 1;
@@ -2180,8 +2228,9 @@ input[type=text], input[type=password] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
-
+    outline: none;
     background: #f1f1f1;
+    border: none;
 }
 
     input[type=text]:focus, input[type=password]:focus {
