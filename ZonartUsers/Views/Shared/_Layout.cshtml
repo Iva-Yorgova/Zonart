@@ -58,6 +58,16 @@
 
 <body>
 
+    <div id="Search" class="tabcontent">
+        <div class="search-container" style="padding:30px 30px 30px 30px; text-align:center">
+            <div class="d-inline-flex">
+                <div><input type="text" placeholder="Search.." name="search" style="margin:0px; height:38px; padding-right:10px"></div>
+                <div><a href="" type="submit"><i class="fa fa-search fa-sm" style="color:white; border: 2px solid white; padding:10px 10px 10px 10px; margin-left:10px"></i></a></div>
+            </div>
+
+        </div>
+    </div>
+
     <header>
         <div class="topnav-all" id="myTopnav">
 
@@ -81,7 +91,7 @@
 
                 <div class="nav-right">
 
-                    <a href="#"><i class="fa fa-search fa-sm"></i></a>
+                    <a style="width:57px" class="tablink" onclick="openPage('Search', this, 'orangered')"><i class="fa fa-search fa-sm"></i></a>
 
 
                     @if (SignInManager.IsSignedIn(User))
@@ -99,7 +109,8 @@
                     else
                     {
                         <a class="user-register" style="font-weight:100; width:57px" asp-area="" asp-controller="Users" asp-action="Register" id="register" title="Register">
-                    <img class="register-user" src="../Images/register-user.svg" style="width:16px" alt="Register" /></a>
+                            <img class="register-user" src="../Images/register-user.svg" style="width:16px" alt="Register" />
+                        </a>
 
                         <a class="user-login" style="font-weight:100; width:57px" asp-area="" asp-controller="Users" asp-action="Login" id="login" title="Login">
                             <img class="login-user" src="../Images/enter.svg" style="width:16px" alt="Login" />
@@ -211,6 +222,26 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
+
+
+    <script>
+        function openPage(pageName, elmnt, color) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].style.backgroundColor = "";
+            }
+            document.getElementById(pageName).style.display = "block";
+            elmnt.style.backgroundColor = color;
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
 
 
 </body>

@@ -2,6 +2,46 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 
+* {
+    box-sizing: border-box
+}
+
+/* Set height of body and the document to 100% */
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+/* Style tab links */
+.tablink {
+    background-color: black;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+}
+
+    .tablink:hover {
+        background-color: white;
+    }
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 100px 0px;
+    height: 50%;
+}
+
+
+#Search {
+    background-color: orangered;
+}
+
 
 
 
@@ -761,7 +801,6 @@ container-fluid{
     header {
         font-size: 1em;
         padding-top: 0em;
-        padding-top: 2rem;
     }
 
     h1 {
