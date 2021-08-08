@@ -37,5 +37,20 @@ namespace ZonartUsers.Tests.Controller
             Assert.NotNull(result);
             Assert.IsType<ViewResult>(result);
         }
+
+
+        [Fact]
+        public void NewTest()
+        {
+            //Arrange
+            var homeController = new HomeController();
+
+            //Act
+            var result = homeController.Error();
+
+            //Assert
+            Assert.NotNull(result);
+            Assert.IsType<ViewResult>(result);
+        }
     }
 }
