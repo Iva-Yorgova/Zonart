@@ -17,25 +17,17 @@ namespace ZonartUsers.Controllers
 
         public IActionResult All()
         {
-            return View();
-        }
-
-        public IActionResult One()
-        {
             var totalStatistics = this.statistics.Total();
 
             return View(new ServicesViewModel
             {
                 TotalTemplates = totalStatistics.TotalTemplates,
                 TotalUsers = totalStatistics.TotalUsers,
-                TotalOrders = totalStatistics.TotalOrders
+                TotalOrders = totalStatistics.TotalOrders,
+                TotalContacts = totalStatistics.TotalContacts
             });
         }
 
-        public IActionResult Two()
-        {
-            return View();
-        }
 
     }
 }

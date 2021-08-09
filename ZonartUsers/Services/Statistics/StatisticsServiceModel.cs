@@ -12,5 +12,7 @@ namespace ZonartUsers.Services.Statistics
         public int TotalUsers { get; init; }
 
         public int TotalOrders { get; init; }
+
+        public int TotalContacts { get; set; }
     }
 }
