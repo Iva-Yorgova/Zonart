@@ -12,6 +12,7 @@ namespace ZonartUsers.Controllers
         public ContactController(ZonartUsersDbContext data)
             => this.data = data;
 
+
         public IActionResult Add()
         {
             return View();

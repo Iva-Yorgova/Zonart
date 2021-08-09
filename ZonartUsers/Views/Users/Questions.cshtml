@@ -4,21 +4,36 @@
 
 
 
-<div>
-    <h2>Accordion</h2>
+<div class="" style="margin:100px 50px 50px 50px">
+    <div>
+        <h2 class="mt-5 mb-5" style="font-size:34px; text-align:center; padding-top:50px; padding-bottom:40px">Frequently Asked Questions</h2>
+    </div>
 
-    <button class="accordion">Section 1</button>
-    <div class="panel">
+
+    <button class="accordion">Question 1</button>
+
+    <div class="panel mt-4 mb-5">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
 
-    <button class="accordion">Section 2</button>
-    <div class="panel">
+
+    <button class="accordion mb-2">Question 2</button>
+    <div class="panel mt-4 mb-5">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
 
-    <button class="accordion">Section 3</button>
-    <div class="panel">
+    <button class="accordion mb-2">Question 3</button>
+    <div class="panel mt-4 mb-5">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+
+    <button class="accordion mb-2">Question 4</button>
+    <div class="panel mt-4 mb-5">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+
+    <button class="accordion mb-2">Question 5</button>
+    <div class="panel mt-4 mb-5">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
 </div>
@@ -34,10 +49,10 @@
         acc[i].addEventListener("click", function () {
             this.classList.toggle("active");
             var panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
             } else {
-                panel.style.display = "block";
+                panel.style.maxHeight = panel.scrollHeight + "px";
             }
         });
     }

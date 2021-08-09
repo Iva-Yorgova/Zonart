@@ -41,7 +41,7 @@ namespace ZonartUsers.Tests.Controller
 
 
         [Fact]
-        public void NewTest()
+        public void PipelineTest()
         {
             MyMvc.Pipeline()
                  .ShouldMap("/Home/Error")

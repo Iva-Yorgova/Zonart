@@ -66,10 +66,5 @@ namespace Zonart.Controllers
         }
 
 
-        [HttpPost]
-        public IActionResult Confirm(int id)
-        {
-            return RedirectToAction("All", "Templates");
-        }
     }
 }
