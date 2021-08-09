@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Xunit;
 using ZonartUsers.Controllers;
-using ZonartUsers.Tests.Mocks;
+using FluentAssertions;
+using MyTested.AspNetCore.Mvc;
+using Xunit;
 
 namespace ZonartUsers.Tests.Controller
 {
@@ -42,15 +43,13 @@ namespace ZonartUsers.Tests.Controller
         [Fact]
         public void NewTest()
         {
-            //Arrange
-            var homeController = new HomeController();
-
-            //Act
-            var result = homeController.Error();
-
-            //Assert
-            Assert.NotNull(result);
-            Assert.IsType<ViewResult>(result);
+            MyMvc.Pipeline()
+                 .ShouldMap("/Home/Error")
+                 .To<HomeController>(c => c.Error())
+                 .Which()
+                 .ShouldReturn()
+                 .View();
+          
         }
     }
 }

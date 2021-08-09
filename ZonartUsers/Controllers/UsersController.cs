@@ -108,5 +108,12 @@ namespace ZonartUsers.Controllers
             return View(user);
         }
 
+
+
+        public IActionResult Questions()
+        {
+            return View();
+        }
+
     }
 }
