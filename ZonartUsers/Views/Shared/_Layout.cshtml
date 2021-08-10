@@ -71,7 +71,6 @@
     <header>
         <div class="topnav-all" id="myTopnav">
 
-
             <div class="topnav hidingnavbar">
 
                 <a asp-area="" asp-controller="Home" asp-action="Index" id="home" style="padding-top:11px; padding-bottom:13px; border-right: 1px solid white;">
@@ -90,7 +89,7 @@
                 <a asp-area="" asp-controller="Contact" asp-action="Add" id="contact">Contact</a>
 
                 <a class="questions" style="font-weight:100; width:55px; height:50px" asp-area="" asp-controller="Users" asp-action="Questions" id="questions" title="questions">
-                    <img class="questions" src="../Images/question.png" style="width:19px; font-size:12px" alt="questions" />
+                    <img class="questions" alt="questions" />
                 </a>
 
 
@@ -109,17 +108,17 @@
 
 
                         <a class="user-logout" style="font-weight:100; width:57px; height:50px" asp-area="" asp-controller="Users" asp-action="Logout" id="logout" title="Logout">
-                            <img class="logout-user" src="../Images/logout.svg" style="width:16px; font-size:12px" alt="Logout" />
+                            <img class="logout-user" alt="Logout" />
                         </a>
                     }
                     else
                     {
                         <a class="user-register" style="font-weight:100; width:57px" asp-area="" asp-controller="Users" asp-action="Register" id="register" title="Register">
-                            <img class="register-user" src="../Images/register-user.svg" style="width:16px" alt="Register" />
+                            <img class="register-user" alt="Register" />
                         </a>
 
                         <a class="user-login" style="font-weight:100; width:57px" asp-area="" asp-controller="Users" asp-action="Login" id="login" title="Login">
-                            <img class="login-user" src="../Images/enter.svg" style="width:16px" alt="Login" />
+                            <img class="login-user" alt="Login" />
                         </a>
                     }
 

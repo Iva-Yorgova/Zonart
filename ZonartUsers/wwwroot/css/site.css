@@ -222,7 +222,27 @@ body {
 /*--------------------------*/
 
 
+.questions {
+    content: url('../Images/question.png');
+    width: 16px;
+    font-size: 12px;
+}
 
+.logout-user {
+    content: url('../Images/logout.svg');
+    width: 16px;
+    font-size: 12px;
+}
+
+.register-user {
+    content: url('../Images/register-user.svg');
+    width: 16px;
+}
+
+.login-user {
+    content: url('../Images/enter.svg');
+    width: 16px;
+}
 
 .z-logo-icon {
     content: url('../Images/logo-icon-bold.svg');
