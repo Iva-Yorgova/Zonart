@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "Services";
+}
+
+
+
+
+<div class="wpb_wrapper" style="margin-bottom: 0">
+    <div class="vc_row wpb_row vc_inner vc_row-fluid left_t case-studie-row vc_row-o-equal-height vc_row-o-content-middle vc_row-flex">
+
+
+        <div class="wpb_column vc_column_container vc_col-sm-6" style="height: 500px">
+            <div class="vc_column-inner">
+                <div class="wpb_wrapper">
+                    <div class="wpb_text_column wpb_content_element wpb_animate_when_almost_visible wpb_fadeInRight fadeInRight wpb_start_animation animated" style="margin-bottom: 0">
+                        <div class="wpb_wrapper">
+
+                            <p class="pt-0 mt-0 pb-0 mb-0" style="font-size:70px;font-family:Playfair Display; letter-spacing: -3px; text-align: center">Zonart</p>
+                            <p style="text-align: center" class="pr-5 pl-5 mr-5 ml-5">That’s the name we’ve given to projects with tight deadlines, limited quantities, top quality and complicated logistics that call for an end to end solution from design to sourcing to manufacturing and delivery.</p>
+
+                        </div>
+                    </div>
+                    <div class=" pt-3 mt-4 vc_btn3-container wpb_animate_when_almost_visible wpb_fadeInRight fadeInRight vc_btn3-center wpb_start_animation animated" style="padding-bottom:0; margin-bottom:0">
+
+                        <a class="btn btn-spec pt-2 pb-2 pl-4 pr-4" style="font-weight: 400" asp-controller="Services" asp-action="One">VIEW PROJECT</a>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="wpb_column vc_column_container vc_col-sm-6 vc_col-has-fill" style="height: 500px">
+            <div class="vc_column-inner vc_custom_1582317256604" style="background-image: url('../Images/OurStory/art-box-small.png') !important; background-position: center !important; background-repeat: no-repeat !important; background-size: cover !important;">
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+<script>
+    (function($) {
+
+  $.fn.visible = function(partial) {
+
+      var $t            = $(this),
+          $w            = $(window),
+          viewTop       = $w.scrollTop(),
+          viewBottom    = viewTop + $w.height(),
+          _top          = $t.offset().top,
+          _bottom       = _top + $t.height(),
+          compareTop    = partial === true ? _bottom : _top,
+          compareBottom = partial === true ? _top : _bottom;
+
+    return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+
+  };
+
+})(jQuery);
+
+var win = $(window);
+
+var allMods = $(".module");
+
+allMods.each(function(i, el) {
+  var el = $(el);
+  if (el.visible(true)) {
+    el.addClass("already-visible");
+  }
+});
+
+win.scroll(function(event) {
+
+  allMods.each(function(i, el) {
+    var el = $(el);
+    if (el.visible(true)) {
+      el.addClass("come-in");
+    }
+  });
+
+});
+</script>
+
+
+
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $(".active").removeClass("active");
+        $("#categories").addClass("active");
+    });
+</script>
