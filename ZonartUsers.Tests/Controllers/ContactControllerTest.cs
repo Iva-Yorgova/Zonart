@@ -1,12 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using ZonartUsers.Controllers;
-using FluentAssertions;
+﻿using ZonartUsers.Controllers;
 using MyTested.AspNetCore.Mvc;
-using Xunit;
-using ZonartUsers.Data;
 using ZonartUsers.Models.Contacts;
 using ZonartUsers.Data.Models;
 using System.Linq;
+using Xunit;
 
 namespace ZonartUsers.Tests.Controller
 {

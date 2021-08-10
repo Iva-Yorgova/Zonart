@@ -2395,16 +2395,16 @@ input[type="checkbox"]:focus {
 #myBtn {
     position: fixed; /* Fixed/sticky position */
     bottom: 16px; /* Place the button at the bottom of the page */
-    right: 16px; /* Place the button 10px from the right */
+    right: 16px; /* Place the button 16px from the right */
     z-index: 99; /* Make sure it does not overlap */
-    border: 2px solid white; /* Remove borders */
+    border: 2px solid lightgray; 
     outline: none; /* Remove outline */
     background-color: transparent; /* Set a background color */
     color: white; /* Text color */
     cursor: pointer; /* Add a mouse pointer on hover */
     height: 48px;
     padding: 10px;
-    opacity: 0.3;
+    opacity: 0.5;
 }
 
     #myBtn:hover {

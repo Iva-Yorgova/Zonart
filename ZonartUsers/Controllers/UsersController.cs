@@ -28,6 +28,7 @@ namespace ZonartUsers.Controllers
             return View();
         }
 
+
         [HttpPost]
         public async Task<IActionResult> Register(RegisterUserModel user)
         {
@@ -95,6 +96,7 @@ namespace ZonartUsers.Controllers
             }
 
         }
+
 
         public async Task<IActionResult> Logout()
         {

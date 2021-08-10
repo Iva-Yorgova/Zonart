@@ -14,7 +14,6 @@ namespace ZonartUsers.Controllers
             this.statistics = statistics;
         }
 
-
         public IActionResult All()
         {
             var totalStatistics = this.statistics.Total();
