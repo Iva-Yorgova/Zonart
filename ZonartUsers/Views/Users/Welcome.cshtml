@@ -1,4 +1,13 @@
-﻿@model LoginUserModel
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@model LoginUserModel
+
+@{
+    ViewData["Title"] = "Welcome";
+}
+
 
 
 
@@ -27,10 +36,3 @@
 
 </div>
 
-
-<script>
-    $(document).ready(function () {
-        $(".active").removeClass("active");
-        $("#welcome").addClass("active");
-    });
-</script>
