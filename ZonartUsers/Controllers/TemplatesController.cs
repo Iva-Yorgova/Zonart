@@ -44,7 +44,6 @@ namespace ZonartUsers.Controllers
                 .FirstOrDefault();
 
             return View(template); 
-
         }
 
     }

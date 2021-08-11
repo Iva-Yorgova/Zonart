@@ -58,6 +58,19 @@
 
 <body>
 
+    <div id="myNav-new" class="overlay-new">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Projects</a>
+            <a href="#">Templates</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+
+
     <div id="Search" class="tabcontent">
         <div class="search-container" style="padding:30px 30px 30px 30px; text-align:center">
             <div class="d-inline-flex">
@@ -92,12 +105,9 @@
                     <img class="questions" alt="questions" />
                 </a>
 
-
-
                 <div class="nav-right">
 
                     <a style="width:57px" class="tablink" onclick="openPage('Search', this, 'orangered')"><i class="fa fa-search fa-sm"></i></a>
-
 
                     @if (SignInManager.IsSignedIn(User))
                     {
@@ -105,12 +115,11 @@
 
                         <!--<a style="font-weight:100" asp-area="" asp-controller="Users" asp-action="Welcome" id="welcome">@User.Identity.Name</a>-->
 
-
-
                         <a class="user-logout" style="font-weight:100; width:57px; height:50px" asp-area="" asp-controller="Users" asp-action="Logout" id="logout" title="Logout">
                             <img class="logout-user" alt="Logout" />
                         </a>
                     }
+
                     else
                     {
                         <a class="user-register" style="font-weight:100; width:57px" asp-area="" asp-controller="Users" asp-action="Register" id="register" title="Register">
@@ -122,20 +131,17 @@
                         </a>
                     }
 
-
+                    <a style="font-size:16px;cursor:pointer;width:57px;" onclick="openNav()">&#9776;</a>
 
                     <!--<partial name="_LoginPartial" />-->
                 </div>
 
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                    <i class="fa fa-bars"></i>
-                </a>
+                    &#9776;</a>
 
             </div>
 
         </div>
-
-
 
     </header>
 
@@ -143,7 +149,6 @@
     <button id="myBtn" title="Go to top" style="color:lightgray">
         <i class="material-icons">arrow_upward</i>
     </button>
-
 
 
     <div class="container-fluid-new" style="padding-left: 0px; padding-right: 0px">
@@ -173,8 +178,6 @@
                                 <a class="btn btn-spec pt-2 pb-2 pl-4 pr-4" style="font-weight: 400" asp-controller="Contact" asp-action="Add">GET STARTED</a>
 
                             </div>
-
-
                         </div>
                     </div>
                 </div>
@@ -184,20 +187,16 @@
 
                         <div class="wpb_wrapper">
                             <div style="text-align: center">
-                                <img src="../Images/z-s-bold.svg" style="width:20%; position: center" alt="LOGO" />
+                                <img class="footer-logo" alt="LOGO" />
                             </div>
 
                             <p class="" style="font-size:32px; font-family:Jost; text-align: center; color: white; font-weight: 700; letter-spacing: 4px; margin-top: 0; padding-top: 20px">ZONART</p>
                             <p style="text-align: center; color: white; font-size: 12px" class="pr-5 pl-5 mr-5 ml-5">
                                 &copy; @DateTime.UtcNow.Year Zonart Studio
-                                <br />
-                                StreetName 111
-                                <br />
-                                111 11 City, Country
-                                <br />
-                                11 111 111 111
-                                <br />
-                                info@zonart.com
+                                <br />StreetName 111
+                                <br />111 11 City, Country
+                                <br />11 111 111 111
+                                <br />info@zonart.com
                             </p>
                             <hr class="solid mt-4 mb-0 pt-0 pb-0" style="border-top:4px solid orangered; width:25%">
 
@@ -206,12 +205,9 @@
                                 <a href="#"><i class="fa fa-twitter fa-sm" style="color: white; margin-right: 20px"></i></a>
                                 <a href="#"><i class="fa fa-behance fa-sm" style="color: white"></i></a>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </div>
     </footer>
@@ -248,6 +244,15 @@
         document.getElementById("defaultOpen").click();
     </script>
 
+    <script>
+        function openNav() {
+            document.getElementById("myNav-new").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav-new").style.width = "0%";
+        }
+    </script>
 
 </body>
 </html>

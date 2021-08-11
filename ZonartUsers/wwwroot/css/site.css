@@ -2,6 +2,61 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 
+.overlay-new {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: -50px;
+}
+
+.overlay-new a {
+    padding: 1.6px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+    .overlay-new a:hover, .overlay-new a:focus {
+        color: white;
+    }
+
+.overlay-new .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay-new a {
+        font-size: 20px
+    }
+
+    .overlay-new .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+
+
 
 /* Style the buttons that are used to open and close the accordion panel */
 .accordion {
@@ -254,6 +309,12 @@ body {
 
 .z-logo-icon:hover {
 
+}
+
+.footer-logo {
+    content: url('../Images/z-s-bold.svg');
+    width: 20%;
+    position: center;
 }
 
 
