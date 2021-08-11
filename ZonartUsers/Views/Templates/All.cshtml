@@ -1,32 +1,53 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
 @{
     ViewData["Title"] = "Templates";
 }
 
+@{ 
+    var userIsAdmin = User.IsInRole(WebConstants.AdminRoleName);
+}
 
 
+<div class="row mt-5 mb-5 pt-5 pb-5" style="margin: 50px 20px 50px 20px">
+    @foreach (var template in Model)
+    {
+        <div class="col-md-4" style="padding-left:30px">
+            <div class="card mb-3 mt-5" style="border-radius: 0">
+                <img class="card-img-top" style="border-radius: 0" src="@template.ImageUrl" alt="">
+                <div class="card-body text-center pl-0 pr-0 pt-5 pb-0">
+                    <h2 class="card-title text-center mb-2" style="font-family: Jost; letter-spacing: 2px; font-weight: 700">@template.Name</h2>
+                    <h6 class="card-title text-center mb-4" style="font-weight: 100">@template.Price.00 USD</h6>
 
-    <div class="row mt-5 mb-5 pt-5 pb-5" style="margin: 50px 20px 50px 20px">
-        @foreach (var template in Model)
-        {
-            <div class="col-md-4" style="padding-left:30px">
-                <div class="card mb-3 mt-5" style="border-radius: 0">
-                    <img class="card-img-top" style="border-radius: 0" src="@template.ImageUrl" alt="">
-                    <div class="card-body text-center pl-0 pr-0 pt-5 pb-0">
-                        <h2 class="card-title text-center mb-2" style="font-family: Jost; letter-spacing: 2px; font-weight: 700">@template.Name</h2>
-                        <h6 class="card-title text-center mb-4" style="font-weight: 100">@template.Price.00 USD</h6>
+                    <a asp-controller="Templates" asp-action="Details" asp-route-id="@template.Id" class="details-button mt-lg-30 mt-30 col-lg-14 btn btn-block spacing-lg text-white pt-1 pb-1" style="background-color:black; border: none">View</a>
 
-                        <a asp-controller="Templates" asp-action="Details" asp-route-id="@template.Id" class="details-button mt-lg-30 mt-30 col-lg-14 btn btn-block spacing-lg text-white pt-3 pb-3" style="background-color: black; border: none">View</a>
-                    </div>
+                    @if (userIsAdmin)
+                    {
+                        <div class="row" style="margin-right:0; margin-left:0">
+                            <div class="col" style="padding-right:0; padding-left:0">
+                                <a asp-controller="Users" asp-action="Edit" asp-route-id="@template.Id" class="details-button mt-lg-30 mt-30 btn btn-block spacing-lg text-white pt-1 pb-1" style="background-color:dimgray; border:none; width:100%">Edit</a>
+                            </div>
+                        
+                            <div class="col" style="padding-right:0; padding-left:0">
+                                <a asp-controller="Users" asp-action="Delete" asp-route-id="@template.Id" class="details-button mt-lg-30 mt-30 btn btn-block spacing-lg text-white pt-1 pb-1" style="background-color:orangered; border:none; width:100%">Delete</a>
+                            </div>
+                        
+                       </div>
+                    }
+
                 </div>
             </div>
-        }
-    </div>
+        </div>
+    }
+</div>
 
 
-    <script>
+<script>
     $(document).ready(function () {
         $(".active").removeClass("active");
         $("#templates").addClass("active");
     });
-    </script>
+</script>

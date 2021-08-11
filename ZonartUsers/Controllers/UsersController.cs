@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
@@ -97,6 +98,23 @@ namespace ZonartUsers.Controllers
         {
             await signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+
+        [Authorize(Roles = "Administrator")]
+        public async Task<IActionResult> ChangePassword()
+        {
+            var user = await this.userManager.GetUserAsync(this.User);
+            await this.userManager.ChangePasswordAsync(user, "", "");
+
+            return View();
+        }
+
+        [Authorize(Roles = "Administrator")]
+        public IActionResult Edit()
+        {
+            // Logic here
+            return View();
         }
 
 

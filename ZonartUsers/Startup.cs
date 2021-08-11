@@ -37,6 +37,7 @@ namespace ZonartUsers
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
             })
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ZonartUsersDbContext>();
 
             services.AddControllersWithViews(options =>
