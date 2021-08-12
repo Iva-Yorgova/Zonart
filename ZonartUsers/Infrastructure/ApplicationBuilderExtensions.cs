@@ -51,6 +51,7 @@ namespace ZonartUsers.Infrastructure
             data.SaveChanges();
         }
 
+
         private static void SeedAdministrator(IServiceProvider services)
         {
             var userManager = services.GetRequiredService<UserManager<User>>();
@@ -82,12 +83,10 @@ namespace ZonartUsers.Infrastructure
             })
             .GetAwaiter()
             .GetResult();
-
-            
-
-
             
         }
+
+
     }
 }
 

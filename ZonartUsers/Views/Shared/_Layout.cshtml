@@ -68,6 +68,18 @@
             <a href="#">Projects</a>
             <a href="#">Templates</a>
             <a href="#">Contact</a>
+
+            <div class="search-container" style="padding:30px 30px 30px 30px; text-align:center; line-height:0">
+                <div class="d-inline-flex">
+                    <div><input type="text" placeholder="Search.." name="search" style="margin:0px; height:38px; width:200px; padding-right:10px; background-color:transparent; border:1px solid white; color:white; font-family:Montserrat">
+                    </div>
+                    <div><a href="" type="submit"><i class="search-icon" style="color:white; padding:10px 10px 10px 10px; margin-left:10px; border:1px solid white"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+
         </div>
     </div>
 
@@ -108,7 +120,7 @@
 
                 <div class="nav-right">
 
-                    <a style="width:57px" class="tablink" onclick="openPage('Search', this, 'orangered')"><i class="fa fa-search fa-sm"></i></a>
+                    <!--<a style="width:57px" class="tablink" onclick="openPage('Search', this, 'orangered')"><i class="fa fa-search fa-sm"></i></a>-->
 
                     @if (SignInManager.IsSignedIn(User))
                     {
@@ -117,6 +129,13 @@
                         <!--<a asp-area="" asp-controller="Users" asp-action="Bag" id="bag"><i class="fas fa-shopping-bag fa-sm"></i></a>-->
 
                         <!--<a style="font-weight:100" asp-area="" asp-controller="Users" asp-action="Welcome" id="welcome">@User.Identity.Name</a>-->
+
+                        if (userIsAdmin)
+                        {
+                            <a class="admin" style="font-weight:100; width:57px; height:50px" asp-area="Admin" asp-controller="Admin" asp-action="Welcome" id="admin" title="Admin">
+                                <img class="admin" alt="Admin" />
+                            </a>
+                        }
 
                         <a class="user-logout" style="font-weight:100; width:57px; height:50px" asp-area="" asp-controller="Users" asp-action="Logout" id="logout" title="Logout">
                             <img class="logout-user" alt="Logout" />

@@ -197,12 +197,13 @@ body, html {
 
 
 
-
+.admin:hover {
+    background-color: orangered;
+}
 
 
 .login-user:hover {
-    background-color: orangered;
-   
+    background-color: orangered;   
 }
 
 .user-login:hover {
@@ -297,6 +298,16 @@ body {
 .login-user {
     content: url('../Images/enter.svg');
     width: 16px;
+}
+
+.admin {
+    content: url('../Images/admin.svg');
+    width: 16px;
+}
+
+.search-icon {
+    content: url('../Images/search.svg');
+    width: 36px;
 }
 
 .z-logo-icon {
