@@ -1,4 +1,6 @@
-﻿@{
+﻿@model ServicesViewModel
+
+@{
     ViewData["Title"] = "About";
 }
 
@@ -9,9 +11,45 @@
     </div>
 </div>
 
-<div class="ml-5 mr-5 mt-5 mb-5" style="color: #777;background-color:white;text-align:center;text-align: justify">
+<div class="ml-5 mr-5 mt-5 mb-5" style="color:black; background-color:white; text-align:center; text-align: justify">
 
-    <p style="line-height: 40px; padding-right: 50px; padding-left: 50px; padding-bottom: 50px; padding-top: 30px; color: black">ZONART is design agency that offers innovative, impressive and quality solutions for your business. Since our beginning in 2010, the company has worked with many clients from Europe and USA. We are dedicated to present your brand in a way that lifts expectations, generates sales and builds excitement. </p>
+    <p style="line-height:30px; padding-right:50px; padding-left:50px; padding-bottom:0px; padding-top:30px; color:black">ZONART is design agency that offers innovative, impressive and quality solutions for your business. Since our beginning in 2010, the company has worked with many clients from Europe and USA. We are dedicated to present your brand in a way that lifts expectations, generates sales and builds excitement. After defining a brand purpose that shines, we can express your brand and give it potency at every touchpoints. Together, we help you to see the world through the eyes of your users — and then present something that touches hearts and minds and that people want to connect with. </p>
+
+    <div class="row" id="statistics" style="font-family:Montserrat; margin-top:25px; border-top:1px solid dimgray; margin-left:50px; margin-right:50px">
+
+        <div class="col text-center" style="" id="total-users">
+            <i style="font-size:1rem;" class="fas fa-user-friends fa-5x"></i>
+            <div style="font-size:15px">Users </div>
+            <div class="" style="color:orangered; font-family:Jost; font-size:14px">@Model.TotalUsers</div>
+        </div>
+
+        <div class="col text-center" style="" id="total-orders">
+            <i style="font-size:1rem;" class="fas fa-shopping-basket fa-5x"></i>
+            <div style="font-size:15px">Orders </div>
+            <div class="" style="color:orangered; font-family:Jost; font-size:14px">@Model.TotalOrders</div>
+        </div>
+
+        <div class="col text-center" style="" id="total-contacts">
+            <i style="font-size:1rem;" class="fas fa-envelope-open-text fa-5x"></i>
+            <div style="font-size:15px">Contacts </div>
+            <div class="" style="color:orangered; font-family:Jost; font-size:14px">@Model.TotalContacts</div>
+        </div>
+
+        <div class="col text-center" style="" id="total-templates">
+            <i style="font-size:1rem;" class="fas fa-file-image fa-5x"></i>
+            <div style="font-size:15px">Templates </div>
+            <div class="" style="color:orangered; font-family:Jost; font-size:14px">@Model.TotalTemplates</div>
+        </div>
+
+    </div>
+
+
+    <div class="row" style="margin-bottom:30px; margin-top:30px">
+        <div class="col-12 w-25 text-center">
+            <input id="statistics-button" type="submit" value="Hide  Statistics" style="font-family:Jost; font-variant-caps:all-petite-caps; padding-top:5px; padding-bottom:5px" />
+        </div>
+    </div>
+
 </div>
 
 <div class="bgimg-5">
@@ -95,6 +133,15 @@
 </div>
 
 
+
+<script>
+    $(document).ready(function () {
+        $("#statistics-button").click(function () {
+            $("#statistics").hide(1000);
+            $("#statistics-button").hide(1000);
+        });
+    });
+</script>
 
 <script>
     $(document).ready(function () {
