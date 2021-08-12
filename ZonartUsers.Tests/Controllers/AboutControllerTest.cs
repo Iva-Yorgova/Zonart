@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ZonartUsers.Controllers;
-using FluentAssertions;
-using MyTested.AspNetCore.Mvc;
 using Xunit;
+using ZonartUsers.Models.Services;
+using ZonartUsers.Services.Statistics;
+using ZonartUsers.Tests.Mocks;
+using ZonartUsers.Data.Models;
 
 namespace ZonartUsers.Tests.Controller
 {
@@ -12,15 +14,34 @@ namespace ZonartUsers.Tests.Controller
         [Fact]
         public void OurStoryShouldReturnViewWithCorrectModel()
         {
-            //Arrange
-            var aboutController = new AboutController();
+            // Arrange
+            using var data = DatabaseMock.Instance;
 
-            //Act
-            var result = aboutController.OurStory();
+            data.Contacts.Add(new Contact { Email = "test", Message = "test", Name = "test" });
+            data.Templates.Add(new Template { Name = "test", Price = 100 });
+            data.Templates.Add(new Template { Name = "test", Price = 50 });
+            data.Orders.Add(new Order { Name = "test" });
+            data.Users.Add(new User { Email = "test", FullName = "test" });
+            data.SaveChanges();
 
-            //Assert
+            var statsServ = new StatisticsService(data);
+
+            var controller = new ServicesController(statsServ);
+
+            var stats = statsServ.Total();
+
+            // Act
+            var result = controller.All();
+
+            // Assert
             Assert.NotNull(result);
-            Assert.IsType<ViewResult>(result);
+            var viewResult = Assert.IsType<ViewResult>(result);
+
+            var model = viewResult.Model;
+
+            var viewModel = Assert.IsType<ServicesViewModel>(model);
+
+            Assert.Equal(2, viewModel.TotalTemplates);
 
         }
     }

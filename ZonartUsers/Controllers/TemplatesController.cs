@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using ZonartUsers.Data;
 
@@ -6,19 +9,26 @@ using ZonartUsers.Models.Templates;
 
 namespace ZonartUsers.Controllers
 {
+    using static WebConstants.Cache;
     public class TemplatesController : Controller
     {
         private readonly ZonartUsersDbContext data;
+        private readonly IMemoryCache cache;
 
-        public TemplatesController(ZonartUsersDbContext data)
+        public TemplatesController(ZonartUsersDbContext data, IMemoryCache cache)
         {
             this.data = data;
+            this.cache = cache;
         }
 
-          
+        [ResponseCache(Duration = 3600)]
         public IActionResult All()
         {
-            var templates = this.data.Templates
+            var latestTemplates = this.cache.Get<List<TemplateListingViewModel>>(TemplatesCacheKey);
+
+            if (latestTemplates == null)
+            {
+                latestTemplates = this.data.Templates
                 .Select(t => new TemplateListingViewModel
                 {
                     Id = t.Id,
@@ -28,7 +38,25 @@ namespace ZonartUsers.Controllers
                 })
                 .ToList();
 
-            return View(templates);
+                var cacheOptions = new MemoryCacheEntryOptions()
+                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(60));
+
+                this.cache.Set(TemplatesCacheKey, latestTemplates, cacheOptions);
+            }
+
+            return View(latestTemplates);
+
+            //var templates = this.data.Templates
+            //    .Select(t => new TemplateListingViewModel
+            //    {
+            //        Id = t.Id,
+            //        Name = t.Name,
+            //        ImageUrl = t.ImageUrl,
+            //        Price = t.Price
+            //    })
+            //    .ToList();
+            //
+            //return View(templates);
         }
 
 

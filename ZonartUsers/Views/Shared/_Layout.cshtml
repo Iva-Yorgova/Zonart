@@ -62,12 +62,12 @@
     <div id="myNav-new" class="overlay-new">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="overlay-content">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Projects</a>
-            <a href="#">Templates</a>
-            <a href="#">Contact</a>
+            <a href="/Home/Index">Home</a>
+            <a href="/About/OurStory">About</a>
+            <a href="/Services/All">Services</a>
+            <a href="/Projects/All">Projects</a>
+            <a href="/Templates/All">Templates</a>
+            <a href="/Contact/Add">Contact</a>
 
             <div class="search-container" style="padding:30px 30px 30px 30px; text-align:center; line-height:0">
                 <div class="d-inline-flex">
@@ -125,8 +125,6 @@
                     @if (SignInManager.IsSignedIn(User))
                     {
                         var userIsAdmin = User.IsInRole(WebConstants.AdminRoleName);
-
-                        <!--<a asp-area="" asp-controller="Users" asp-action="Bag" id="bag"><i class="fas fa-shopping-bag fa-sm"></i></a>-->
 
                         <!--<a style="font-weight:100" asp-area="" asp-controller="Users" asp-action="Welcome" id="welcome">@User.Identity.Name</a>-->
 

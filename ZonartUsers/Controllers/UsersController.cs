@@ -1,23 +1,37 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ZonartUsers.Data;
 using ZonartUsers.Data.Models;
+using ZonartUsers.Models.Questions;
+using ZonartUsers.Models.Templates;
 using ZonartUsers.Models.Users;
 
 namespace ZonartUsers.Controllers
 {
+    using static WebConstants.Cache;
+
     public class UsersController : Controller
     {
         private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
+        private readonly ZonartUsersDbContext data;
+        private readonly IMemoryCache cache;
 
         public UsersController(UserManager<User> userManager, 
-            SignInManager<User> signInManager)
+            SignInManager<User> signInManager, 
+            ZonartUsersDbContext data, 
+            IMemoryCache cache)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+            this.data = data;
+            this.cache = cache;
         }
 
 
@@ -110,6 +124,7 @@ namespace ZonartUsers.Controllers
             return View();
         }
 
+
         [Authorize(Roles = "Administrator")]
         public IActionResult Edit()
         {
@@ -124,9 +139,28 @@ namespace ZonartUsers.Controllers
         }
 
 
+        //[ResponseCache(Duration = 3600)]
         public IActionResult Questions()
         {
-            return View();
+            var latestQuestions = this.cache.Get<List<QuestionsListingViewModel>>(QuestionsCacheKey);
+
+            if (latestQuestions == null)
+            {
+                latestQuestions = this.data.Questions
+                .Select(t => new QuestionsListingViewModel
+                {
+                    Text = t.Text,
+                    Answer = t.Answer
+                })
+                .ToList();
+
+                var cacheOptions = new MemoryCacheEntryOptions()
+                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(60));
+
+                this.cache.Set(QuestionsCacheKey, latestQuestions, cacheOptions);
+            }
+
+            return View(latestQuestions);
         }
 
     }

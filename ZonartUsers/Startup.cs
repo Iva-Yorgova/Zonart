@@ -46,6 +46,8 @@ namespace ZonartUsers
             });
 
             services.AddTransient<IStatisticsService, StatisticsService>();
+
+            services.AddResponseCaching();
         }
 
   
@@ -70,6 +72,8 @@ namespace ZonartUsers
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseResponseCaching();
 
             app.UseEndpoints(endpoints =>
             {

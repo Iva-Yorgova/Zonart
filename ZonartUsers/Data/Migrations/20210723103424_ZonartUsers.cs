@@ -6,20 +6,6 @@ namespace ZonartUsers.Data.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            //migrationBuilder.CreateTable(
-            //    name: "Clients",
-            //    columns: table => new
-            //    {
-            //        Id = table.Column<int>(type: "int", nullable: false)
-            //            .Annotation("SqlServer:Identity", "1, 1"),
-            //        Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: //false),
-            //        Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: //false)
-            //    },
-            //    constraints: table =>
-            //    {
-            //        table.PrimaryKey("PK_Clients", x => x.Id);
-            //    });
-
             migrationBuilder.CreateTable(
                 name: "Contacts",
                 columns: table => new
@@ -50,24 +36,7 @@ namespace ZonartUsers.Data.Migrations
                     table.PrimaryKey("PK_Templates", x => x.Id);
                 });
 
-            //migrationBuilder.CreateTable(
-            //    name: "Bags",
-            //    columns: table => new
-            //    {
-            //        Id = table.Column<int>(type: "int", nullable: false)
-            //            .Annotation("SqlServer:Identity", "1, 1"),
-            //        ClientId = table.Column<int>(type: "int", nullable: false)
-            //    },
-            //    constraints: table =>
-            //    {
-            //        table.PrimaryKey("PK_Bags", x => x.Id);
-            //        table.ForeignKey(
-            //            name: "FK_Bags_Clients_ClientId",
-            //            column: x => x.ClientId,
-            //            principalTable: "Clients",
-            //            principalColumn: "Id",
-            //            onDelete: ReferentialAction.Cascade);
-            //    });
+      
 
             migrationBuilder.CreateTable(
                 name: "Orders",
@@ -78,17 +47,11 @@ namespace ZonartUsers.Data.Migrations
                     TemplateId = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    //BagId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Orders", x => x.Id);
-                    //table.ForeignKey(
-                    //    name: "FK_Orders_Bags_BagId",
-                    //    column: x => x.BagId,
-                    //    principalTable: "Bags",
-                    //    principalColumn: "Id",
-                    //    onDelete: ReferentialAction.Restrict);
+
                     table.ForeignKey(
                         name: "FK_Orders_Templates_TemplateId",
                         column: x => x.TemplateId,
@@ -97,16 +60,7 @@ namespace ZonartUsers.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            //migrationBuilder.CreateIndex(
-            //    name: "IX_Bags_ClientId",
-            //    table: "Bags",
-            //    column: "ClientId",
-            //    unique: true);
 
-            //migrationBuilder.CreateIndex(
-            //    name: "IX_Orders_BagId",
-            //    table: "Orders",
-            //    column: "BagId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_TemplateId",
