@@ -13,7 +13,6 @@ namespace ZonartUsers.Models.Templates
         [Display(Name = "Search by text")]
         public string SearchTerm { get; set; }
 
-
         public int CurrentPage { get; set; } = 1;
 
         public int TotalTemplates { get; set; }

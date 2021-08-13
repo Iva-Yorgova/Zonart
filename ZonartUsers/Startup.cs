@@ -28,6 +28,7 @@ namespace ZonartUsers
             services.AddDbContext<ZonartUsersDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<User>(options => 

@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 using ZonartUsers.Data;
 using ZonartUsers.Data.Models;
 
-using static ZonartUsers.WebConstants;
-
 namespace ZonartUsers.Infrastructure
 {
+    using static WebConstants;
+
     public static class ApplicationBuilderExtensions
     {
         public static IApplicationBuilder PrepareDatabase(

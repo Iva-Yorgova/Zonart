@@ -1,5 +1,4 @@
 ﻿
-
 namespace ZonartUsers.Models.Templates
 {
     public class TemplateListingViewModel
