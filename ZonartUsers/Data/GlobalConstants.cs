@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
+﻿
 namespace ZonartUsers.Data
 {
     public class GlobalConstants
@@ -11,7 +7,7 @@ namespace ZonartUsers.Data
         public const int NameMaxLength = 50;
         public const int EmailMinLength = 10;
         public const int EmailMaxLength = 50;
-        public const int MessageMaxLength = 1000;
+        public const int MessageMaxLength = 10000;
         public const int MessageMinLength = 10;
     }
 }

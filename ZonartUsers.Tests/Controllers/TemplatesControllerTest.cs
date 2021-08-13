@@ -85,5 +85,33 @@ namespace ZonartUsers.Tests.Controllers
             Assert.Equal(1, data.Templates.Count());
 
         }
+
+
+        [Theory]
+        [InlineData(1)]
+        public void EditShouldReturnViewWithCorrectModel(int id)
+        {
+            // Arrange
+            using var data = DatabaseMock.Instance;
+            using var cache = MemoryCacheMock.GetMemoryCache(null);
+            var service = new TemplateService(data);
+
+            data.Templates.Add(new Template { Name = "test", Price = 100 });
+            data.SaveChanges();
+
+            var controller = new TemplatesController(data, cache, service);
+
+            // Act
+            var result = controller.Edit(id);
+
+            // Assert
+            Assert.NotNull(result);
+            var viewResult = Assert.IsType<ViewResult>(result);
+
+            var model = viewResult.Model;
+
+            Assert.IsType<TemplateListingViewModel>(model);
+
+        }
     }
 }

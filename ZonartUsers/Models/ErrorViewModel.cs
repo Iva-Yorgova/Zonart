@@ -1,5 +1,3 @@
-using System;
-
 namespace ZonartUsers.Models
 {
     public class ErrorViewModel

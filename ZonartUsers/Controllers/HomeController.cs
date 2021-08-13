@@ -1,7 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
-using ZonartUsers.Models;
-using ZonartUsers.Services.Statistics;
 
 namespace ZonartUsers.Controllers
 {
@@ -12,7 +9,6 @@ namespace ZonartUsers.Controllers
         {
             return View();
         }
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

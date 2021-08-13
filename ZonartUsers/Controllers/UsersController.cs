@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using ZonartUsers.Data;
 using ZonartUsers.Data.Models;
 using ZonartUsers.Models.Questions;
-using ZonartUsers.Models.Templates;
 using ZonartUsers.Models.Users;
 
 namespace ZonartUsers.Controllers

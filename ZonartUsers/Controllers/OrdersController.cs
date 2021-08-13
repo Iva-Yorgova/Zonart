@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using System.Threading.Tasks;
 using ZonartUsers.Data;
 using ZonartUsers.Data.Models;
 using ZonartUsers.Models.Orders;
