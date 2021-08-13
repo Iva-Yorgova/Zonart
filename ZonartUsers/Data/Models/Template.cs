@@ -16,5 +16,8 @@ namespace ZonartUsers.Data.Models
 
         [Required]
         public string ImageUrl { get; set; }
+
+        [Required]
+        public string Description { get; set; }
     }
 }

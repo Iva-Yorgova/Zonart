@@ -67,7 +67,8 @@ namespace ZonartUsers.Controllers
                 .Select(t => new TemplateLayoutModel
                 {
                     Id = id,
-                    Name = t.Name
+                    Name = t.Name,
+                    Description = t.Description
                 })
                 .FirstOrDefault();
 
@@ -84,6 +85,7 @@ namespace ZonartUsers.Controllers
                     Name = t.Name,
                     Price = t.Price,
                     ImageUrl = t.ImageUrl, 
+                    Description = t.Description,
                     Id = id
                 })
                 .FirstOrDefault();

@@ -40,12 +40,12 @@ namespace ZonartUsers.Infrastructure
 
             data.Templates.AddRange(new[]
             {
-            new Template { Price = 10.0, Name = "Eternity", ImageUrl = "../Images/Templates/01.jpg"},
-            new Template { Price = 12.0, Name = "Elegant" , ImageUrl = "../Images/Templates/02.jpg"},
-            new Template { Price = 13.0, Name = "Wisdom" , ImageUrl = "../Images/Templates/03.jpg"},
-            new Template { Price = 9.0, Name = "Waves" , ImageUrl = "../Images/Templates/04.jpg"},
-            new Template { Price = 14.0, Name = "Happy" , ImageUrl = "../Images/Templates/05.jpg"},
-            new Template { Price = 11.0, Name = "Wild" , ImageUrl = "../Images/Templates/06.jpg"} 
+            new Template { Price = 10.0, Name = "Eternity", ImageUrl = "../Images/Templates/01.jpg", Description = "Flat summer instagram posts collection with photo"},
+            new Template { Price = 12.0, Name = "Elegant" , ImageUrl = "../Images/Templates/02.jpg", Description = "Elegant minimalist design instagram stories"},
+            new Template { Price = 13.0, Name = "Wisdom" , ImageUrl = "../Images/Templates/03.jpg", Description = "Instagram botanic puzzle feed"},
+            new Template { Price = 9.0, Name = "Waves" , ImageUrl = "../Images/Templates/04.jpg", Description = "Flat fitness instagram posts collection"},
+            new Template { Price = 14.0, Name = "Happy" , ImageUrl = "../Images/Templates/05.jpg", Description = "Flat school card template"},
+            new Template { Price = 11.0, Name = "Wild" , ImageUrl = "../Images/Templates/06.jpg", Description = "Adopt pet instagram post collection"} 
              });
 
             data.SaveChanges();
