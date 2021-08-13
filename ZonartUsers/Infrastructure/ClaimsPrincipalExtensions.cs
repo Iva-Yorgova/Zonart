@@ -1,10 +1,8 @@
-﻿
-using System.Security.Claims;
-using static ZonartUsers.Areas.Admin.AdminConstants;
+﻿using System.Security.Claims;
 
 namespace ZonartUsers.Infrastructure
-
 {
+    using static Areas.Admin.AdminConstants;
     public static class ClaimsPrincipalExtensions
     {
         public static string Id(this ClaimsPrincipal user)

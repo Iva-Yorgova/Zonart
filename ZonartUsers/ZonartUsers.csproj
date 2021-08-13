@@ -43,6 +43,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Admin\Views\Templates\" />
     <Folder Include="wwwroot\lib\jquery\dist\" />
   </ItemGroup>
 

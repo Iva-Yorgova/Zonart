@@ -13,7 +13,8 @@ namespace ZonartUsers.Controllers
             this.data = data;
         }
 
-        [ResponseCache(Duration = 300)]
+
+        [ResponseCache(Duration = 3600)]
         public IActionResult All()
         {
             return View();

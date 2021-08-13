@@ -4,7 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ZonartUsers.Data;
-using ZonartUsers.Models.Templates;
+using ZonartUsers.Models.Templates; 
+
 
 namespace ZonartUsers.Areas.Admin.Controllers
 {
@@ -53,12 +54,7 @@ namespace ZonartUsers.Areas.Admin.Controllers
         }
 
 
-        public IActionResult Edit(int templateId)
-        {
-            // Logic here
-
-            return RedirectToAction(nameof(All));
-        }
+        
 
     }
 }

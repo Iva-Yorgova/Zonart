@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ZonartUsers.Data;
-
+using ZonartUsers.Infrastructure;
 using ZonartUsers.Models.Templates;
 
 namespace ZonartUsers.Controllers
@@ -73,6 +73,38 @@ namespace ZonartUsers.Controllers
 
             return View(template); 
         }
+
+
+        public IActionResult Edit(int id)
+        {
+            var template = this.data.Templates
+                .Where(t => t.Id == id)
+                .Select(t => new TemplateListingViewModel
+                {
+                    Name = t.Name,
+                    Price = t.Price,
+                    ImageUrl = t.ImageUrl, 
+                    Id = id
+                })
+                .FirstOrDefault();
+
+            return View(template);
+        }
+
+        //[HttpPost]
+        //public IActionResult Edit(int templateId, TemplateListingViewModel template)
+        //{
+        //    var userId = this.User.Id();
+        //
+        //    if (!User.IsAdmin())
+        //    {
+        //        return BadRequest("Credentials invalid!");
+        //    }
+        //
+        //
+        //
+        //    return View(template);
+        //}
 
     }
 }
