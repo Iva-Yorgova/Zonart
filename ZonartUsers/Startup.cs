@@ -10,6 +10,7 @@ using ZonartUsers.Data;
 using ZonartUsers.Data.Models;
 using ZonartUsers.Infrastructure;
 using ZonartUsers.Services.Statistics;
+using ZonartUsers.Services.Templates;
 
 namespace ZonartUsers
 {
@@ -46,6 +47,7 @@ namespace ZonartUsers
             });
 
             services.AddTransient<IStatisticsService, StatisticsService>();
+            services.AddTransient<ITemplateService, TemplateService>();
 
             services.AddResponseCaching();
         }

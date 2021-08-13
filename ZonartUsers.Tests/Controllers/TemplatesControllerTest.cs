@@ -10,6 +10,7 @@ using System.Linq;
 using ZonartUsers.Tests.Mocks;
 using ZonartUsers.Models.Templates;
 using System.Collections.Generic;
+using ZonartUsers.Services.Templates;
 
 namespace ZonartUsers.Tests.Controllers
 {
@@ -32,12 +33,13 @@ namespace ZonartUsers.Tests.Controllers
             // Arrange
             using var data = DatabaseMock.Instance;
             using var cache = MemoryCacheMock.GetMemoryCache(new List<TemplateListingViewModel>());
+            var service = new TemplateService(data);
 
             data.Templates.Add(new Template { Name = "test", Price = 100, Description = "some" });
             data.Templates.Add(new Template { Name = "test", Price = 50, Description = "some" });
             data.SaveChanges();
         
-            var controller = new TemplatesController(data, cache);
+            var controller = new TemplatesController(data, cache, service);
         
             // Act
             var result = controller.All();
@@ -62,11 +64,12 @@ namespace ZonartUsers.Tests.Controllers
             // Arrange
             using var data = DatabaseMock.Instance;
             using var cache = MemoryCacheMock.GetMemoryCache(null);
+            var service = new TemplateService(data);
 
             data.Templates.Add(new Template { Name = "test", Price = 100 });
             data.SaveChanges();
 
-            var controller = new TemplatesController(data, cache);
+            var controller = new TemplatesController(data, cache, service);
 
             // Act
             var result = controller.Details(id);

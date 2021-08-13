@@ -60,7 +60,7 @@ for details on configuring this project to bundle and minify static web assets. 
 
 /* Style the buttons that are used to open and close the accordion panel */
 .accordion {
-    background-color: #c1c1a4;
+    background-color: dimgray;
     color: white;
     cursor: pointer;
     padding: 18px;
