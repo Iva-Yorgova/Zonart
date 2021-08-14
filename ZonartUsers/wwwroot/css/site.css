@@ -2,6 +2,10 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 
+.my-projects {
+    letter-spacing: 2px;
+}
+
 .overlay-new {
     height: 100%;
     width: 0;
