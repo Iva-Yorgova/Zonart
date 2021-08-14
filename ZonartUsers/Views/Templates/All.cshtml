@@ -14,12 +14,25 @@
 @model List<TemplateListingViewModel>
 
 <div class="row mt-5 ml-5 mr-5" style="">
-    <div class="col-12">
+    <div class="col-12" style="padding-right: 20px; padding-left: 20px;">
         <h2 style="font-size:34px; text-align:center; padding-top:80px; letter-spacing:1px">All Templates</h2>
     </div>
+    @if (userIsAdmin)
+    {
+        <div class="container">
+            <div class="row-custom" style="padding-right: 20px; padding-left: 20px;">
+                <div class="offset-sm-1 col-sm-10 offset-lg-4 col-lg-4 offset-xl-4 col-xl-4 offset-md-4 col-md-4" style="padding-right: 20px; padding-left: 20px;">
+                    <div>
+                        <a asp-area="" asp-controller="Templates" asp-action="Add" asp-route-id="" class="details-button mt-lg-30 mt-30 btn btn-block spacing-lg text-white pt-1 pb-1" style="background-color:dimgray; border:2px solid dimgray">Add Template</a>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    }
 </div>
 
-    <div class="row mb-5 pb-5">
+    <div class="row mb-5 pb-5 pb-5 ml-4 mr-4" style="margin-bottom:50px">
         @foreach (var template in Model)
         {
             <div class="col-md-4" style="padding-left:30px">

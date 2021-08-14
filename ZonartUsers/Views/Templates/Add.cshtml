@@ -1,40 +1,51 @@
 ﻿@model AddTemplateModel
 
 @{
-    ViewBag.Title = "Add Template";
+    ViewData["Title"] = "Add Template";
 }
 
-<div class="row">
-    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6 mb-5">
-        <h2 class="heading-margin text-center">@ViewBag.Title</h2>
 
-        <form method="post">
-            <div class="form-group">
-                <label asp-for="Name"></label>
-                <input asp-for="Name" class="form-control" placeholder="...">
-                <span asp-validation-for="Name" class="small text-danger"></span>
+<div class="container">
+    <div class="row-custom" style="margin-top:120px">
+        <div class="offset-sm-1 col-sm-10 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6 offset-md-3 col-md-6">
+            <div class="text-center text-dark mb-5 pb-5" style="margin-bottom: 4rem">
+                <h1 class="heading-margin text-center">Add Template</h1>
             </div>
 
-            <div class="form-group">
-                <label asp-for="Description"></label>
-                <textarea asp-for="Description" rows="4" class="form-control" placeholder="This is ..."></textarea>
-                <span asp-validation-for="Description" class="small text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ImageUrl"></label>
-                <input asp-for="ImageUrl" class="form-control" placeholder="Your fine URL here...">
-                <span asp-validation-for="ImageUrl" class="small text-danger"></span>
-            </div>
+            <form method="post">
 
-            <div class="form-group">
-                <label asp-for="Price"></label>
-                <input asp-for="Price" class="form-control" placeholder="...">
-                <span asp-validation-for="Price" class="small text-danger"></span>
-            </div>
+                <div asp-validation-summary="All" class="text-danger"></div>
 
-            <input class="btn btn-primary mt-3" type="submit" value="Save" />
+                <div class="form-group">
+                    <label asp-for="Name">Name</label>
+                    <input asp-for="Name" class="form-control mb-0" placeholder="">
+                    <span asp-validation-for="Name" class="small text-danger"></span>
+                </div>
 
-        </form>
+                <div class="form-group">
+                    <label asp-for="ImageUrl"></label>
+                    <input asp-for="ImageUrl" class="form-control mb-0" placeholder="">
+                    <span asp-validation-for="ImageUrl" class="small text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Description"></label>
+                    <textarea asp-for="Description" rows="4" class="form-control mb-0" placeholder=""></textarea>
+                    <span asp-validation-for="Description" class="small text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Price"></label>
+                    <input asp-for="Price" class="form-control mb-0" placeholder="...">
+                    <span asp-validation-for="Price" class="small text-danger"></span>
+                </div>
+
+                <div>
+                    <input class="mt-lg-30 mt-30 col-lg-14 btn btn-block spacing-lg" type="submit" value="Add" style="margin-bottom: 100px" />
+                </div>
+
+            </form>
+        </div>
     </div>
 </div>
 

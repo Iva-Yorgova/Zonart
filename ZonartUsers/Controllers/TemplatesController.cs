@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using System.Linq;
+using Microsoft.AspNetCore.Razor.Language.Extensions;
 using ZonartUsers.Data;
+using ZonartUsers.Data.Models;
 using ZonartUsers.Infrastructure;
 using ZonartUsers.Models.Templates;
 using ZonartUsers.Services.Templates;
@@ -128,6 +130,52 @@ namespace ZonartUsers.Controllers
             TempData[GlobalMessageKey] = "Template was edited!";
 
             return RedirectToAction("All", "Templates");
+        }
+
+
+        [Authorize]
+        public IActionResult Add()
+        {
+            if (!User.IsAdmin())
+            {
+                return BadRequest("Credentials invalid!");
+            }
+
+            return View(new AddTemplateModel()
+            {
+            });
+        }
+
+
+        [HttpPost]
+        [Authorize]
+        public IActionResult Add(AddTemplateModel template)
+        {
+            if (!User.IsAdmin())
+            {
+                return BadRequest("Credentials invalid!");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(template);
+            }
+
+            var newTemplate = new Template
+            {
+                Name = template.Name,
+                Description = template.Description,
+                Price = template.Price,
+                ImageUrl = template.ImageUrl
+            };
+
+            this.data.Templates.Add(newTemplate);
+            this.data.SaveChanges();
+
+            TempData[GlobalMessageKey] = "You template was added!";
+
+            return RedirectToAction("All", "Templates");
+
         }
 
     }

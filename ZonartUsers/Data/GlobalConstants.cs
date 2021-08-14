@@ -9,5 +9,10 @@ namespace ZonartUsers.Data
         public const int EmailMaxLength = 50;
         public const int MessageMaxLength = 10000;
         public const int MessageMinLength = 10;
+
+        public const int TemplateNameMinLength = 3;
+        public const int TemplateNameMaxLength = 30;
+        public const int TemplateDescriptionMinLength = 10;
+        public const int TemplateDescriptionMaxLength = 200;
     }
 }
