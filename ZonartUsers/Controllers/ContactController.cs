@@ -32,18 +32,32 @@ namespace ZonartUsers.Controllers
                 return View(contact);
             }
 
-            var file = contact.FormFile;
-            var basePath = Path.Combine(Directory.GetCurrentDirectory() + "\\Files\\");
-            var filePath = Path.Combine(basePath, file.FileName);
-            
-            var contactData = new Contact
-            {
-                Name = contact.Name,
-                Email = contact.Email,
-                Message = contact.Message,
-                ImageUrl = filePath
-            };
+            var contactData = new Contact();
 
+            var file = contact.FormFile;
+
+            if (file != null)
+            {
+                var basePath = Path.Combine(Directory.GetCurrentDirectory() + "\\Files\\");
+                var filePath = Path.Combine(basePath, file.FileName);
+
+                contactData = new Contact
+                {
+                    Name = contact.Name,
+                    Email = contact.Email,
+                    Message = contact.Message,
+                    ImageUrl = filePath
+                };
+            }
+            else
+            {
+                contactData = new Contact
+                {
+                    Name = contact.Name,
+                    Email = contact.Email,
+                    Message = contact.Message
+                };
+            }
             this.data.Contacts.Add(contactData);
             this.data.SaveChanges();
 

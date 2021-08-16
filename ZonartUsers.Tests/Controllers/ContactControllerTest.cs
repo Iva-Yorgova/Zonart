@@ -5,6 +5,7 @@ using ZonartUsers.Data.Models;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Xunit;
+using ZonartUsers.Tests.Mocks;
 
 namespace ZonartUsers.Tests.Controller
 {
@@ -22,35 +23,35 @@ namespace ZonartUsers.Tests.Controller
                 .View();
         }
 
-       //[Theory]
-       //[InlineData("Name SomeFamilyName", "email@some.com", "Contact message goes //here.")]
-       //public void PostAddShouldReturnRedirectWithValidModel(string name, 
-       //    string email, string message)
-       //{
-       //    MyController<ContactController>
-       //        .Instance()
-       //        .Calling(c => c.Add(new AddContactModel
-       //        {
-       //            Name = name,
-       //            Email = email,
-       //            Message = message
-       //        }))
-       //        .ShouldHave()
-       //        .ActionAttributes(attributes => attributes
-       //        .RestrictingForHttpMethod(HttpMethod.Post))
-       //        .ValidModelState()
-       //        .Data(data => data
-       //        .WithSet<Contact>(contacts =>
-       //        {
-       //            contacts.Any(x =>
-       //            x.Name == name &&
-       //            x.Email == email &&
-       //            x.Message == message);
-       //        }))
-       //        .AndAlso()
-       //        .ShouldReturn()
-       //        .RedirectToAction("Confirm", "Contact");
-       //}
+        [Theory]
+        [InlineData("Name SomeFamilyName", "email@some.com", "Contact message goes here")]
+        public void PostAddShouldAddContactWhenSuccessful(string name,
+            string email, string message)
+        {
+             MyController<ContactController>
+                .Instance()
+                .Calling(c => c.Add(new AddContactModel
+                {
+                    Email = email,
+                    Name = name,
+                    Message = message,
+                    FormFile = null
+                }))
+                .ShouldHave()
+                .ActionAttributes(attributes => attributes
+                    .RestrictingForHttpMethod(HttpMethod.Post))
+                .ValidModelState()
+                .Data(data => data
+                    .WithSet<Contact>(contacts => contacts
+                        .Any(k =>
+                            k.Name == name &&
+                            k.Email == email && 
+                            k.Message == message && 
+                            k.ImageUrl == null)))
+                .AndAlso()
+                .ShouldReturn()
+                .RedirectToAction("Confirm", "Contact");
+        }
 
 
         [Fact]
@@ -68,11 +69,11 @@ namespace ZonartUsers.Tests.Controller
         public void PipelineTest()
         {
             MyMvc.Pipeline()
-                 .ShouldMap("/Contact/Add")
-                 .To<ContactController>(c => c.Add())
-                 .Which()
-                 .ShouldReturn()
-                 .View();
+                .ShouldMap("/Contact/Add")
+                .To<ContactController>(c => c.Add())
+                .Which()
+                .ShouldReturn()
+                .View();
         }
 
 
@@ -81,19 +82,20 @@ namespace ZonartUsers.Tests.Controller
         public void GetAddShouldBeMapped()
         {
             MyRouting.Configuration()
-                 .ShouldMap("/Contact/Add")
-                 .To<ContactController>(c => c.Add());
+                .ShouldMap("/Contact/Add")
+                .To<ContactController>(c => c.Add());
         }
 
         //Post Test
-       //[Fact]
-       //public void PostAddShouldBeMapped()
-       //{
-       //    MyRouting.Configuration()
-       //         .ShouldMap(request => request
-       //         .WithPath("/Contact/Add")
-       //         .WithMethod(HttpMethod.Post))
-       //         .To<ContactController>(c => c.Add(With.Any<AddContactModel>()));
-       //}
+        [Fact]
+        public void PostAddShouldBeMapped()
+        {
+            MyRouting.Configuration()
+                .ShouldMap(request => request
+                    .WithPath("/Contact/Add")
+                    .WithMethod(HttpMethod.Post))
+                .To<ContactController>(c => c.Add(With.Any<AddContactModel>()));
+        }
     }
+
 }
