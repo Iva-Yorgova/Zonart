@@ -84,7 +84,7 @@
                 <h1 class="title-contact" style="background-color: white">Hit us up, get a quick cost & time estimate.</h1>
             </div>
 
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
 
                 <div asp-validation-summary="All" class="text-danger"></div>
 
@@ -100,17 +100,37 @@
                     <span asp-validation-for="Email" class="small text-danger mt-2"></span>
                 </div>
 
+            <div class="form-group">
+                <label asp-for="Message">Tell us about your project</label>
+                <textarea asp-for="Message" rows="4" class="form-control mb-0" placeholder="">Tell us about your project</textarea>
+                <span asp-validation-for="Message" class="small text-danger"></span>
+            </div>
+
                 <div class="form-group">
-                    <label asp-for="Message">Tell us about your project</label>
-                    <textarea asp-for="Message" rows="4" class="form-control mb-0" placeholder="">Tell us about your project</textarea>
-                    <span asp-validation-for="Message" class="small text-danger"></span>
+                    <label asp-for="FormFile">Upload File</label>
+                    <input asp-for="FormFile" type="file" name="FormFile" id="FormFile" class="form-control mb-0">
+                </div>
+
+
+
+                <!--<div class="form-group">
+                    <label>Upload file</label>
+                    <input type="file" id="demo-file" />
                 </div>
 
                 <div>
-                    <input class="mt-lg-30 mt-30 col-lg-14 btn btn-block spacing-lg" type="submit" value="Submit" style="margin-bottom: 100px" />
-                </div>
+                    <label>Upload file</label>
+                    <div class="custom-file" style="margin-bottom: 30px">
+                        <input type="file" class="custom-file-input" id="customFile" name="files">
+                        <label class="custom-file-label" for="customFile">Select file</label>
+                    </div>
+                </div>-->
+
+
+                <input class="btn btn-block" type="submit" value="Submit" style="margin-bottom: 100px" />
 
             </form>
+
         </div>
     </div>
 </div>
@@ -134,5 +154,13 @@
     $(document).ready(function () {
         $(".active").removeClass("active");
         $("#contact").addClass("active");
+    });
+</script>
+
+<script>
+    // Add the following code if you want the name of the file appear on select
+    $(".custom-file-input").on("change", function() {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
     });
 </script>

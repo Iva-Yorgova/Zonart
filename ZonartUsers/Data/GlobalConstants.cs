@@ -14,5 +14,8 @@ namespace ZonartUsers.Data
         public const int TemplateNameMaxLength = 30;
         public const int TemplateDescriptionMinLength = 10;
         public const int TemplateDescriptionMaxLength = 200;
+
+        public const int FileTypeMaxLength = 100;
+        public const int FileNameMaxLength = 100;
     }
 }

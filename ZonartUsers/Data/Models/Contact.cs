@@ -21,5 +21,8 @@ namespace ZonartUsers.Data.Models
         [Required]
         [MaxLength(MessageMaxLength)]
         public string Message { get; set; }
+
+        public string ImageUrl { get; set; }
+
     }
 }

@@ -2,6 +2,65 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 
+
+#customFile .custom-file-control:lang(en)::after {
+    content: "Select file...";
+}
+
+#customFile .custom-file-control:lang(en)::before {
+    content: "Click me";
+}
+
+
+
+.custom-file-label {
+    border-radius: 0;
+    font-size: 14px;
+}
+
+.custom-file-input :hover {
+    color: orangered;
+}
+
+
+#demo-file {
+    border: 1px solid lightgray;
+    width: 100%;
+    font-family: Jost;
+}
+
+    #demo-file::file-selector-button {
+        border: 1px solid lightgray;
+        color: white;
+        padding: 10px;
+        border-radius: 0px;
+        background-color: lightgray;
+        font-family: Jost;
+        font-variant-caps: all-petite-caps;
+
+    }
+
+#demo-file::file-selector-button:hover {
+    background-color: orangered;
+    color: white;
+    font-family: Jost;
+}
+
+#demo-file::-webkit-file-upload-button {
+    border: 1px solid #555555;
+    color: #555555;
+    padding: 8px;
+    border-radius: 0px;
+    background-color: #ffffff;
+}
+
+#demo-file::-webkit-file-upload-button:hover {
+    background-color: #e9e9e9;
+}
+
+
+
+
 .my-projects {
     letter-spacing: 2px;
 }

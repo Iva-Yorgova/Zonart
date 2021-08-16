@@ -25,6 +25,7 @@ namespace ZonartUsers
 
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddDbContext<ZonartUsersDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
