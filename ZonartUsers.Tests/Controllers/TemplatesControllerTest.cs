@@ -11,6 +11,7 @@ using ZonartUsers.Tests.Mocks;
 using ZonartUsers.Models.Templates;
 using System.Collections.Generic;
 using ZonartUsers.Services.Templates;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ZonartUsers.Tests.Controllers
 {
@@ -111,6 +112,30 @@ namespace ZonartUsers.Tests.Controllers
             var model = viewResult.Model;
 
             Assert.IsType<TemplateListingViewModel>(model);
+
+        }
+
+        [Theory]
+        [InlineData(1, "Name", "Description")]
+        public void PostEditShouldReturnRedirectToActionAndEditTemplate(int id, string name, string description)
+        {
+            // Arrange
+            using var data = DatabaseMock.Instance;
+            using var cache = MemoryCacheMock.GetMemoryCache(null);
+            var service = new TemplateService(data);
+
+            data.Templates.Add(new Template { Name = "test", Description = "Some" });
+            data.SaveChanges();
+            
+            var controller = new TemplatesController(data, cache, service);
+
+            // Act
+            var result = controller.Edit(new TemplateListingViewModel {Id = id, Name = name, Description = description});
+
+            // Assert
+            Assert.NotNull(result);
+            var viewResult = Assert.IsType<RedirectToActionResult>(result);
+
 
         }
     }

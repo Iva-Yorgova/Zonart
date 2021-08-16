@@ -105,10 +105,10 @@ namespace ZonartUsers.Controllers
         [Authorize]
         public IActionResult Edit(TemplateListingViewModel template)
         {
-            if (!User.IsAdmin())
-            {
-                return BadRequest("Credentials invalid!");
-            }
+            //if (!User.IsAdmin())
+            //{
+            //    return BadRequest("Credentials invalid!");
+            //}
 
             if (!ModelState.IsValid)
             {
@@ -127,7 +127,7 @@ namespace ZonartUsers.Controllers
                 return BadRequest();
             }
 
-            TempData[GlobalMessageKey] = "Template was edited!";
+            //TempData[GlobalMessageKey] = "Template was edited!";
 
             return RedirectToAction("All", "Templates");
         }
