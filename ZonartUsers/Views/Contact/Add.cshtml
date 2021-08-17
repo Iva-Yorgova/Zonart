@@ -119,12 +119,12 @@
                 </div>-->
 
 
-                    <div class="form-group" id="yourBtn" onclick="getFile()">upload a file</div>
-                    <!-- this is your file input tag, so i hide it!-->
-                    <!-- i used the onchange event to fire the form submission-->
-                    <div style='height: 0px; width: 0px; overflow: hidden;'>
-                        <input asp-for="FormFile" type="file" name="FormFile" id="upfile" value="upload" onchange="sub(this)" />
-                    </div>
+                <div class="form-group" id="yourBtn" onclick="getFile()">upload a file</div>
+                <!-- this is your file input tag, so i hide it!-->
+                <!-- i used the onchange event to fire the form submission-->
+                <div style='height: 0px; width: 0px; overflow: hidden;'>
+                    <input asp-for="FormFile" type="file" name="FormFile" id="upfile" value="upload" onchange="sub(this)" />
+                </div>
                 <!-- here you can have file submit button or you can write a simple script to upload the file automatically-->
                 <!-- <input type="submit" value='submit' > -->
 
@@ -143,6 +143,15 @@
             </form>
 
         </div>
+    </div>
+</div>
+
+<div class="dropdown">
+    <button class="dropbtn">Dropdown</button>
+    <div class="dropdown-content">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
     </div>
 </div>
 
