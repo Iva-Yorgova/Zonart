@@ -2,6 +2,32 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 
+#yourBtn {
+    font-family: Jost;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    text-align: center;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 0;
+    color: black;
+    font-weight: 500;
+    font-variant-caps: all-petite-caps;
+    letter-spacing: 2px;
+    border: 2px solid lightgrey;
+}
+
+#yourBtn :hover {
+    background-color: orangered;
+    color: white;
+}
+
+
+
+
 
 #customFile .custom-file-control:lang(en)::after {
     content: "Select file...";
@@ -27,12 +53,14 @@ for details on configuring this project to bundle and minify static web assets. 
     border: 1px solid lightgray;
     width: 100%;
     font-family: Jost;
+    color: black;
+    letter-spacing: 2px;
 }
 
     #demo-file::file-selector-button {
         border: 1px solid lightgray;
-        color: white;
-        padding: 10px;
+        color: black;
+        padding: 16px;
         border-radius: 0px;
         background-color: lightgray;
         font-family: Jost;
@@ -49,13 +77,13 @@ for details on configuring this project to bundle and minify static web assets. 
 #demo-file::-webkit-file-upload-button {
     border: 1px solid #555555;
     color: #555555;
-    padding: 8px;
+    padding: 20px;
     border-radius: 0px;
     background-color: #ffffff;
 }
 
 #demo-file::-webkit-file-upload-button:hover {
-    background-color: #e9e9e9;
+    background-color: gray;
 }
 
 
