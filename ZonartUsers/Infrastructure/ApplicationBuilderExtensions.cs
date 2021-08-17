@@ -60,7 +60,7 @@ namespace ZonartUsers.Infrastructure
 
             data.Questions.AddRange(new[]
             {
-            new Question { Text = "Can you make me a logo?", Answer = "100% Yes! Everything we do have unlimited revisions until you are 100% happy with the design. We do logo design, business card design, flyer design, brochure design, stationary, banners and much more as we help you build your brand"},
+            new Question { Text = "Can you make me a logo?", Answer = "100% Yes! We do logo design, business card design, flyer design, brochure design, stationary, banners and much more as we help you build your brand. Everything we do have unlimited revisions until you are 100% happy with the design."},
             new Question { Text = "Do you do small projects?", Answer = "Yes! We are happy to work on small projects; anything from minor edits to a Web site to altering a graphic or logo. Smaller projects are often hourly rated. Contact us to discuss your small project."},
             new Question { Text = "Will I have a say in the graphic design process?", Answer = "Definitely, Our goal is to satisfy you and your input is very important to us. You can give us any idea that you like and we will be happy to emulate and still come up with a design that will be consistent and will represent your whole brand."},
             new Question { Text = "Can you help my current site look more professional?", Answer = "Yes. Give us your requirements and we have experienced expertise to help you give a new professional look that really whistles!"},

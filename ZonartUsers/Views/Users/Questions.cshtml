@@ -19,6 +19,8 @@
 
 
 <div class="row mt-5 mb-5 ml-5 mr-5" style="margin-bottom: 100px">
+    
+
 
     <div class="col-12">
         <h2 style="font-size: 34px; text-align: center; padding-top: 100px; padding-bottom: 40px">Frequently Asked Questions</h2>
@@ -30,7 +32,22 @@
             <button class="accordion mb-2">@question.Text</button>
             <div class="panel mt-4 mb-5">
                 <p>@question.Answer</p>
+
+                @if (userIsAdmin)
+                {
+                    <div class="row" style="margin-right:0; margin-left:0">
+                        <div class="col" style="padding-right:0; padding-left:0">
+                            <a asp-area="" asp-controller="Users" asp-action="EditQuestion" asp-route-id="@question.Id" class="details-button mt-lg-30 mt-30 btn btn-block spacing-lg text-white pt-1 pb-1" style="background-color:dimgray; border:none; width:80%">Edit</a>
+                        </div>
+
+                        <div class="col" style="padding-right:0; padding-left:0">
+                            <a asp-controller="Users" asp-action="Delete" asp-route-id="@question.Id" class="details-button mt-lg-30 mt-30 btn btn-block spacing-lg text-white pt-1 pb-1" style="background-color:orangered; border:none; width:100%">Delete</a>
+                        </div>
+
+                    </div>
+                }
             </div>
+
         </div>
     }
 

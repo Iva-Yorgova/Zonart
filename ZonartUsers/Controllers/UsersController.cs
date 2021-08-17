@@ -125,7 +125,7 @@ namespace ZonartUsers.Controllers
 
 
         [Authorize(Roles = "Administrator")]
-        public IActionResult Edit()
+        public IActionResult EditQuestion()
         {
             // Logic here
             return View();
