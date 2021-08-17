@@ -124,11 +124,20 @@ namespace ZonartUsers.Controllers
         }
 
 
-        [Authorize(Roles = "Administrator")]
-        public IActionResult EditQuestion()
+        [Authorize]
+        public IActionResult EditQuestion(int id)
         {
-            // Logic here
-            return View();
+            var question = this.data.Questions
+                .Where(q => q.Id == id)
+                .Select(q => new EditQuestionModel
+                {
+                    Id = id,
+                    Text = q.Text,
+                    Answer = q.Answer
+                })
+                .FirstOrDefault();
+
+            return View(question);
         }
 
 
@@ -146,10 +155,11 @@ namespace ZonartUsers.Controllers
             if (latestQuestions == null)
             {
                 latestQuestions = this.data.Questions
-                .Select(t => new QuestionsListingViewModel
+                .Select(q => new QuestionsListingViewModel
                 {
-                    Text = t.Text,
-                    Answer = t.Answer
+                    Id = q.Id,
+                    Text = q.Text,
+                    Answer = q.Answer
                 })
                 .ToList();
 
