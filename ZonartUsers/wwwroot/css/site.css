@@ -1,5 +1,6 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */ac
+for details on configuring this project to bundle and minify static web assets. */
+
 
 #yourBtn {
     font-family: Jost;
@@ -12,17 +13,17 @@ for details on configuring this project to bundle and minify static web assets. 
     background-color: transparent;
     cursor: pointer;
     border-radius: 0;
-    color: black;
-    font-weight: 500;
+    color: dimgray;
+    font-weight: 700;
     font-variant-caps: all-petite-caps;
     letter-spacing: 2px;
     border: 2px solid lightgrey;
 }
 
-#yourBtn :hover {
-    background-color: orangered;
-    color: white;
-}
+    #yourBtn :hover {
+        background-color: orangered;
+        color: white;
+    }
 
 
 
