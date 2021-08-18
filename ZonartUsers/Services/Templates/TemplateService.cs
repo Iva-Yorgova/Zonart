@@ -21,8 +21,7 @@ namespace ZonartUsers.Services.Templates
            string imageUrl)
         {
             var templateData = this.data.Templates
-                .Where(t => t.Id == templateId)
-                .FirstOrDefault();
+                .FirstOrDefault(t => t.Id == templateId);
 
             if (templateData == null)
             {

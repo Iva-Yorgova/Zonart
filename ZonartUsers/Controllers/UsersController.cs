@@ -8,12 +8,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using ZonartUsers.Data;
 using ZonartUsers.Data.Models;
+using ZonartUsers.Infrastructure;
 using ZonartUsers.Models.Questions;
 using ZonartUsers.Models.Users;
+using ZonartUsers.Services.Questions;
 
 namespace ZonartUsers.Controllers
 {
-    using static WebConstants.Cache;
 
     public class UsersController : Controller
     {
@@ -21,16 +22,19 @@ namespace ZonartUsers.Controllers
         private readonly SignInManager<User> signInManager;
         private readonly ZonartUsersDbContext data;
         private readonly IMemoryCache cache;
+        private readonly IQuestionService service;
 
         public UsersController(UserManager<User> userManager, 
             SignInManager<User> signInManager, 
             ZonartUsersDbContext data, 
-            IMemoryCache cache)
+            IMemoryCache cache,
+            IQuestionService service)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.data = data;
             this.cache = cache;
+            this.service = service;
         }
 
 
@@ -124,53 +128,11 @@ namespace ZonartUsers.Controllers
         }
 
 
-        [Authorize]
-        public IActionResult EditQuestion(int id)
-        {
-            var question = this.data.Questions
-                .Where(q => q.Id == id)
-                .Select(q => new EditQuestionModel
-                {
-                    Id = id,
-                    Text = q.Text,
-                    Answer = q.Answer
-                })
-                .FirstOrDefault();
-
-            return View(question);
-        }
-
-
         public IActionResult Welcome(LoginUserModel user)
         {
             return View(user);
         }
 
-
-        //[ResponseCache(Duration = 3600)]
-        public IActionResult Questions()
-        {
-            var latestQuestions = this.cache.Get<List<QuestionsListingViewModel>>(QuestionsCacheKey);
-
-            if (latestQuestions == null)
-            {
-                latestQuestions = this.data.Questions
-                .Select(q => new QuestionsListingViewModel
-                {
-                    Id = q.Id,
-                    Text = q.Text,
-                    Answer = q.Answer
-                })
-                .ToList();
-
-                var cacheOptions = new MemoryCacheEntryOptions()
-                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(60));
-
-                this.cache.Set(QuestionsCacheKey, latestQuestions, cacheOptions);
-            }
-
-            return View(latestQuestions);
-        }
 
     }
 }

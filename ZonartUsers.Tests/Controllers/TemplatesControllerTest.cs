@@ -112,8 +112,8 @@ namespace ZonartUsers.Tests.Controllers
             var model = viewResult.Model;
 
             Assert.IsType<TemplateListingViewModel>(model);
-
         }
+
 
         [Theory]
         [InlineData(1, "Name", "Description")]

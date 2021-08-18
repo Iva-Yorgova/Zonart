@@ -7,7 +7,8 @@ using Xunit;
 using ZonartUsers.Controllers;
 using ZonartUsers.Data.Models;
 using ZonartUsers.Models.Users;
-
+using ZonartUsers.Services.Questions;
+using ZonartUsers.Tests.Mocks;
 
 namespace ZonartUsers.Tests.Controllers
 {
@@ -54,7 +55,7 @@ namespace ZonartUsers.Tests.Controllers
         [Fact]
         public void LoginShouldReturnViewWithCorrectModel()
         {
-                
+
             MyController<UsersController>
                 .Instance()
                 .Calling(c => c.Login())
@@ -73,17 +74,7 @@ namespace ZonartUsers.Tests.Controllers
                     .To<HomeController>(c => c.Index()));
         }
 
-
-
-        [Fact]
-        public void QuestionsShouldReturnViewWithCorrectModel()
-        {
-            MyController<UsersController>
-                .Instance()
-                .Calling(c => c.Questions())
-                .ShouldReturn()
-                .View();
-        }
-
     }
+
+
 }
