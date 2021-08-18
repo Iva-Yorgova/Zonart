@@ -7,6 +7,8 @@ namespace ZonartUsers.Data
         public const int NameMaxLength = 50;
         public const int EmailMinLength = 10;
         public const int EmailMaxLength = 50;
+        public const int PassMinLength = 6;
+        public const int PassMaxLength = 50;
         public const int MessageMaxLength = 10000;
         public const int MessageMinLength = 10;
 

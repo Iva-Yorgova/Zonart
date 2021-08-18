@@ -116,21 +116,21 @@ namespace ZonartUsers.Tests.Controllers
 
 
         [Theory]
-        [InlineData(1, "Name", "Description")]
-        public void PostEditShouldReturnRedirectToActionAndEditTemplate(int id, string name, string description)
+        [InlineData(1, "Name", "Description", 40)]
+        public void PostEditShouldReturnRedirectToActionAndEditTemplate(int id, string name, string description, double price)
         {
             // Arrange
             using var data = DatabaseMock.Instance;
             using var cache = MemoryCacheMock.GetMemoryCache(null);
             var service = new TemplateService(data);
 
-            data.Templates.Add(new Template { Name = "test", Description = "Some" });
+            data.Templates.Add(new Template { Name = "test", Price = 50, Description = "some" });
             data.SaveChanges();
             
             var controller = new TemplatesController(data, cache, service);
 
             // Act
-            var result = controller.Edit(new TemplateListingViewModel {Id = id, Name = name, Description = description});
+            var result = controller.Edit(new TemplateListingViewModel {Id = id, Name = name, Description = description, Price = price});
 
             // Assert
             Assert.NotNull(result);

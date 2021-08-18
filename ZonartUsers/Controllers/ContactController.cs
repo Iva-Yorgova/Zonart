@@ -33,7 +33,7 @@ namespace ZonartUsers.Controllers
                 return View(contact);
             }
 
-            var contactData = new Contact();
+            Contact contactData;
 
             var file = contact.FormFile;
 

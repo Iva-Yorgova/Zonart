@@ -159,7 +159,7 @@ namespace ZonartUsers.Controllers
 
             this.service.Add(template.Name, template.Price, template.Description, template.ImageUrl);
 
-            TempData[GlobalMessageKey] = "Your template was added!";
+            TempData[GlobalMessageKey] = "Template was added!";
 
             return RedirectToAction("All", "Templates");
 

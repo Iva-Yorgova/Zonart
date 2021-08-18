@@ -2,6 +2,52 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 
+#mySidenav a {
+    position: fixed;
+    right: -100px;
+    transition: 0.3s;
+    padding: 10px;
+    width: 130px;
+    text-decoration: none;
+    font-size: 14px;
+    color: black;
+    border-radius: 0;
+    margin-top: 124px;
+    text-align: right;
+    border-left: 2px solid orangered;
+    border-top: 2px solid orangered;
+    border-bottom: 2px solid orangered;
+    background-color: transparent;
+    font-family: Jost;
+}
+
+    #mySidenav a:hover {
+        right: 0;
+    }
+
+#coming1 {
+    top: 20px;
+    background-color: orangered;
+}
+
+#coming2 {
+    top: 80px;
+    background-color: orangered;
+}
+
+#coming3 {
+    top: 140px;
+    background-color: orangered;
+}
+
+#coming4 {
+    top: 200px;
+    background-color: orangered;
+}
+
+
+
+
 .dropbtn {
     background-color: transparent;
     color: white;

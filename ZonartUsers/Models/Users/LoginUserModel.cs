@@ -5,6 +5,7 @@ namespace ZonartUsers.Models.Users
     public class LoginUserModel
     {
         [Required]
+        [EmailAddress]
         public string Email { get; set; }
 
         [Required]
