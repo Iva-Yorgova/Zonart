@@ -9,6 +9,7 @@ using ZonartUsers.Models.Contacts;
 
 namespace ZonartUsers.Controllers
 {
+    using static WebConstants;
     public class ContactController : Controller
     {
         private readonly ZonartUsersDbContext data;
@@ -60,6 +61,8 @@ namespace ZonartUsers.Controllers
             }
             this.data.Contacts.Add(contactData);
             this.data.SaveChanges();
+
+            TempData[GlobalMessageKey] = "Your contact was recieved!";
 
             return RedirectToAction("Confirm", "Contact");
         }

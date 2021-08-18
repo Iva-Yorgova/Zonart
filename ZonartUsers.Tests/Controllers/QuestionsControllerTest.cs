@@ -6,6 +6,7 @@ using System.Linq;
 using Xunit;
 using ZonartUsers.Controllers;
 using ZonartUsers.Data.Models;
+using ZonartUsers.Models.Questions;
 using ZonartUsers.Models.Users;
 using ZonartUsers.Services.Questions;
 using ZonartUsers.Tests.Mocks;
@@ -22,6 +23,44 @@ namespace ZonartUsers.Tests.Controllers
                 .Calling(c => c.All())
                 .ShouldReturn()
                 .View();
+        }
+
+        [Fact]
+        public void GetAddShouldReturnViewWithCorrectModel()
+        {
+            MyController<QuestionsController>
+                .Instance()
+                .Calling(c => c.Add())
+                .ShouldHave()
+                .ActionAttributes(attribute => attribute.RestrictingForAuthorizedRequests())
+                .AndAlso()
+                .ShouldReturn()
+                .View(new AddQuestionModel());
+        }
+
+        [Fact]
+        public void AddShouldReturnViewWithCorrectModel()
+        {
+            // Arrange
+            using var data = DatabaseMock.Instance;
+            using var cache = MemoryCacheMock.GetMemoryCache(null);
+            var service = new QuestionService(data);
+
+            data.Questions.Add(new Question { Text = "New Question?", Answer = "New Answer." });
+            data.SaveChanges();
+
+            var controller = new QuestionsController(data, cache, service);
+
+            // Act
+            var result = controller.Add();
+
+            // Assert
+            Assert.NotNull(result);
+            var viewResult = Assert.IsType<ViewResult>(result);
+
+            var model = viewResult.Model;
+
+            Assert.IsType<AddQuestionModel>(model);
         }
 
         [Theory]

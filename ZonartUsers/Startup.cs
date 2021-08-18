@@ -47,7 +47,8 @@ namespace ZonartUsers
             services.AddControllersWithViews(options =>
             {
                 options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
-            });
+            })
+                .AddCookieTempDataProvider();
 
             services.AddTransient<IStatisticsService, StatisticsService>();
             services.AddTransient<ITemplateService, TemplateService>();
@@ -80,6 +81,8 @@ namespace ZonartUsers
             app.UseAuthorization();
 
             app.UseResponseCaching();
+
+            app.UseCookiePolicy();
 
             app.UseEndpoints(endpoints =>
             {

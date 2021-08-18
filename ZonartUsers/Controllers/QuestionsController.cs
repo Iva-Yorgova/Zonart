@@ -14,6 +14,8 @@ using ZonartUsers.Services.Questions;
 namespace ZonartUsers.Controllers
 {
     using static WebConstants.Cache;
+    using static WebConstants;
+
     public class QuestionsController : Controller
     {
         private readonly ZonartUsersDbContext data;
@@ -55,10 +57,10 @@ namespace ZonartUsers.Controllers
         [Authorize]
         public IActionResult Add()
         {
-            if (!User.IsAdmin())
-            {
-                return BadRequest("Credentials invalid!");
-            }
+            //if (!User.IsAdmin())
+            //{
+            //    return BadRequest("Credentials invalid!");
+            //}
 
             return View(new AddQuestionModel());
         }
@@ -106,7 +108,7 @@ namespace ZonartUsers.Controllers
                 return BadRequest();
             }
 
-            //TempData[GlobalMessageKey] = "Question was edited!";
+            TempData[GlobalMessageKey] = "Question was edited!";
 
             return RedirectToAction("All", "Questions");
         }
@@ -127,7 +129,7 @@ namespace ZonartUsers.Controllers
                 return BadRequest();
             }
 
-            //TempData[GlobalMessageKey] = "Question was deleted!";
+            TempData[GlobalMessageKey] = "Question was deleted!";
 
             return RedirectToAction("All", "Questions");
         }

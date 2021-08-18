@@ -2,9 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using System.Linq;
-using Microsoft.AspNetCore.Razor.Language.Extensions;
 using ZonartUsers.Data;
-using ZonartUsers.Data.Models;
 using ZonartUsers.Infrastructure;
 using ZonartUsers.Models.Templates;
 using ZonartUsers.Services.Templates;
@@ -127,7 +125,7 @@ namespace ZonartUsers.Controllers
                 return BadRequest();
             }
 
-            //TempData[GlobalMessageKey] = "Template was edited!";
+            TempData[GlobalMessageKey] = "Template was edited!";
 
             return RedirectToAction("All", "Templates");
         }

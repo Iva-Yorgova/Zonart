@@ -134,9 +134,7 @@ namespace ZonartUsers.Tests.Controllers
 
             // Assert
             Assert.NotNull(result);
-            var viewResult = Assert.IsType<RedirectToActionResult>(result);
-
-
+            Assert.IsType<RedirectToActionResult>(result);
         }
     }
 }
