@@ -10,5 +10,14 @@ namespace ZonartUsers.Services.Templates
            double price,
            string description,
            string imageUrl);
+
+        void Add(
+            string name,
+            double price,
+            string description,
+            string imageUrl);
+
+        bool Delete(
+            int templateId);
     }
 }

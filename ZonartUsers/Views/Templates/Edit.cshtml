@@ -9,13 +9,13 @@
 
 @model TemplateListingViewModel
 
-<div class="row">
-    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6" style="margin-bottom:80px">
-        <div class="row mt-5 ml-5 mr-5" style="">
+<div class="container mb-5">
+    <div class="row-custom">
+        <div class="offset-sm-1 col-sm-10 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6 offset-md-3 col-md-6" style="margin-bottom:80px">
             <div class="col-12">
-                <h2 style="font-size:34px; text-align:center; padding-top:80px; letter-spacing:1px">Edit Template</h2>
+                <h2 style="font-size:34px; text-align:center; padding-top:100px; letter-spacing:1px">Edit Template</h2>
             </div>
-        </div>
+
 
 
         <form method="post">
@@ -44,10 +44,17 @@
                 <span asp-validation-for="ImageUrl" class="small text-danger"></span>
             </div>
 
-            <input class="btn btn-primary mt-3" type="submit" value="Save" />
+            <input class="btn btn-block" type="submit" value="Save" />
         </form>
     </div>
+</div>
 </div>
 
 
 
+<script>
+    $(document).ready(function () {
+        $(".active").removeClass("active");
+        $("#templates").addClass("active");
+    });
+</script>

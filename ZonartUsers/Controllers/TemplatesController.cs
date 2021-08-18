@@ -141,9 +141,7 @@ namespace ZonartUsers.Controllers
                 return BadRequest("Credentials invalid!");
             }
 
-            return View(new AddTemplateModel()
-            {
-            });
+            return View(new AddTemplateModel());
         }
 
 
@@ -161,18 +159,31 @@ namespace ZonartUsers.Controllers
                 return View(template);
             }
 
-            var newTemplate = new Template
+            this.service.Add(template.Name, template.Price, template.Description, template.ImageUrl);
+
+            TempData[GlobalMessageKey] = "Your template was added!";
+
+            return RedirectToAction("All", "Templates");
+
+        }
+
+        [HttpPost]
+        [Authorize]
+        public IActionResult Delete(int templateId)
+        {
+            if (!User.IsAdmin())
             {
-                Name = template.Name,
-                Description = template.Description,
-                Price = template.Price,
-                ImageUrl = template.ImageUrl
-            };
+                return BadRequest("Credentials invalid!");
+            }
 
-            this.data.Templates.Add(newTemplate);
-            this.data.SaveChanges();
+            var deleted = this.service.Delete(templateId);
 
-            TempData[GlobalMessageKey] = "You template was added!";
+            if (!deleted)
+            {
+                return BadRequest();
+            }
+
+            TempData[GlobalMessageKey] = "The template was deleted!";
 
             return RedirectToAction("All", "Templates");
 
