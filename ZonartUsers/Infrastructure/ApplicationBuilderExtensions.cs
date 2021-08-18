@@ -1,17 +1,16 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using System;
+﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
 using ZonartUsers.Data;
 using ZonartUsers.Data.Models;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace ZonartUsers.Infrastructure
 {
     using static WebConstants;
-
     public static class ApplicationBuilderExtensions
     {
         public static IApplicationBuilder PrepareDatabase(
@@ -103,11 +102,8 @@ namespace ZonartUsers.Infrastructure
                 await userManager.AddToRoleAsync(user, role.Name);
             })
             .GetAwaiter()
-            .GetResult();
-            
+            .GetResult();           
         }
-
-
     }
 }
 

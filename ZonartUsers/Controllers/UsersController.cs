@@ -1,21 +1,16 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Memory;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using ZonartUsers.Data;
 using ZonartUsers.Data.Models;
-using ZonartUsers.Infrastructure;
-using ZonartUsers.Models.Questions;
 using ZonartUsers.Models.Users;
 using ZonartUsers.Services.Questions;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace ZonartUsers.Controllers
 {
-
     public class UsersController : Controller
     {
         private readonly UserManager<User> userManager;
@@ -37,12 +32,10 @@ namespace ZonartUsers.Controllers
             this.service = service;
         }
 
-
         public IActionResult Register()
         {
             return View();
         }
-
 
         [HttpPost]
         public async Task<IActionResult> Register(RegisterUserModel user)
@@ -77,12 +70,10 @@ namespace ZonartUsers.Controllers
             return View(user);
         }
 
-
         public IActionResult Login()
         {
             return View();
         }
-
 
         [HttpPost]
         public async Task<IActionResult> Login(LoginUserModel user)
@@ -110,13 +101,11 @@ namespace ZonartUsers.Controllers
             }
         }
 
-
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
-
 
         [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> ChangePassword()
@@ -127,12 +116,10 @@ namespace ZonartUsers.Controllers
             return View();
         }
 
-
         public IActionResult Welcome(LoginUserModel user)
         {
             return View(user);
         }
-
 
     }
 }

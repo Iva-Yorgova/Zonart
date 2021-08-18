@@ -4,7 +4,6 @@ using ZonartUsers.Data;
 using ZonartUsers.Data.Models;
 using ZonartUsers.Models.Contacts;
 
-
 namespace ZonartUsers.Controllers
 {
     using static WebConstants;
@@ -22,6 +21,7 @@ namespace ZonartUsers.Controllers
         {
             return View();
         }
+
 
         [HttpPost]
         public IActionResult Add(AddContactModel contact)

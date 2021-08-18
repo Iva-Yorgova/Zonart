@@ -3,6 +3,7 @@
 @inject UserManager<User> UserManager
 
 <ul class="navbar-nav">
+
 @if (SignInManager.IsSignedIn(User))
 {
     <li class="nav-item">
@@ -15,14 +16,13 @@
     </li>
 }
 else
-{
-    
+{    
     <li class="part-view">
         <a style="font-weight:200" asp-area="Identity" asp-page="/Account/Register">Register</a>
     </li>
     <li class="part-view">
         <a style="font-weight:200" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>
-     
+    </li>     
 }
+
 </ul>

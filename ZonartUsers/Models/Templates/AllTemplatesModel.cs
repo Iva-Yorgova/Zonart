@@ -4,8 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace ZonartUsers.Models.Templates
 {
     public class AllTemplatesModel
-    {
-    
+    {  
         public const int TemplatesPerPage = 10;
 
         public string Category { get; set; }

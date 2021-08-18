@@ -6,7 +6,6 @@ using System.Linq;
 using ZonartUsers.Data;
 using ZonartUsers.Models.Templates; 
 
-
 namespace ZonartUsers.Areas.Admin.Controllers
 {
     using static WebConstants.Cache;
@@ -25,6 +24,7 @@ namespace ZonartUsers.Areas.Admin.Controllers
         {
             return View();
         }
+
 
         //[ResponseCache(Duration = 3600)]
         public IActionResult All()
@@ -51,10 +51,7 @@ namespace ZonartUsers.Areas.Admin.Controllers
             }
 
             return View(latestTemplates);
-        }
-
-
-        
+        }       
 
     }
 }

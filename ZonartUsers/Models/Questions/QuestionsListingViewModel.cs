@@ -1,5 +1,4 @@
-﻿
-namespace ZonartUsers.Models.Questions
+﻿namespace ZonartUsers.Models.Questions
 {
     public class QuestionsListingViewModel
     {

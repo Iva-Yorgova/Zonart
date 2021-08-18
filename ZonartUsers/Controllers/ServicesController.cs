@@ -27,6 +27,5 @@ namespace ZonartUsers.Controllers
             });
         }
 
-
     }
 }

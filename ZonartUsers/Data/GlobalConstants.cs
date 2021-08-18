@@ -1,5 +1,4 @@
-﻿
-namespace ZonartUsers.Data
+﻿namespace ZonartUsers.Data
 {
     public class GlobalConstants
     {

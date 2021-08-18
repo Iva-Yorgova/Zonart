@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using System.Linq;
+﻿using System.Linq;
 using ZonartUsers.Data;
 using ZonartUsers.Data.Models;
 using ZonartUsers.Models.Orders;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Zonart.Controllers
 {
@@ -58,11 +58,11 @@ namespace Zonart.Controllers
             return RedirectToAction("Confirm", "Orders");
         }
 
+
         public IActionResult Confirm()
         {
             return View();
         }
-
 
     }
 }

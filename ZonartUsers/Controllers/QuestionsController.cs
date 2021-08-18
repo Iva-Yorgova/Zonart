@@ -1,14 +1,14 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Memory;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using ZonartUsers.Data;
 using ZonartUsers.Infrastructure;
 using ZonartUsers.Models.Questions;
 using ZonartUsers.Models.Users;
 using ZonartUsers.Services.Questions;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace ZonartUsers.Controllers
 {
@@ -52,6 +52,7 @@ namespace ZonartUsers.Controllers
             return View(latestQuestions);
         }
 
+
         [Authorize]
         public IActionResult Add()
         {
@@ -62,6 +63,7 @@ namespace ZonartUsers.Controllers
 
             return View(new AddQuestionModel());
         }
+
 
         [Authorize]
         [HttpPost]
@@ -130,6 +132,7 @@ namespace ZonartUsers.Controllers
 
             return RedirectToAction("All", "Questions");
         }
+
 
         [Authorize]
         [HttpPost]

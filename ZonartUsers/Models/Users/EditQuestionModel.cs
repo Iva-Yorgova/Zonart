@@ -1,6 +1,4 @@
-﻿
-
-namespace ZonartUsers.Models.Users
+﻿namespace ZonartUsers.Models.Users
 {
     public class EditQuestionModel
     {

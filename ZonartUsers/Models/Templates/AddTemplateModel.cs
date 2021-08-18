@@ -1,13 +1,10 @@
-﻿
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ZonartUsers.Models.Templates
 {
     using static Data.GlobalConstants;
-
     public class AddTemplateModel
     {
-
         [Required]
         [StringLength(TemplateNameMaxLength, MinimumLength = TemplateNameMinLength)]
         public string Name { get; set; }
@@ -22,6 +19,5 @@ namespace ZonartUsers.Models.Templates
         [Required]
         [Display(Name = "Image URL")]
         public string ImageUrl { get; set; }
-
     }
 }

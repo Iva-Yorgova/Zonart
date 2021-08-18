@@ -1,5 +1,4 @@
-﻿
-namespace ZonartUsers.Areas.Admin
+﻿namespace ZonartUsers.Areas.Admin
 {
     public class AdminConstants
     {

@@ -1,5 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 
 namespace ZonartUsers.Models.Contacts
@@ -24,7 +23,5 @@ namespace ZonartUsers.Models.Contacts
         public string Message { get; set; }
 
         public IFormFile FormFile { get; set; }
-
-
     }
 }

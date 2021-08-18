@@ -1,6 +1,4 @@
-﻿
-
-namespace ZonartUsers.Models.Templates
+﻿namespace ZonartUsers.Models.Templates
 {
     public class TemplateLayoutModel
     {

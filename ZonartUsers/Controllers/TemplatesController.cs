@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Memory;
-using System.Linq;
+﻿using System.Linq;
 using ZonartUsers.Data;
 using ZonartUsers.Infrastructure;
 using ZonartUsers.Models.Templates;
 using ZonartUsers.Services.Templates;
-
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace ZonartUsers.Controllers
 {

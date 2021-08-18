@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ZonartUsers.Data;
 
-
 namespace ZonartUsers.Controllers
 {
     public class ProjectsController : Controller

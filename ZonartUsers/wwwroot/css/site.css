@@ -306,11 +306,6 @@ button.accordion::after {
 
 
 
-
-
-
-
-
 * {
     box-sizing: border-box
 }
@@ -552,64 +547,6 @@ body {
     padding-left: 20px;
     padding-right: 20px;
 }
-
-
-
-
-
-
-
-/*slide in from bottom boxes
-section {
-    background: #eee;
-    width: 1000px;
-    margin: 0 auto;
-    overflow: hidden;
-}
-
-.module {
-    background: white;
-    float: left;
-    margin: 10px;
-    width: 300px;
-    float: left;
-}
-
-
-.come-in {
-    -webkit-transform: translateY(150px);
-    -webkit-animation: come-in 0.8s ease forwards;
-    -moz-transform: translateY(150px);
-    -moz-animation: come-in 0.8s ease forwards;
-    visibility:hidden;
-}
-
-    .come-in:nth-child(odd) {
-        -webkit-animation-duration: 0.6s;
-        -moz-animation-duration: 0.6s;
-    }
-
-.already-visible {
-    -webkit-transform: translateY(0);
-    -webkit-animation: none;
-    -moz-transform: translateY(0);
-    -moz-animation: none;
-}
-
-@-webkit-keyframes come-in {
-    to {
-        -webkit-transform: translateY(0);
-    }
-}
-
-@-moz-keyframes come-in {
-    to {
-        -moz-transform: translateY(0);
-    }
-}*/
-
-
-
 
 
 
@@ -2663,11 +2600,6 @@ input[type="checkbox"]:focus {
 
 
 
-
-
-
-
-    
 
 
 
