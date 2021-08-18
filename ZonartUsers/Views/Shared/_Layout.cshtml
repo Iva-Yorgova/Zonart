@@ -147,7 +147,7 @@
                     <!--<a style="font-weight:100" asp-area="" asp-controller="Users" asp-action="Welcome" id="welcome">@User.Identity.Name</a>-->
                     if (userIsAdmin)
                     {
-                        <a class="admin nav-right" style="float:right; font-weight: 100; width: 57px; height: 50px" asp-area="Admin" asp-controller="Admin" asp-action="Welcome" id="admin" title="Admin">
+                        <a class="admin nav-right" style="float:right; font-weight: 100; width: 57px; height: 50px" asp-area="" asp-controller="Users" asp-action="WelcomeAdmin" id="admin" title="Admin">
                             <img class="admin" alt="Admin" />
                         </a>
                     }

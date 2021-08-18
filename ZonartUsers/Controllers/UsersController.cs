@@ -121,5 +121,10 @@ namespace ZonartUsers.Controllers
             return View(user);
         }
 
+        public IActionResult WelcomeAdmin(LoginUserModel user)
+        {
+            return View(user);
+        }
+
     }
 }
