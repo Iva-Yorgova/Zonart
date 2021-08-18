@@ -1,5 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using System;
@@ -15,7 +14,6 @@ namespace ZonartUsers.Controllers
 {
     using static WebConstants.Cache;
     using static WebConstants;
-
     public class QuestionsController : Controller
     {
         private readonly ZonartUsersDbContext data;
@@ -57,15 +55,34 @@ namespace ZonartUsers.Controllers
         [Authorize]
         public IActionResult Add()
         {
-            //if (!User.IsAdmin())
-            //{
-            //    return BadRequest("Credentials invalid!");
-            //}
+           //if (!User.IsAdmin())
+           //{
+           //    return BadRequest("Credentials invalid!");
+           //}
 
             return View(new AddQuestionModel());
         }
 
+        [Authorize]
+        [HttpPost]
+        public IActionResult Add(AddQuestionModel question)
+        {
+            if (!User.IsAdmin())
+            {
+                return BadRequest("Credentials invalid!");
+            }
 
+            if (!ModelState.IsValid)
+            {
+                return View(question);
+            }
+
+            this.service.Add(question.Text, question.Answer);
+
+            TempData[GlobalMessageKey] = "Question was added!";
+
+            return RedirectToAction("All", "Questions");
+        }
 
 
         [Authorize]
@@ -83,6 +100,7 @@ namespace ZonartUsers.Controllers
 
             return View(question);
         }
+
 
         [Authorize]
         [HttpPost]

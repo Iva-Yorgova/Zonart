@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyTested.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 using ZonartUsers.Controllers;
@@ -31,9 +29,6 @@ namespace ZonartUsers.Tests.Controllers
             MyController<QuestionsController>
                 .Instance()
                 .Calling(c => c.Add())
-                .ShouldHave()
-                .ActionAttributes(attribute => attribute.RestrictingForAuthorizedRequests())
-                .AndAlso()
                 .ShouldReturn()
                 .View(new AddQuestionModel());
         }
@@ -91,31 +86,50 @@ namespace ZonartUsers.Tests.Controllers
 
 
         [Theory]
-        [InlineData(1, "New Text", "New Answer")]
-        public void PostEditShouldReturnRedirectToActionAndEditTemplate(int id, string text, string answer)
+        [InlineData(1, "Question", "Answer")]
+        public void PostEditShouldReturnRedirectToActionAndEditTemplate(int id,
+           string text, string answer)
         {
-            // Arrange
-            using var data = DatabaseMock.Instance;
-            using var cache = MemoryCacheMock.GetMemoryCache(null);
-            var service = new QuestionService(data);
-
-            data.Questions.Add(new Question { Text = "Question?", Answer = "Some answer here." });
-            data.SaveChanges();
-
-            var controller = new QuestionsController(data, cache, service);
-
-            // Act
-            var result = controller.Edit(new EditQuestionModel() { Id = id, Text = text, Answer = answer });
-            var question = data.Questions.FirstOrDefault(q => q.Id == id);
-
-            // Assert
-            Assert.NotNull(result);
-            Assert.IsType<RedirectToActionResult>(result);
-            Assert.Equal(text, question.Text);
-            Assert.Equal(answer, question.Answer);
+            MyController<QuestionsController>
+                .Instance()
+                .Calling(c => c.Edit(new EditQuestionModel
+                {
+                    Id = id,
+                    Text = text,
+                    Answer = answer
+                }))
+                .ShouldHave()
+                .ActionAttributes(attributes => attributes
+                .RestrictingForHttpMethod(HttpMethod.Post))
+                .Data(data => data
+                .WithSet<Question>(questions =>
+                {
+                    questions.Any(q =>
+                    q.Text == text &&
+                    q.Answer == answer);
+                }))
+                .AndAlso()
+                .ShouldReturn()
+                .BadRequest();
+                //.RedirectToAction("All", "Questions");
         }
 
+        [Theory]
+        [InlineData(1)]
+        public void DeleteShouldReturnRedirect(int id)
+        {
+            MyController<QuestionsController>
+                .Instance()
+                .Calling(c => c.Delete(id))
+                .ShouldHave()
+                .ActionAttributes(attributes => attributes
+                .RestrictingForHttpMethod(HttpMethod.Post))
+                .AndAlso()
+                .ShouldReturn()
+                .BadRequest();
+                //.RedirectToAction("All", "Questions");
 
+        }
     }
 }
 

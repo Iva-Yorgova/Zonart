@@ -9,6 +9,10 @@ namespace ZonartUsers.Services.Questions
             string text,
             string answer);
 
+        void Add(
+            string text,
+            string answer);
+
         bool Delete(
             int questionId);
     }

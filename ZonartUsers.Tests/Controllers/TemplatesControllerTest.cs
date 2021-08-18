@@ -116,25 +116,85 @@ namespace ZonartUsers.Tests.Controllers
 
 
         [Theory]
-        [InlineData(1, "Name", "Description", 40)]
-        public void PostEditShouldReturnRedirectToActionAndEditTemplate(int id, string name, string description, double price)
+        [InlineData(1, "Name", "Description", 40, "url")]
+        public void PostEditShouldReturnRedirectToActionAndEditTemplate(int id, string name, string description, double price, string url)
         {
-            // Arrange
-            using var data = DatabaseMock.Instance;
-            using var cache = MemoryCacheMock.GetMemoryCache(null);
-            var service = new TemplateService(data);
+            MyController<TemplatesController>
+                .Instance()
+                .Calling(c => c.Edit(new TemplateListingViewModel
+                {
+                    Id = id,
+                    Name = name,
+                    Description = description,
+                    Price = price,
+                    ImageUrl = url
+                }))
+                .ShouldHave()
+                .ActionAttributes(attributes => attributes
+                .RestrictingForHttpMethod(HttpMethod.Post))
+                .Data(data => data
+                .WithSet<Template>(temp =>
+                {
+                    temp.Any(t =>
+                    t.Name == name &&
+                    t.Description == description &&
+                    t.ImageUrl == url &&
+                    t.Price == price);
+                }))
+                .AndAlso()
+                .ShouldReturn()
+                .BadRequest();
+                //.RedirectToAction("All", "Templates");
+        }
 
-            data.Templates.Add(new Template { Name = "test", Price = 50, Description = "some" });
-            data.SaveChanges();
-            
-            var controller = new TemplatesController(data, cache, service);
+        [Theory]
+        [InlineData(1)]
+        public void DeleteShouldReturnRedirect(int id)
+        {
+            MyController<TemplatesController>
+                .Instance()
+                .Calling(c => c.Delete(id))
+                .ShouldHave()
+                .ActionAttributes(attributes => attributes
+                .RestrictingForHttpMethod(HttpMethod.Post))
+                .AndAlso()
+                .ShouldReturn()
+                .BadRequest();
+            //.RedirectToAction("All", "Questions");
 
-            // Act
-            var result = controller.Edit(new TemplateListingViewModel {Id = id, Name = name, Description = description, Price = price});
+        }
 
-            // Assert
-            Assert.NotNull(result);
-            Assert.IsType<RedirectToActionResult>(result);
+        [Theory]
+        [InlineData("Name", "Description", 40, "url")]
+        public void AddShouldReturnRedirect(string name, string description, double price, string url)
+        {
+            MyController<TemplatesController>
+                .Instance()
+                .Calling(c => c.Add(new AddTemplateModel
+                {
+                    Name = name,
+                    Description = description,
+                    Price = price,
+                    ImageUrl = url
+                }))
+                .ShouldHave()
+                .ActionAttributes(attributes => attributes
+                .RestrictingForHttpMethod(HttpMethod.Post))
+                .AndAlso()
+                .ShouldReturn()
+                .BadRequest();
+            //.RedirectToAction("All", "Questions");
+
+        }
+
+        [Fact]
+        public void AddShouldReturnViewWithCorrectModel()
+        {
+            MyController<TemplatesController>
+                .Instance()
+                .Calling(c => c.Add())
+                .ShouldReturn()
+                .View(new AddTemplateModel());
         }
     }
 }

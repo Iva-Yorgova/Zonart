@@ -15,6 +15,12 @@ namespace ZonartUsers.Services.Questions
             this.data = data;
         }
 
+        public void Add(string text, string answer)
+        {
+            this.data.Questions.Add(new Data.Models.Question { Text = text, Answer = answer });
+            this.data.SaveChanges();
+        }
+
         public bool Delete(int questionId)
         {
             var questionData = this.data.Questions

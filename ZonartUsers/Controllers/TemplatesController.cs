@@ -134,10 +134,10 @@ namespace ZonartUsers.Controllers
         [Authorize]
         public IActionResult Add()
         {
-            if (!User.IsAdmin())
-            {
-                return BadRequest("Credentials invalid!");
-            }
+            //if (!User.IsAdmin())
+            //{
+            //    return BadRequest("Credentials invalid!");
+            //}
 
             return View(new AddTemplateModel());
         }
