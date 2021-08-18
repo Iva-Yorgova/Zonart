@@ -1,9 +1,6 @@
 ﻿
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
-using System.Web;
-
 
 namespace ZonartUsers.Models.Contacts
 {
@@ -12,19 +9,20 @@ namespace ZonartUsers.Models.Contacts
     {
         [Required]
         [Display(Name = "Name")]
-        [StringLength(NameMaxLength, MinimumLength = NameMinLength)]
+        [MinLength(NameMinLength)]
+        [MaxLength(NameMaxLength)]
         public string Name { get; set; }
 
         [Required]
+        [EmailAddress]
         [Display(Name = "Email")]
-        [StringLength(EmailMaxLength, MinimumLength = EmailMinLength)]
         public string Email { get; set; }
 
         [Required]
         [MinLength(MessageMinLength)]
+        [MaxLength(MessageMaxLength)]
         public string Message { get; set; }
 
-  
         public IFormFile FormFile { get; set; }
 
 
