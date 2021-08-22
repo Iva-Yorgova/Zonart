@@ -4,6 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>aspnet-ZonartUsers-F96CD7D0-1C0A-438D-B788-D739BDE21775</UserSecretsId>
     <CopyRefAssembliesToPublishDirectory>true</CopyRefAssembliesToPublishDirectory>
+    <ApplicationInsightsResourceId>/subscriptions/9f3c3a71-bf6b-4f91-8731-471fcc2afa74/resourceGroups/zonart/providers/microsoft.insights/components/zonart</ApplicationInsightsResourceId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -36,6 +37,7 @@
   <ItemGroup>
     <PackageReference Include="bootstrap.chosen" Version="1.0.0" />
     <PackageReference Include="Grpc.Core" Version="2.39.1" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.15.0" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.0" />

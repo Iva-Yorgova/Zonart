@@ -7,18 +7,19 @@ for details on configuring this project to bundle and minify static web assets. 
     right: -100px;
     transition: 0.3s;
     padding: 10px;
-    width: 130px;
+    width: 140px;
     text-decoration: none;
     font-size: 14px;
     color: black;
     border-radius: 0;
     margin-top: 124px;
     text-align: right;
-    border-left: 2px solid orangered;
-    border-top: 2px solid orangered;
-    border-bottom: 2px solid orangered;
+    border-left: 2px solid lightgray;
+    border-top: 2px solid lightgray;
+    border-bottom: 2px solid lightgray;
     background-color: transparent;
     font-family: Jost;
+    z-index: 2000;
 }
 
     #mySidenav a:hover {
@@ -3238,4 +3239,102 @@ button#responsive-menu-button,
                 color: #ffffff;
                 border-color: #3f3f3f;
             }
+
+
+
+/*Auto Switching Text*/
+    .text-js {
+        position: relative;
+        margin-bottom: 50px;
+        color: black;
+        font-size: 50px;
+        text-align: center;
+        margin-left: -150px;
+        margin-top: 70px;
+    }
+
+    .cool-js {
+        display: inline-block;
+        vertical-align: top;
+        margin: 0;
+    }
+
+    .word {
+        position: absolute;
+        width: 261px;
+        opacity: 0;
+    }
+
+    .letter {
+        display: inline-block;
+        position: relative;
+        float: left;
+        transform: translateZ(25px);
+        transform-origin: 50% 50% 25px;
+    }
+
+        .letter.out {
+            transform: rotateX(90deg);
+            transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        }
+
+        .letter.behind {
+            transform: rotateX(-90deg);
+        }
+
+        .letter.in {
+            transform: rotateX(0deg);
+            transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+    .wisteria {
+        color: #8e44ad;
+    }
+
+    .belize {
+        color: #2980b9;
+    }
+
+    .pomegranate {
+        color: #c0392b;
+    }
+
+    .green {
+        color: #16a085;
+    }
+
+    .midnight {
+        color: #2c3e50;
+    }
+
+
+
+    /*Smoothly changing text*/
+    #ubercontainer {
+        border: 1px solid #eaeaea;
+        border-radius: 2px;
+        background-color: #ffefc6;
+        width: 500px;
+        margin: 20px auto;
+        padding: 30px 0;
+    }
+
+    #container {
+        position: relative;
+        text-align: center;
+        font-family: sans-serif;
+        font-size: 32px;
+        font-weight: 800;
+        color: #4a6b82;
+        height: 78px;
+    }
+
+    .measurable {
+        position: absolute;
+        visibility: hidden;
+    }
+
+    .static.first, .static.second {
+        transition: transform 1s ease;
+    }
 }

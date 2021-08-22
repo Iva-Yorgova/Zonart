@@ -55,6 +55,7 @@ namespace ZonartUsers
             services.AddTransient<IQuestionService, QuestionService>();
 
             services.AddResponseCaching();
+            services.AddApplicationInsightsTelemetry(Configuration["APPINSIGHTS_CONNECTIONSTRING"]);
         }
 
   
