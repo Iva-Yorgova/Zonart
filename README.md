@@ -29,3 +29,8 @@ Home Page (guest)
 Login Page
 
 ![loginpage](https://user-images.githubusercontent.com/84331691/130750011-398c4f37-f03e-4e40-85fb-69ad2d427b5a.jpg)
+
+About Page
+
+![aboutpage](https://user-images.githubusercontent.com/84331691/130752088-e22d809f-c213-4933-ae0e-a465d823b330.jpg)
+
