@@ -8,8 +8,8 @@ LET'S CREATE SOMETHING AMAZING TOGETHER!
 
 # Table of Contents:
 
-    Technology stack
-    Screenshots
+#    1. Technology stack
+#    2. Screenshots
     
 # Technology stack:
 
