@@ -23,5 +23,9 @@ LET'S CREATE SOMETHING AMAZING TOGETHER!
 # Screenshots:
 
 Home Page (guest)
+
 ![homepage-1](https://user-images.githubusercontent.com/84331691/130749007-1e67378d-299f-4645-a725-1ad064d71e13.jpg)
 
+Login Page
+
+![loginpage](https://user-images.githubusercontent.com/84331691/130750011-398c4f37-f03e-4e40-85fb-69ad2d427b5a.jpg)
