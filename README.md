@@ -34,5 +34,15 @@ About Page
 Services Page
 ![servicespage](https://user-images.githubusercontent.com/84331691/130794808-7551dcc6-6cc7-4b39-b699-4f331e6823f7.jpg)
 
+Projects Page
+![projectspage](https://user-images.githubusercontent.com/84331691/130795017-0e4c2523-8999-4007-841f-ece97270d710.jpg)
+
+Templates Page
+![templatespage](https://user-images.githubusercontent.com/84331691/130807180-e01d2b25-0f4d-42b3-a18f-5b992b6c0e39.jpg)
+
+Questions Page
+![faqpage](https://user-images.githubusercontent.com/84331691/130808357-4ad723c3-6a50-4601-a2a2-5a0b6cbd7ca0.jpg)
+
+
 
 
