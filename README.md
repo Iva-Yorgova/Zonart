@@ -6,13 +6,12 @@ Since our beginning in 2010, we work with many clients from Europe and USA.
 Explore the world of ideas born with creativity and passion.
 LET'S CREATE SOMETHING AMAZING TOGETHER!
 
-Table of Contents
+# Table of Contents:
 
     Technology stack
     Screenshots
-    Credits
-
-Technology stack:
+    
+# Technology stack:
 
     ASP.NET Core 5.0
 
