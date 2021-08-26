@@ -32,16 +32,17 @@ About Page
 ![aboutpage](https://user-images.githubusercontent.com/84331691/130752088-e22d809f-c213-4933-ae0e-a465d823b330.jpg)
 
 Services Page
-![servicespage](https://user-images.githubusercontent.com/84331691/130794808-7551dcc6-6cc7-4b39-b699-4f331e6823f7.jpg)
+![servicespage](https://user-images.githubusercontent.com/84331691/130910122-50a9dc33-f589-493f-b520-5c1fb35205ff.jpg)
 
 Projects Page
-![projectspage](https://user-images.githubusercontent.com/84331691/130795017-0e4c2523-8999-4007-841f-ece97270d710.jpg)
+![projectspage](https://user-images.githubusercontent.com/84331691/130910211-7214908f-5778-4a7a-bd63-be11bd6e01e0.jpg)
 
 Templates Page
 ![templatespage](https://user-images.githubusercontent.com/84331691/130807180-e01d2b25-0f4d-42b3-a18f-5b992b6c0e39.jpg)
 
 Questions Page
-![faqpage](https://user-images.githubusercontent.com/84331691/130808357-4ad723c3-6a50-4601-a2a2-5a0b6cbd7ca0.jpg)
+![faqpage](https://user-images.githubusercontent.com/84331691/130910070-9141d2b1-93d5-48aa-b784-7571e2f17ee7.jpg)
+
 
 
 
