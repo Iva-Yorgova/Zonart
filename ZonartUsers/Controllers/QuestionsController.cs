@@ -30,24 +30,7 @@ namespace ZonartUsers.Controllers
         //[ResponseCache(Duration = 3600)]
         public IActionResult All()
         {
-            var latestQuestions = this.cache.Get<List<QuestionsListingViewModel>>(QuestionsCacheKey);
-
-            if (latestQuestions == null)
-            {
-                latestQuestions = this.data.Questions
-                    .Select(q => new QuestionsListingViewModel
-                    {
-                        Id = q.Id,
-                        Text = q.Text,
-                        Answer = q.Answer
-                    })
-                    .ToList();
-
-                var cacheOptions = new MemoryCacheEntryOptions()
-                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(60));
-
-                this.cache.Set(QuestionsCacheKey, latestQuestions, cacheOptions);
-            }
+            var latestQuestions = this.service.GetLatestQuestions();
 
             return View(latestQuestions);
         }
@@ -56,11 +39,6 @@ namespace ZonartUsers.Controllers
         [Authorize]
         public IActionResult Add()
         {
-           //if (!User.IsAdmin())
-           //{
-           //    return BadRequest("Credentials invalid!");
-           //}
-
             return View(new AddQuestionModel());
         }
 
@@ -71,7 +49,7 @@ namespace ZonartUsers.Controllers
         {
             if (!User.IsAdmin())
             {
-                return BadRequest("Credentials invalid!");
+                return BadRequest(InvalidCredentials);
             }
 
             if (!ModelState.IsValid)
@@ -81,7 +59,7 @@ namespace ZonartUsers.Controllers
 
             this.service.Add(question.Text, question.Answer);
 
-            TempData[GlobalMessageKey] = "Question was added!";
+            TempData[GlobalMessageKey] = QuestionAdded;
 
             return RedirectToAction("All", "Questions");
         }
@@ -90,15 +68,7 @@ namespace ZonartUsers.Controllers
         [Authorize]
         public IActionResult Edit(int id)
         {
-            var question = this.data.Questions
-                .Where(q => q.Id == id)
-                .Select(q => new EditQuestionModel
-                {
-                    Id = id,
-                    Text = q.Text,
-                    Answer = q.Answer
-                })
-                .FirstOrDefault();
+            var question = this.service.GetQuestionById(id);
 
             return View(question);
         }
@@ -108,11 +78,6 @@ namespace ZonartUsers.Controllers
         [HttpPost]
         public IActionResult Edit(EditQuestionModel question)
         {
-            //if (!User.IsAdmin())
-            //{
-            //    return BadRequest("Credentials invalid!");
-            //}
-
             if (!ModelState.IsValid)
             {
                 return View(question);
@@ -128,7 +93,7 @@ namespace ZonartUsers.Controllers
                 return BadRequest();
             }
 
-            TempData[GlobalMessageKey] = "Question was edited!";
+            TempData[GlobalMessageKey] = QuestionEdited;
 
             return RedirectToAction("All", "Questions");
         }
@@ -138,11 +103,6 @@ namespace ZonartUsers.Controllers
         [HttpPost]
         public IActionResult Delete(int id)
         {
-            //if (!User.IsAdmin())
-            //{
-            //    return BadRequest("Credentials invalid!");
-            //}
-
             var deleted = this.service.Delete(id);
 
             if (!deleted)
@@ -150,7 +110,7 @@ namespace ZonartUsers.Controllers
                 return BadRequest();
             }
 
-            TempData[GlobalMessageKey] = "Question was deleted!";
+            TempData[GlobalMessageKey] = QuestionDeleted;
 
             return RedirectToAction("All", "Questions");
         }

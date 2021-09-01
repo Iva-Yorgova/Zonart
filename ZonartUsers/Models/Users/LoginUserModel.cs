@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using ZonartUsers.Data;
 
 namespace ZonartUsers.Models.Users
 {
+    using static GlobalConstants;
     public class LoginUserModel
     {
         [Required]
@@ -9,6 +11,8 @@ namespace ZonartUsers.Models.Users
         public string Email { get; set; }
 
         [Required]
+        [MaxLength(PassMaxLength)]
+        [MinLength(PassMinLength)]
         public string Password { get; set; }
 
         public string FullName { get; set; }

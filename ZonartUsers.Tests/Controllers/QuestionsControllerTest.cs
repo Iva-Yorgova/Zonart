@@ -39,7 +39,7 @@ namespace ZonartUsers.Tests.Controllers
             // Arrange
             using var data = DatabaseMock.Instance;
             using var cache = MemoryCacheMock.GetMemoryCache(null);
-            var service = new QuestionService(data);
+            var service = new QuestionService(data, cache);
 
             data.Questions.Add(new Question { Text = "New Question?", Answer = "New Answer." });
             data.SaveChanges();
@@ -65,7 +65,7 @@ namespace ZonartUsers.Tests.Controllers
             // Arrange
             using var data = DatabaseMock.Instance;
             using var cache = MemoryCacheMock.GetMemoryCache(null);
-            var service = new QuestionService(data);
+            var service = new QuestionService(data, cache);
 
             data.Questions.Add(new Question { Text = "Question?", Answer = "Some answer here." });
             data.SaveChanges();

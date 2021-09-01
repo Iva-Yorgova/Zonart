@@ -126,3 +126,8 @@ function openSearch() {
 function closeSearch() {
     document.getElementById("myOverlay").style.display = "none";
 }
+
+
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+});

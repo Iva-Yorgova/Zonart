@@ -1,5 +1,9 @@
 ﻿
 
+using System.Collections.Generic;
+using ZonartUsers.Models.Questions;
+using ZonartUsers.Models.Users;
+
 namespace ZonartUsers.Services.Questions
 {
     public interface IQuestionService
@@ -15,5 +19,9 @@ namespace ZonartUsers.Services.Questions
 
         bool Delete(
             int questionId);
+
+        List<QuestionsListingViewModel> GetLatestQuestions();
+
+        EditQuestionModel GetQuestionById(int id);
     }
 }

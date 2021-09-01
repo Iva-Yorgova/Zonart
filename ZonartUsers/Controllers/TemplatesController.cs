@@ -102,11 +102,6 @@ namespace ZonartUsers.Controllers
         [Authorize]
         public IActionResult Edit(TemplateListingViewModel template)
         {
-            //if (!User.IsAdmin())
-            //{
-            //    return BadRequest("Credentials invalid!");
-            //}
-
             if (!ModelState.IsValid)
             {
                 return View(template);
@@ -124,7 +119,7 @@ namespace ZonartUsers.Controllers
                 return BadRequest();
             }
 
-            TempData[GlobalMessageKey] = "Template was edited!";
+            TempData[GlobalMessageKey] = TemplateEdited;
 
             return RedirectToAction("All", "Templates");
         }
@@ -133,11 +128,7 @@ namespace ZonartUsers.Controllers
         [Authorize]
         public IActionResult Add()
         {
-            //if (!User.IsAdmin())
-            //{
-            //    return BadRequest("Credentials invalid!");
-            //}
-
+           
             return View(new AddTemplateModel());
         }
 
@@ -148,7 +139,7 @@ namespace ZonartUsers.Controllers
         {
             if (!User.IsAdmin())
             {
-                return BadRequest("Credentials invalid!");
+                return BadRequest(InvalidCredentials);
             }
 
             if (!ModelState.IsValid)
@@ -158,7 +149,7 @@ namespace ZonartUsers.Controllers
 
             this.service.Add(template.Name, template.Price, template.Description, template.ImageUrl);
 
-            TempData[GlobalMessageKey] = "Template was added!";
+            TempData[GlobalMessageKey] = TemplateAdded;
 
             return RedirectToAction("All", "Templates");
 
@@ -170,7 +161,7 @@ namespace ZonartUsers.Controllers
         {
             if (!User.IsAdmin())
             {
-                return BadRequest("Credentials invalid!");
+                return BadRequest(InvalidCredentials);
             }
 
             var deleted = this.service.Delete(templateId);
@@ -180,7 +171,7 @@ namespace ZonartUsers.Controllers
                 return BadRequest();
             }
 
-            TempData[GlobalMessageKey] = "The template was deleted!";
+            TempData[GlobalMessageKey] = TemplateDeleted;
 
             return RedirectToAction("All", "Templates");
 

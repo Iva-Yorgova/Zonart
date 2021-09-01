@@ -60,7 +60,7 @@ namespace ZonartUsers.Controllers
             this.data.Contacts.Add(contactData);
             this.data.SaveChanges();
 
-            TempData[GlobalMessageKey] = "Your contact was recieved!";
+            TempData[GlobalMessageKey] = ContactRecieved;
 
             return RedirectToAction("Confirm", "Contact");
         }

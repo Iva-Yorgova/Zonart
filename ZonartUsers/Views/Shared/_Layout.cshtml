@@ -72,31 +72,9 @@
             <a href="/Projects/Kids">Kids</a>
             <a href="/Projects/Posters">Posters</a>
             <a href="/Projects/Web">Web</a>
-
-            <!--<div class="search-container" style="padding:30px 30px 30px 30px; text-align:center; line-height:0">
-                <div class="d-inline-flex">
-                    <div>
-                        <input type="text" placeholder="Search.." name="search" style="margin:0px; height:38px; width:200px; padding-right:10px; background-color:transparent; border:1px solid white; color:white; font-family:Montserrat">
-                    </div>
-                    <div>
-                        <a href="" type="submit"><i class="search-icon" style="color:white; padding:10px 10px 10px 10px; margin-left:10px; border:1px solid white"></i></a>
-                    </div>
-                </div>
-
-            </div>-->
-
         </div>
     </div>
 
-
-    <!--<div id="Search" class="tabcontent">
-        <div class="search-container" style="padding:30px 30px 30px 30px; text-align:center">
-            <div class="d-inline-flex">
-                <div><input type="text" placeholder="Search.." name="search" style="margin:0px; height:38px; padding-right:10px"></div>
-                <div><a href="" type="submit"><i class="fa fa-search fa-sm" style="color:white; border: 2px solid white; padding:10px 10px 10px 10px; margin-left:10px"></i></a></div>
-            </div>
-        </div>
-    </div>-->
 
     <header>
 
@@ -104,82 +82,71 @@
 
             <div class="topnav hidingnavbar">
 
-                <a asp-area="" asp-controller="Home" asp-action="Index" id="home" style="padding-top: 11px; padding-bottom: 13px; border-right: 1px solid white;">
+                <a asp-area="" asp-controller="Home" asp-action="Index" data-toggle="tooltip" data-placement="bottom" data-container="body" title="Home" id="home" style="padding-top: 11px; padding-bottom: 13px; border-right: 1px solid white;">
                     <img class="z-logo-icon" src="" alt="Zonart logo" style="" />
-                    <!--<i class="fa fa-home fa-sm"></i>-->
                 </a>
 
                 <a asp-area="" asp-controller="About" asp-action="OurStory" id="about">About</a>
 
                 <a asp-area="" asp-controller="Services" asp-action="All" id="services">Services</a>
 
-                <a asp-area="" asp-controller="Projects" asp-action="All" id="projects">Projects</a>
+                <a class="menu-button" asp-area="" asp-controller="Projects" asp-action="All" id="projects">Projects</a>
 
                 <a asp-area="" asp-controller="Templates" asp-action="All" id="templates">Templates</a>
 
                 <a asp-area="" asp-controller="Contact" asp-action="Add" id="contact">Contact</a>
 
-                <!--<div class="dropdown">
-                    <button class="dropbtn">
-                        <img class="compass" alt="questions" />
-                    </button>
-                    <div class="dropdown-content" style="box-shadow: none">
-                        <a href="/Projects/All" style="color: black; padding-right: 24px">All Cases</a>
-                        <a href="/Projects/Brochures" style="color: black">Brochures</a>
-                        <a href="/Projects/Logos" style="color: black; padding-right: 50px">Logos</a>
-                    </div>
-                </div>-->
-
-                <a class="questions" style="font-weight: 100; width: 55px; height: 50px" asp-area="" asp-controller="Questions" asp-action="All" id="questions" title="questions">
+                <a class="questions" style="font-weight: 100; width: 55px; height: 50px" asp-area="" asp-controller="Questions" asp-action="All" id="questions" title="Questions" data-toggle="tooltip" data-placement="bottom" data-container="body">
                     <img class="questions" alt="questions" />
                 </a>
+
 
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                     &#9776;
                 </a>
 
-                <!--<a style="width:57px" class="tablink" onclick="openPage('Search', this, 'orangered')"><i class="fa fa-search fa-sm"></i></a>-->
 
                 @if (SignInManager.IsSignedIn(User))
                 {
                     var userIsAdmin = User.IsInRole(WebConstants.AdminRoleName);
 
-                    <!--<a style="font-weight:100" asp-area="" asp-controller="Users" asp-action="Welcome" id="welcome">@User.Identity.Name</a>-->
                     if (userIsAdmin)
                     {
-                        <a class="admin nav-right" style="float:right; font-weight: 100; width: 57px; height: 50px" asp-area="" asp-controller="Users" asp-action="WelcomeAdmin" id="admin" title="Admin">
+                        <a class="admin nav-right" style="float:right; font-weight: 100; width: 57px; height: 50px" asp-area="" asp-controller="Users" asp-action="WelcomeAdmin" id="admin" title="Admin" data-toggle="tooltip" data-placement="bottom" data-container="body">
                             <img class="admin" alt="Admin" />
                         </a>
+
                     }
 
-                    <a class="user-logout nav-right" style="float:right; font-weight: 100; width: 57px; height: 50px" asp-area="" asp-controller="Users" asp-action="Logout" id="logout" title="Logout">
+                    <a class="user-logout nav-right" style="float:right; font-weight: 100; width: 57px; height: 50px" asp-area="" asp-controller="Users" asp-action="Logout" id="logout" title="Logout" data-toggle="tooltip" data-placement="bottom" data-container="body">
                         <img class="logout-user" alt="Logout" />
                     </a>
+
                 }
 
                 else
                 {
-                    <a class="user-login nav-right" style="float: right; font-weight: 100; width: 57px" asp-area="" asp-controller="Users" asp-action="Login" id="login" title="Login">
+                    <a class="user-login nav-right" style="float: right; font-weight: 100; width: 57px" asp-area="" asp-controller="Users" asp-action="Login" id="login" title="Login" data-toggle="tooltip" data-placement="bottom" data-container="body">
                         <img class="login-user" alt="Login" />
                     </a>
 
-                    <a class="user-register nav-right" style="float: right; font-weight: 100; width: 57px" asp-area="" asp-controller="Users" asp-action="Register" id="register" title="Register">
+                    <a class="user-register nav-right" style="float: right; font-weight: 100; width: 57px" asp-area="" asp-controller="Users" asp-action="Register" id="register" title="Register" data-toggle="tooltip" data-placement="bottom" data-container="body">
                         <img class="register-user" alt="Register" />
                     </a>
                 }
 
-                <a class="nav-right" style="float:right; font-size: 16px; cursor: pointer; width: 57px;" onclick="openNav()" title="Explore"><img class="compass" alt="explore" /></a>
+                <a class="nav-right" style="float:right; font-size: 16px; cursor: pointer; width: 57px;" onclick="openNav()" title="Explore" data-toggle="tooltip" data-placement="bottom" data-container="body"><img class="compass" alt="explore" /></a>
 
                 <!--<partial name="_LoginPartial" />-->
-
             </div>
 
         </div>
 
+
     </header>
 
 
-    <button id="myBtn" title="Go to top" style="color:lightgray">
+    <button id="myBtn" title="Go to top" style="color:lightgray" data-toggle="tooltip" data-placement="bottom" data-container="body">
         <i class="material-icons">arrow_upward</i>
     </button>
 
@@ -304,6 +271,12 @@
         function closeNav() {
             document.getElementById("myNav-new").style.width = "0%";
         }
+    </script>
+
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
     </script>
 
 </body>

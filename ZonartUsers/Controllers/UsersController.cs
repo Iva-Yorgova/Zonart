@@ -11,6 +11,9 @@ using Microsoft.Extensions.Caching.Memory;
 
 namespace ZonartUsers.Controllers
 {
+    using static WebConstants;
+
+
     public class UsersController : Controller
     {
         private readonly UserManager<User> userManager;
@@ -78,11 +81,16 @@ namespace ZonartUsers.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginUserModel user)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(user);
+            }
+
             var loggedInUser = this.userManager.FindByEmailAsync(user.Email).Result;
 
             if (loggedInUser ==  null)
             {
-                ModelState.AddModelError(string.Empty, "Credentials invalid!");
+                ModelState.AddModelError(string.Empty, InvalidCredentials);
                 return View(user);
             }
    
@@ -90,24 +98,28 @@ namespace ZonartUsers.Controllers
 
             if (!passwordIsValid)
             {
-                ModelState.AddModelError(string.Empty, "Credentials invalid!");
+                ModelState.AddModelError(string.Empty, InvalidCredentials);
                 return View(user);
             }
 
             else
             {
                 await this.signInManager.SignInAsync(loggedInUser, true);
-                return RedirectToAction("Welcome", "Users", loggedInUser);
+                return RedirectToAction("Welcome", "Users", loggedInUser.Id);
+                //return RedirectToAction("Index", "Home");
             }
         }
 
+        
+        [Authorize]
         public async Task<IActionResult> Logout()
-        {
+        {           
             await signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
 
-        [Authorize(Roles = "Administrator")]
+
+        [Authorize(Roles = AdminRoleName)]
         public async Task<IActionResult> ChangePassword()
         {
             var user = await this.userManager.GetUserAsync(this.User);
@@ -116,14 +128,14 @@ namespace ZonartUsers.Controllers
             return View();
         }
 
-        public IActionResult Welcome(LoginUserModel user)
+        public IActionResult Welcome(int userId)
         {
-            return View(user);
+            return View(userId);
         }
 
-        public IActionResult WelcomeAdmin(LoginUserModel user)
+        public IActionResult WelcomeAdmin(int userId)
         {
-            return View(user);
+            return View(userId);
         }
 
     }
