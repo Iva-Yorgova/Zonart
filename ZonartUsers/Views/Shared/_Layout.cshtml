@@ -77,10 +77,11 @@
 
 
     <header>
-
+ 
         <div class="topnav-all" id="myTopnav">
 
             <div class="topnav hidingnavbar">
+
 
                 <a asp-area="" asp-controller="Home" asp-action="Index" data-toggle="tooltip" data-placement="bottom" data-container="body" title="Home" id="home" style="padding-top: 11px; padding-bottom: 13px; border-right: 1px solid white;">
                     <img class="z-logo-icon" src="" alt="Zonart logo" style="" />
@@ -90,7 +91,14 @@
 
                 <a asp-area="" asp-controller="Services" asp-action="All" id="services">Services</a>
 
-                <a class="menu-button" asp-area="" asp-controller="Projects" asp-action="All" id="projects">Projects</a>
+                <div class="dropdown" id="projects">
+                    <button type="submit" href="/Projects/All" class="dropbtn"  >Projects<i class="fa fa-caret-down fa-xs"></i></button>
+                    <div class="dropdown-content">
+                        <a href="/Projects/All">All</a>
+                        <a href="/Projects/Logos">Logos</a>
+                        <a href="#">Brochures</a>
+                    </div>
+                </div>
 
                 <a asp-area="" asp-controller="Templates" asp-action="All" id="templates">Templates</a>
 
@@ -277,6 +285,17 @@
         $(function () {
             $('[data-toggle="tooltip"]').tooltip();
         });
+    </script>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
     </script>
 
 </body>
