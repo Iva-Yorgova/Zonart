@@ -15,6 +15,7 @@ namespace ZonartUsers.Models.Users
         [MinLength(PassMinLength)]
         public string Password { get; set; }
 
+
         public string FullName { get; set; }
     }
 }
