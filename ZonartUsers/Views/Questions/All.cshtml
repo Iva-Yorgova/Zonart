@@ -15,9 +15,9 @@
 @model List<QuestionsListingViewModel>
 
 
-<div class="row mt-5 mb-5 ml-5 mr-5" style="margin-bottom: 100px">
+<div class="row mt-5 mb-5" style="margin-bottom: 100px; padding-left:30px; padding-right:30px">
 
-    <div class="col-12">
+    <div class="offset-sm-0 col-sm-12 offset-lg-1 col-lg-10 offset-xl-1 col-xl-10 offset-md-1 col-md-10 vc_col-xs-12">
         <h2 style="font-size: 34px; text-align: center; padding-top: 100px; padding-bottom: 40px">Frequently Asked Questions</h2>
     </div>
 
@@ -38,7 +38,7 @@
 
     @foreach (var question in Model)
     {
-        <div class="col-8 offset-2">
+        <div class="offset-sm-0 col-sm-12 offset-lg-2 col-lg-8 offset-xl-2 col-xl-8 offset-md-1 col-md-10 vc_col-xs-12">
             <button class="accordion mb-2">@question.Text</button>
             <div class="panel mt-4 mb-5">
                 <p>@question.Answer</p>
@@ -99,7 +99,7 @@
         <a href="#" id="coming4"><i class="fas fa-link fa-sm mr-4"></i> Coming Soon</a>
     </div>
 
-
+</div>
 
     <script>
         var acc = document.getElementsByClassName("accordion");
@@ -184,8 +184,6 @@
         changeWord();
         setInterval(changeWord, 4000);
     </script>
-
-
 
 
     <script>

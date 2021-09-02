@@ -10,12 +10,12 @@ for details on configuring this project to bundle and minify static web assets. 
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 16px;
 }
 
 
 .custom-link a:hover {
-    color: white;
+    color: black;
 }
 
 .active {
@@ -23,26 +23,26 @@ for details on configuring this project to bundle and minify static web assets. 
     color: white;
 }
 
-.topnav .icon {
-    display: none;
+div .dropdown.active {
+    background-color: #2f302f;
 }
 
 .dropdown {
     float: left;
-   
 }
 
     .dropdown .dropbtn {
-        font-size: 16px;
+        font-size: 15px;
         border: none;
         outline: none;
         color: white;
         padding: 14px 16px;
-        background-color: inherit;
+        background-color: unset;
         font-family: inherit;
         margin: 0;
         height: 50px;
         font-variant-caps: all-petite-caps;
+        letter-spacing: 1px;
     }
 
 .dropdown-content {
@@ -57,6 +57,14 @@ for details on configuring this project to bundle and minify static web assets. 
     visibility: hidden;
 }
 
+.dropdown-content .custom-link {
+    color: black;
+    font-size: 14px;
+    padding: 8px 10px;
+    font-family: Jost
+}
+
+
 .dropdown:hover > .dropdown-content {
     visibility: visible;
     opacity: 1;
@@ -69,14 +77,14 @@ for details on configuring this project to bundle and minify static web assets. 
     top: 50px;
 }
 
-    .dropdown-content a {
-        float: none;
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        text-align: left;
-    }
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
 
 .topnav a:hover, .dropdown:hover .dropbtn {
     background-color: orangered;
@@ -90,7 +98,7 @@ for details on configuring this project to bundle and minify static web assets. 
 
 .dropdown-content:hover a:hover {
     background-color: white;
-    color: white;
+    color: black;
 }
 
 .dropdown:hover .dropdown-content {
@@ -100,7 +108,7 @@ for details on configuring this project to bundle and minify static web assets. 
     box-shadow: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
     .topnav a:not(:first-child), .dropdown .dropbtn {
         display: none;
     }
@@ -111,9 +119,8 @@ for details on configuring this project to bundle and minify static web assets. 
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
     .topnav.responsive {
-        position: relative;
     }
 
         .topnav.responsive .icon {
@@ -133,7 +140,6 @@ for details on configuring this project to bundle and minify static web assets. 
         }
 
         .topnav.responsive .dropdown-content {
-            position: relative;
         }
 
         .topnav.responsive .dropdown .dropbtn {
@@ -417,7 +423,7 @@ for details on configuring this project to bundle and minify static web assets. 
     transition: 0.4s;
     transition: 0.4s;
     font-family: Jost;
-    font-size: 20px;
+    font-size: 16px;
     border: 1px solid lightgray;
 }
 
@@ -758,7 +764,7 @@ body {
         display: none;
     }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
     .topnav-all a:not(:first-child) {
         display: none;
     }
@@ -769,7 +775,7 @@ body {
     }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
     .topnav-all.responsive {
         position: relative;
     }
@@ -868,6 +874,10 @@ container-fluid {
 
 .title-contact {
     font-family: Montserrat;
+    font-size: 43px;
+    font-variant-caps: titling-caps;
+    margin-top: 120px;
+    margin-bottom: 70px
 }
 
 
@@ -887,10 +897,10 @@ container-fluid {
     color: white;
     text-align: center;
     text-decoration: none;
-    font-size: 12px;
-    letter-spacing: 0.5px;
+    font-size: 13px;
+    letter-spacing: 1px;
     line-height: 22px;
-    font-family: Montserrat;
+    font-family: Jost;
     opacity: 1;
 }
 
@@ -1434,7 +1444,7 @@ p {
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
     background-color: #4d6bff;
-    background-image: url("https://assets-global.website-files.com/5e593fb060cf87bbaf75dd20/5e72066ed37a81652b66f24e_b-nav-icon-1-white.svg");
+    background-image: url("");
     background-position: 50% 50%;
     background-size: 22px;
     background-repeat: no-repeat;
@@ -1444,10 +1454,6 @@ p {
 
 
 
-body, html {
-    /*height: inherit;*/
-    /*font: 400 15px/1.8 "Lato", sans-serif;*/
-}
 
 
 .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5, .bgimg-6, .bgimg-7, .bgimg-8 {
@@ -1518,18 +1524,21 @@ body, html {
     color: orangered;
 }
 
-    .caption span.border {
-        background-color: black;
-        color: orangered;
-        padding: 10px;
-        font-size: 20px;
-        letter-spacing: 21px;
-        opacity: 1;
-        font-family: 'Jost', sans-serif;
-        padding-left: 50px;
-        padding-right: 50px;
-        font-weight: bold;
-    }
+.border {
+    background-color: transparent;
+    font-size: 20px;
+    color: #f7f7f7;
+    border: 3px solid white;
+    letter-spacing: 5px;
+    line-height: 51.2px;
+    padding: 10px 37px 10px 40px;
+    opacity: 1;
+    font-family: 'Jost', sans-serif;
+    font-weight: bold;
+}
+
+.caption span.border {
+}
 
 h3 {
     letter-spacing: 5px;
