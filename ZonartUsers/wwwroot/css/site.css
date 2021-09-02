@@ -163,26 +163,29 @@ div .dropdown.active {
 
 #mySidenav a {
     position: fixed;
-    right: -100px;
+    right: -106px;
     transition: 0.3s;
     padding: 10px;
-    width: 140px;
+    width: 146px;
     text-decoration: none;
     font-size: 14px;
     color: black;
     border-radius: 0;
     margin-top: 124px;
-    text-align: right;
+    /*text-align: right;*/
     border-left: 2px solid lightgray;
     border-top: 2px solid lightgray;
     border-bottom: 2px solid lightgray;
-    background-color: transparent;
+    background-color: white;
     font-family: Jost;
     z-index: 2000;
 }
 
     #mySidenav a:hover {
         right: 0;
+        border-left: 2px solid orangered;
+        border-top: 2px solid orangered;
+        border-bottom: 2px solid orangered;
     }
 
 #coming1 {
@@ -192,16 +195,23 @@ div .dropdown.active {
 
 #coming2 {
     top: 80px;
-    background-color: orangered;
 }
 
 #coming3 {
     top: 140px;
-    background-color: orangered;
 }
 
 #coming4 {
     top: 200px;
+}
+
+#coming5 {
+    top: 260px;
+}
+
+#coming1, #coming2, #coming3, #coming4, #coming5 {
+    font-weight: 500;
+    letter-spacing: 0.5px;
     background-color: orangered;
 }
 
@@ -631,23 +641,32 @@ body {
 }
 /*--------------------------*/
 
+.softuni {
+    content: url('../Images/softuni.png');
+    width: 14px;
+    margin-right: 20px;
+    margin-left: 3px; 
+}
 
+.coming {
+    margin-left: 3px;
+}
 .questions {
     content: url('../Images/question.png');
     width: 21px;
-    font-size: 12px;
+    font-size: 12px;  
 }
 
 .compass {
     content: url('../Images/png/compass.png');
     width: 17px;
-    font-size: 12px;
+    font-size: 12px;  
 }
 
 .logout-user {
     content: url('../Images/logout.svg');
     width: 16px;
-    font-size: 12px;
+    font-size: 12px;   
 }
 
 .register-user {
