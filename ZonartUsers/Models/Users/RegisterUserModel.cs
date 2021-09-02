@@ -16,6 +16,13 @@ namespace ZonartUsers.Models.Users
         public string Password { get; set; }
 
         [Required]
+        [MaxLength(PassMaxLength)]
+        [MinLength(PassMinLength)]
+        [Display(Name = "Confirm Password")]
+        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        public string ConfirmPassword { get; set; }
+
+        [Required]
         [Display(Name = "Full Name")]
         [MinLength(NameMinLength)]
         [MaxLength(NameMaxLength)]
