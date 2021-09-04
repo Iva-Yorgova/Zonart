@@ -104,9 +104,6 @@ var currentScrollPos = window.pageYOffset;
 
 
 
-
-
-
 function myFunction() {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav-all") {
