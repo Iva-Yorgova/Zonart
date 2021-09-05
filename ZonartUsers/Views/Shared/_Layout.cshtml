@@ -76,75 +76,77 @@
 
 
     <header>
+        <div class="position-fixed w-100" style="z-index:2000">
 
-        <div class="topnav" id="myTopnav">
+            <div class="topnav" id="myTopnav">
 
-            <a asp-area="" asp-controller="Home" asp-action="Index" data-toggle="tooltip" data-placement="bottom" data-container="body" title="Home" id="home" style="padding-top: 11px; padding-bottom: 13px; border-right: 1px solid white;">
-                <img class="z-logo-icon" src="" alt="Zonart logo" style="" />
-            </a>
-
-            <a asp-area="" asp-controller="About" asp-action="OurStory" id="about">About</a>
-
-            <a asp-area="" asp-controller="Services" asp-action="All" id="services">Services</a>
-
-            <a asp-area="" asp-controller="Templates" asp-action="All" id="templates">Templates</a>
-
-            <div class="dropdown">
-                <a class="dropbtn" asp-controller="Projects" asp-action="All" id="projects">
-                    Projects <i class="fa fa-caret-down fa-xs"></i>
+                <a asp-area="" asp-controller="Home" asp-action="Index" data-toggle="tooltip" data-placement="bottom" data-container="body" title="Home" id="home" style="padding-top: 11px; padding-bottom: 13px; border-right: 1px solid white;">
+                    <img class="z-logo-icon" src="" alt="Zonart logo" style="" />
                 </a>
-                <div class="dropdown-content">
-                    <a asp-controller="Projects" asp-action="Brochures">Brochures</a>
-                    <a asp-controller="Projects" asp-action="Logos">Logos</a>
-                    <a asp-controller="Projects" asp-action="Books">Books</a>
-                    <a asp-controller="Projects" asp-action="Posters">Posters</a>
-                    <a asp-controller="Projects" asp-action="Kids">Kids</a>
-                    <a asp-controller="Projects" asp-action="Web">Web</a>
-                    <a asp-controller="Projects" asp-action="Stationary">Stationary</a>
-                    <a asp-controller="Projects" asp-action="Variety">Variety</a>
+
+                <a asp-area="" asp-controller="About" asp-action="OurStory" id="about">About</a>
+
+                <a asp-area="" asp-controller="Services" asp-action="All" id="services">Services</a>
+
+                <a asp-area="" asp-controller="Templates" asp-action="All" id="templates">Templates</a>
+
+                <div class="dropdown">
+                    <a class="dropbtn" asp-controller="Projects" asp-action="All" id="projects">
+                        Projects <i class="fa fa-caret-down fa-xs"></i>
+                    </a>
+                    <div class="dropdown-content">
+                        <a asp-controller="Projects" asp-action="Brochures">Brochures</a>
+                        <a asp-controller="Projects" asp-action="Logos">Logos</a>
+                        <a asp-controller="Projects" asp-action="Books">Books</a>
+                        <a asp-controller="Projects" asp-action="Posters">Posters</a>
+                        <a asp-controller="Projects" asp-action="Kids">Kids</a>
+                        <a asp-controller="Projects" asp-action="Web">Web</a>
+                        <a asp-controller="Projects" asp-action="Stationary">Stationary</a>
+                        <a asp-controller="Projects" asp-action="Variety">Variety</a>
+                    </div>
                 </div>
-            </div>
 
-            <a asp-area="" asp-controller="Contact" asp-action="Add" id="contact">Contact</a>
+                <a asp-area="" asp-controller="Contact" asp-action="Add" id="contact">Contact</a>
 
-            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+                <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
 
-            @if (SignInManager.IsSignedIn(User))
-            {
-                var userIsAdmin = User.IsInRole(WebConstants.AdminRoleName);
-
-                if (userIsAdmin)
+                @if (SignInManager.IsSignedIn(User))
                 {
-                    <a class="admin nav-right" style="float:right; font-weight: 100; width: 57px; height: 50px" asp-area="" asp-controller="Users" asp-action="WelcomeAdmin" id="admin" title="Admin" data-toggle="tooltip" data-placement="bottom" data-container="body">
-                        <img class="admin" alt="Admin" />
+                    var userIsAdmin = User.IsInRole(WebConstants.AdminRoleName);
+
+                    if (userIsAdmin)
+                    {
+                        <a class="admin nav-right" style="float:right; font-weight: 100; width: 57px; height: 50px" asp-area="" asp-controller="Users" asp-action="WelcomeAdmin" id="admin" title="Admin" data-toggle="tooltip" data-placement="bottom" data-container="body">
+                            <img class="admin" alt="Admin" />
+                        </a>
+
+                    }
+
+                    <a class="user-logout nav-right" style="float:right; font-weight: 100; width: 57px; height: 50px" asp-area="" asp-controller="Users" asp-action="Logout" id="logout" title="Logout" data-toggle="tooltip" data-placement="bottom" data-container="body">
+                        <img class="logout-user" alt="Logout" />
                     </a>
 
                 }
 
-                <a class="user-logout nav-right" style="float:right; font-weight: 100; width: 57px; height: 50px" asp-area="" asp-controller="Users" asp-action="Logout" id="logout" title="Logout" data-toggle="tooltip" data-placement="bottom" data-container="body">
-                    <img class="logout-user" alt="Logout" />
+                else
+                {
+                    <a class="user-login nav-right" style="float: right; font-weight: 100; width: 57px" asp-area="" asp-controller="Users" asp-action="Login" id="login" title="Login" data-toggle="tooltip" data-placement="bottom" data-container="body">
+                        <img class="login-user" alt="Login" />
+                    </a>
+
+                    <a class="user-register nav-right" style="float: right; font-weight: 100; width: 57px" asp-area="" asp-controller="Users" asp-action="Register" id="register" title="Register" data-toggle="tooltip" data-placement="bottom" data-container="body">
+                        <img class="register-user" alt="Register" />
+                    </a>
+                }
+
+                <a class="questions nav-right" style="float: right; font-weight: 100; width: 55px; height: 50px" asp-area="" asp-controller="Questions" asp-action="All" id="questions" title="Questions" data-toggle="tooltip" data-placement="bottom" data-container="body">
+                    <img class="questions" alt="questions" />
                 </a>
 
-            }
+                <a class="nav-right" style="float:right; font-size: 16px; cursor: pointer; width: 57px; font-family:none; line-height:1.2" onclick="openNav()" title="Explore" data-toggle="tooltip" data-placement="bottom" data-container="body"><img class="compass" alt="explore" /></a>
 
-            else
-            {
-                <a class="user-login nav-right" style="float: right; font-weight: 100; width: 57px" asp-area="" asp-controller="Users" asp-action="Login" id="login" title="Login" data-toggle="tooltip" data-placement="bottom" data-container="body">
-                    <img class="login-user" alt="Login" />
-                </a>
-
-                <a class="user-register nav-right" style="float: right; font-weight: 100; width: 57px" asp-area="" asp-controller="Users" asp-action="Register" id="register" title="Register" data-toggle="tooltip" data-placement="bottom" data-container="body">
-                    <img class="register-user" alt="Register" />
-                </a>
-            }
-
-            <a class="questions nav-right" style="float: right; font-weight: 100; width: 55px; height: 50px" asp-area="" asp-controller="Questions" asp-action="All" id="questions" title="Questions" data-toggle="tooltip" data-placement="bottom" data-container="body">
-                <img class="questions" alt="questions" />
-            </a>
-
-            <a class="nav-right" style="float:right; font-size: 16px; cursor: pointer; width: 57px;" onclick="openNav()" title="Explore" data-toggle="tooltip" data-placement="bottom" data-container="body"><img class="compass" alt="explore" /></a>
-
-            <!--<partial name="_LoginPartial" />-->
+                <!--<partial name="_LoginPartial" />-->
+            </div>
         </div>
 
     </header>
