@@ -1,5 +1,6 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+﻿﻿ /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+
 
 .si-icons span {
     display: inline-block;
@@ -13,7 +14,8 @@ for details on configuring this project to bundle and minify static web assets. 
 
 .topnav {
     overflow: hidden;
-    background-color: #1a1a1a;
+    
+    background-color: rgba(0, 0, 0, 0.93);
     letter-spacing: 0.7px;
     font-size: 15px;
     font-family: Jost;
@@ -33,9 +35,9 @@ for details on configuring this project to bundle and minify static web assets. 
             background-color: orangered;
         }
 
-.topnav .icon {
-    display: none;
-}
+    .topnav .icon {
+        display: none;
+    }
 
 .dropdown {
     float: left;
@@ -52,7 +54,6 @@ for details on configuring this project to bundle and minify static web assets. 
         margin: 0;
         height: 50px;
         font-variant-caps: all-petite-caps;
-        
     }
 
 .dropdown-content {
@@ -73,14 +74,14 @@ for details on configuring this project to bundle and minify static web assets. 
     position: fixed;
 }
 
-    .dropdown-content a {
-        float: none;
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        text-align: left;
-    }
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
 
 .topnav a:hover, .dropdown:hover .dropbtn {
     background-color: #555;
@@ -124,6 +125,18 @@ for details on configuring this project to bundle and minify static web assets. 
             text-align: left;
         }
 
+        .topnav.responsive .explore {
+            text-align: center;
+        }
+
+        .topnav.responsive .user-register {
+            text-align: center;
+        }
+
+        .topnav.responsive .user-login {
+            text-align: center;
+        }
+
         .topnav.responsive .dropdown {
             float: none;
         }
@@ -136,7 +149,6 @@ for details on configuring this project to bundle and minify static web assets. 
             width: 100%;
             text-align: left;
         }
-
 }
 
 

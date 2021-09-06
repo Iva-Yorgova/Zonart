@@ -116,27 +116,27 @@
 
                     if (userIsAdmin)
                     {
-                        <a class="admin nav-right" style="float:right; font-weight: 100; width: 57px; height: 50px" asp-area="" asp-controller="Users" asp-action="WelcomeAdmin" id="admin" title="Admin" data-toggle="tooltip" data-placement="bottom" data-container="body">
-                            <img class="admin" alt="Admin" />
-                        </a>
+                <a class="admin nav-right" style="float:right; font-weight: 100; width: 57px; height: 50px" asp-area="" asp-controller="Users" asp-action="WelcomeAdmin" id="admin" title="Admin" data-toggle="tooltip" data-placement="bottom" data-container="body">
+                    <img class="admin" alt="Admin" />
+                </a>
 
                     }
 
-                    <a class="user-logout nav-right" style="float:right; font-weight: 100; width: 57px; height: 50px" asp-area="" asp-controller="Users" asp-action="Logout" id="logout" title="Logout" data-toggle="tooltip" data-placement="bottom" data-container="body">
-                        <img class="logout-user" alt="Logout" />
-                    </a>
+                <a class="user-logout nav-right" style="float:right; font-weight: 100; width: 57px; height: 50px" asp-area="" asp-controller="Users" asp-action="Logout" id="logout" title="Logout" data-toggle="tooltip" data-placement="bottom" data-container="body">
+                    <img class="logout-user" alt="Logout" />
+                </a>
 
                 }
 
                 else
                 {
-                    <a class="user-login nav-right float-right" style="" asp-area="" asp-controller="Users" asp-action="Login" id="login" title="Login" data-toggle="tooltip" data-placement="bottom" data-container="body">
-                        <img class="login-user" alt="Login" />
-                    </a>
+                <a class="user-login nav-right float-right" style="" asp-area="" asp-controller="Users" asp-action="Login" id="login" title="Login" data-toggle="tooltip" data-placement="bottom" data-container="body">
+                    <img class="login-user" alt="Login" />
+                </a>
 
-                    <a class="user-register nav-right float-right" asp-area="" asp-controller="Users" asp-action="Register" id="register" title="Register" data-toggle="tooltip" data-placement="bottom" data-container="body">
-                        <img class="register-user" alt="Register" />
-                    </a>
+                <a class="user-register nav-right float-right" asp-area="" asp-controller="Users" asp-action="Register" id="register" title="Register" data-toggle="tooltip" data-placement="bottom" data-container="body">
+                    <img class="register-user" alt="Register" />
+                </a>
                 }
 
                 <a class="questions nav-right float-right" asp-area="" asp-controller="Questions" asp-action="All" id="questions" title="Questions" data-toggle="tooltip" data-placement="bottom" data-container="body">
@@ -160,18 +160,18 @@
     <div class="container-fluid-new" style="padding-left: 0px; padding-right: 0px">
         @if (TempData.ContainsKey(WebConstants.GlobalMessageKey))
         {
-            <div class="row">
-                <div class="offset-sm-1 col-sm-10 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6 offset-md-3 col-md-6" style="padding-left:30px">
-                    <div class="text-center text-dark mb-5 pb-5">
-                        <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top:100px">
-                            @TempData[WebConstants.GlobalMessageKey]
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="top:5px">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
+        <div class="row">
+            <div class="offset-sm-1 col-sm-10 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6 offset-md-3 col-md-6" style="padding-left:30px">
+                <div class="text-center text-dark mb-5 pb-5">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top:100px">
+                        @TempData[WebConstants.GlobalMessageKey]
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="top:5px">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                 </div>
             </div>
+        </div>
         }
 
 
