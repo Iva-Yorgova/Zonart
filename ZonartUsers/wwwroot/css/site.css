@@ -13,7 +13,7 @@ for details on configuring this project to bundle and minify static web assets. 
 
 .topnav {
     overflow: hidden;
-    background-color: #333;
+    background-color: #1a1a1a;
     letter-spacing: 0.7px;
     font-size: 15px;
     font-family: Jost;
@@ -51,16 +51,26 @@ for details on configuring this project to bundle and minify static web assets. 
         font-family: inherit;
         margin: 0;
         height: 50px;
-        font-variant-caps:all-petite-caps;
+        font-variant-caps: all-petite-caps;
+        
     }
 
 .dropdown-content {
-    display: none;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    z-index: 1;
+    top: 70px;
+    border-top: 3px solid orangered;
+    visibility: hidden;
+    opacity: 0;
+    transition: top .5s;
+}
+
+.dropdown:hover > .dropdown-content {
+    visibility: visible;
+    opacity: 1;
     top: 50px;
+    position: fixed;
 }
 
     .dropdown-content a {
@@ -95,10 +105,6 @@ for details on configuring this project to bundle and minify static web assets. 
         float: right;
         display: block;
     }
-
-    .dropdown-content {
-        top: 0px;
-    }
 }
 
 @media screen and (max-width: 790px) {
@@ -123,7 +129,6 @@ for details on configuring this project to bundle and minify static web assets. 
         }
 
         .topnav.responsive .dropdown-content {
-            position: relative;
         }
 
         .topnav.responsive .dropdown .dropbtn {
@@ -132,9 +137,6 @@ for details on configuring this project to bundle and minify static web assets. 
             text-align: left;
         }
 
-    .dropdown-content {
-        top: 0px;
-    }
 }
 
 
@@ -145,7 +147,26 @@ for details on configuring this project to bundle and minify static web assets. 
 
 
 
+.explore {
+    float: right;
+    font-size: 16px;
+    cursor: pointer;
+    width: 57px;
+    font-family: none;
+    line-height: 1.2
+}
 
+.user-register {
+    float: right;
+    font-weight: 100;
+    width: 57px
+}
+
+.user-login {
+    float: right;
+    font-weight: 100;
+    width: 57px
+}
 
 .tooltip {
     font-size: 11px;
@@ -207,63 +228,6 @@ for details on configuring this project to bundle and minify static web assets. 
     letter-spacing: 0.5px;
     background-color: orangered;
 }
-
-
-
-/*
-.dropbtn {
-    background-color: transparent;
-    color: white;
-    height: 50px;
-    font-size: 12px;
-    border: none;
-    font-family: Jost;
-    letter-spacing: 1.3px;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-    float: left;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    width: fit-content;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    color: black;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-    .dropdown-content a:hover {
-        background-color: dimgray;
-
-    }
-
-.hidingnavbar .dropdown a:hover {
-    background-color: #f2f2f2;
-    color: white;
-}
-
-
-.dropdown:hover .dropdown-content {
-    display: block;
-    background-color: #ddd;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: orangered;
-
-}*/
-
 
 
 
@@ -362,7 +326,7 @@ for details on configuring this project to bundle and minify static web assets. 
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 1000;
+    z-index: 3000;
     top: 0;
     left: 0;
     background-color: rgb(0,0,0);
@@ -553,21 +517,14 @@ body, html {
         opacity: 1;
     }
 
-
-
 .admin:hover {
     background-color: orangered;
 }
 
 
-.login-user:hover {
-    
-}
-
 .user-login:hover {
     background-color: orangered;
 }
-
 
 
 /*fade in effect on page load*/
@@ -649,6 +606,10 @@ body {
     content: url('../Images/question.png');
     width: 21px;
     font-size: 12px;
+    float: right;
+    font-weight: 100;
+    width: 55px;
+    height: 50px
 }
 
 .compass {
@@ -884,7 +845,6 @@ container-fluid {
     font-family: Montserrat;
     font-size: 43px;
     font-variant-caps: titling-caps;
-    margin-top: 120px;
     margin-bottom: 70px
 }
 
@@ -989,7 +949,7 @@ container-fluid {
     overflow: hidden;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding-top: 100px;
     height: 100vh;
 }
 
@@ -2213,7 +2173,7 @@ footer {
 .peaces {
     display: grid;
     place-content: center;
-    height: 100vh;
+    /*height: 100vh;*/
     overflow: hidden;
 }
 
