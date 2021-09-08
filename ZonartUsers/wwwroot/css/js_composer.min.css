@@ -4739,12 +4739,12 @@ ul.wpb_thumbnails-fluid>li {
  padding-left:0;
  padding-right:0
 }
-.vc_column_container>.vc_column-inner {
- box-sizing:border-box;
- padding-left:15px;
- padding-right:15px;
- width:100%
-}
+    .vc_column_container > .vc_column-inner {
+        box-sizing: border-box;
+        /*padding-left:15px;
+        padding-right:15px;*/
+        width: 100%
+    }
 .vc_col-has-fill>.vc_column-inner,
 .vc_row-has-fill+.vc_row-full-width+.vc_row>.vc_column_container>.vc_column-inner,
 .vc_row-has-fill+.vc_row>.vc_column_container>.vc_column-inner,
