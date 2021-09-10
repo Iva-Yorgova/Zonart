@@ -1,4 +1,4 @@
-﻿﻿ /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+﻿﻿﻿ /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
 
@@ -28,6 +28,7 @@ for details on configuring this project to bundle and minify static web assets. 
         padding: 14px 16px;
         text-decoration: none;
         height: 50px;
+        font-variant-caps: all-petite-caps;
     }
 
         .topnav a.active {
@@ -97,11 +98,8 @@ for details on configuring this project to bundle and minify static web assets. 
     display: block;
 }
 
-@media screen and (max-width: 790px) {
 
-}
-
-@media screen and (max-width: 790px) {
+@media screen and (max-width: 830px) {
     .topnav a:not(:first-child), .dropdown .dropbtn {
         display: none;
     }
@@ -144,7 +142,8 @@ for details on configuring this project to bundle and minify static web assets. 
             float: none;
         }
 
-        .topnav.responsive .dropdown-content {
+        .dropdown-content {
+            left: 120px;
         }
 
         .topnav.responsive .dropdown .dropbtn {
@@ -1476,7 +1475,7 @@ h3 {
     color: #111;
 }
 
-/* Turn off parallax scrolling for tablets and phones*/ 
+/* Turn off parallax scrolling for tablets and phones*/
 @media only screen and (max-device-width: 1024px) {
     .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5 {
         background-attachment: scroll;
