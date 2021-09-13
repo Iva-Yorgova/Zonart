@@ -865,8 +865,10 @@ container-fluid {
 .title-contact {
     font-family: Jost;
     font-size: 43px;
-    font-variant-caps: titling-caps;
-    margin-bottom: 70px
+    font-variant-caps: all-petite-caps;
+    margin-bottom: 70px;
+    font-weight: 700;
+
 }
 
 
