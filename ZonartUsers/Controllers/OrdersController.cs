@@ -31,7 +31,8 @@ namespace Zonart.Controllers
 
             return View(new OrderTemplateModel
             {
-                TemplateId = templateId
+                TemplateId = templateId,
+                TemplateName = templateName
             });
         }
 

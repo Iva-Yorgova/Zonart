@@ -7,6 +7,8 @@ namespace ZonartUsers.Models.Orders
     {
         public int TemplateId { get; set; }
 
+        public string TemplateName { get; set; }
+
         [Required]
         [Display(Name = "Full Name")]
         [StringLength(NameMaxLength, MinimumLength = NameMinLength)]
