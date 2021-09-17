@@ -272,12 +272,13 @@ for details on configuring this project to bundle and minify static web assets. 
     font-weight: 700;
     font-variant-caps: all-petite-caps;
     letter-spacing: 2px;
-    border: 2px solid lightgrey;
+    border: 2px solid dimgray;
 }
 
-    #yourBtn :hover {
+    #yourBtn:hover {
         background-color: orangered;
         color: white;
+        border: none;
     }
 
 
@@ -867,7 +868,7 @@ container-fluid {
     font-size: 43px;
     font-variant-caps: all-petite-caps;
     margin-bottom: 70px;
-    font-weight: 700;
+    font-weight: 500;
 
 }
 
@@ -1704,7 +1705,7 @@ input[type=text], select, textarea {
     position: center;
     outline: none;
     box-shadow: none;
-    border: none;
+    border: 1px solid #ced4da;
 }
 
 input[type="textarea"] select {
@@ -2636,17 +2637,15 @@ footer {
     max-width: 400px;
     max-height: 650px;
     padding: 20px 30px 5px 30px;
-    background-color: white;
+    background-color: #e6e6e6;
 }
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
     width: 100%;
-    padding: 15px;
     margin: 5px 0 22px 0;
     outline: none;
     background: white;
-    border: none;
 }
 
     input[type=text]:focus, input[type=password]:focus {
