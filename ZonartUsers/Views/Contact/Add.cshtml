@@ -104,32 +104,10 @@
                     <span asp-validation-for="Message" class="small text-danger"></span>
                 </div>              
 
-                <!--<div class="form-group">
-                    <label asp-for="FormFile">Upload File</label>
-                    <input asp-for="FormFile" type="file" name="FormFile" id="FormFile" class="form-control mb-0">
-                </div>-->
-
-                <!--<div class="form-group">
-                    <label asp-for="FormFile">Upload file</label>
-                    <input asp-for="FormFile" type="file" name="FormFile" id="demo-file" />
-                </div>-->
-
                 <div class="form-group" id="yourBtn" onclick="getFile()">upload a file</div>
-                <!-- this is your file input tag, so i hide it!-->
-                <!-- i used the onchange event to fire the form submission-->
                 <div style='height: 0px; width: 0px; overflow: hidden;'>
                     <input asp-for="FormFile" type="file" name="FormFile" id="upfile" value="upload" onchange="sub(this)" />
                 </div>
-                <!-- here you can have file submit button or you can write a simple script to upload the file automatically-->
-                <!-- <input type="submit" value='submit' > -->
-
-                <!--<div>
-                    <label>Upload file</label>
-                    <div class="custom-file" style="margin-bottom: 30px">
-                        <input type="file" class="custom-file-input" id="customFile" name="files">
-                        <label class="custom-file-label" for="customFile">Select file...</label>
-                    </div>
-                </div>-->
 
                 <input class="btn btn-block" type="submit" value="Submit" style="margin-bottom: 100px" />
 
@@ -148,12 +126,6 @@
 </div>-->
 
 
-<script>
-    $(document).ready(function () {
-        $(".active").removeClass("active");
-        $("#contact").addClass("active");
-    });
-</script>
 
 <script>
     // Add the following code if you want the name of the file appear on select
