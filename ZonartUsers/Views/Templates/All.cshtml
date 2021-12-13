@@ -11,7 +11,7 @@
     var userIsAdmin = User.IsInRole(WebConstants.AdminRoleName);
 }
 
-@model List<TemplateListingViewModel>
+@model AllTemplatesModel
 
 
 <div class="row mt-0 ml-5 mr-5" style="">
@@ -27,41 +27,75 @@
                         <a asp-area="" asp-controller="Templates" asp-action="Add" asp-route-id="" class="details-button mt-lg-30 mt-30 btn btn-block spacing-lg text-white pt-1 pb-1" style="background-color:dimgray; border:2px solid dimgray">Add New Template</a>
                     </div>
 
+
+
                 </div>
             </div>
         </div>
     }
-</div>
 
-<div class="row mb-5 pb-5 pb-5 ml-4 mr-4" style="margin-bottom:50px">
-    @foreach (var template in Model)
-    {
-        <div class="col-md-4" style="padding-left:30px">
-            <div class="card mb-3 mt-5" style="border-radius: 0">
-                <img class="card-img-top" style="border-radius: 0" src="@template.ImageUrl" alt="">
-                <div class="card-body text-center pl-0 pr-0 pt-5 pb-0">
-                    <h2 class="card-title text-center mb-2" style="font-family: Jost; letter-spacing: 2px; font-weight: 700">@template.Name</h2>
-                    <h6 class="card-title text-center mb-4" style="font-weight: 100">@template.Price.00 USD</h6>
+    <div class="row ml-4">
+        <form method="get">
+            <div class="row">
+                <div class="col md-4">
+                    <label asp-for="SearchTerm"></label>
+                    <input asp-for="SearchTerm" class="form-control" placeholder="...">
+                </div>
 
-                    <a asp-controller="Templates" asp-action="Details" asp-route-id="@template.Id" class="details-button mt-lg-30 mt-30 col-lg-14 btn btn-block spacing-lg text-white pt-1 pb-1" style="background-color:black; border: none">View</a>
-
-                    @if (userIsAdmin)
-                    {
-                        <div class="row" style="margin-right:0; margin-left:0">
-                            <div class="col" style="padding-right:0; padding-left:0">
-                                <a asp-area="" asp-controller="Templates" asp-action="Edit" asp-route-id="@template.Id" class="details-button mt-lg-30 mt-30 btn btn-block spacing-lg text-white pt-1 pb-1" style="background-color:dimgray; border:none; width:100%">Edit</a>
-                            </div>
-
-                            <div class="col" style="padding-right:0; padding-left:0">
-                                <a asp-controller="Users" asp-action="Delete" asp-route-id="@template.Id" class="details-button mt-lg-30 mt-30 btn btn-block spacing-lg text-white pt-1 pb-1" style="background-color:orangered; border:none; width:100%">Delete</a>
-                            </div>
-
-                        </div>
-                    }
+                <div class="">
 
                 </div>
+
+                <div class="col md-6 mt-5">
+                    <input type="submit" class="pt-2 pb-2 btn" value="search">
+                </div>
             </div>
+        </form>
+    </div>
+
+</div>
+
+
+
+<div class="row mb-5 pb-5 pb-5 ml-4 mr-4" style="margin-bottom:50px">
+
+    @if (Model.Templates.Count() == 0)
+    {
+        <div style="padding-left:30px">
+            <h1>We're sorry! We were not able to find any match. Try another search!</h1>
         </div>
+    }
+
+    @foreach (var template in Model.Templates)
+    {
+        <a class="template-card" asp-controller="Templates" asp-action="Details" asp-route-id="@template.Id">
+            <div class="col-md-4" style="padding-left:30px">
+                <div class="card mb-3 mt-5" style="border-radius: 0">
+                    <img class="card-img-top" style="border-radius: 0" src="@template.ImageUrl" alt="">
+                    <div class="card-body text-center pl-0 pr-0 pt-5 pb-0">
+                        <h2 class="card-title text-center mb-2" style="font-family: Jost; letter-spacing: 2px; font-weight: 700">@template.Name</h2>
+                        <h6 class="card-title text-center mb-4" style="font-weight: 100">@template.Price.00 USD</h6>
+
+                        <a asp-controller="Templates" asp-action="Details" asp-route-id="@template.Id" class="details-button mt-lg-30 mt-30 col-lg-14 btn btn-block spacing-lg text-white pt-1 pb-1" style="background-color:black; border: none">View</a>
+
+                        @if (userIsAdmin)
+                        {
+                            <div class="row" style="margin-right:0; margin-left:0">
+                                <div class="col" style="padding-right:0; padding-left:0">
+                                    <a asp-area="" asp-controller="Templates" asp-action="Edit" asp-route-id="@template.Id" class="details-button mt-lg-30 mt-30 btn btn-block spacing-lg text-white pt-1 pb-1" style="background-color:dimgray; border:none; width:100%">Edit</a>
+                                </div>
+
+                                <div class="col" style="padding-right:0; padding-left:0">
+                                    <a asp-controller="Users" asp-action="Delete" asp-route-id="@template.Id" class="details-button mt-lg-30 mt-30 btn btn-block spacing-lg text-white pt-1 pb-1" style="background-color:orangered; border:none; width:100%">Delete</a>
+                                </div>
+
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </a>
     }
 </div>
 

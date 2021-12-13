@@ -9,12 +9,14 @@ namespace ZonartUsers.Services.Templates
            string name,
            double price,
            string description,
+           string Category,
            string imageUrl);
 
         void Add(
             string name,
             double price,
             string description,
+            string category,
             string imageUrl);
 
         bool Delete(

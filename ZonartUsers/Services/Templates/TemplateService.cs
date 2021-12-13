@@ -19,6 +19,7 @@ namespace ZonartUsers.Services.Templates
            string name,
            double price,
            string description,
+           string category,
            string imageUrl)
         {
             var templateData = this.data.Templates
@@ -33,7 +34,8 @@ namespace ZonartUsers.Services.Templates
             templateData.Price = price;
             templateData.Description = description;
             templateData.ImageUrl = imageUrl;
-            
+            templateData.Category = category;
+
             this.data.SaveChanges();
 
             return true;
@@ -55,14 +57,15 @@ namespace ZonartUsers.Services.Templates
             return true;
         }
 
-        public void Add(string name, double price, string description, string imageUrl)
+        public void Add(string name, double price, string description, string imageUrl, string category)
         {
             var newTemplate = new Template
             {
                 Name = name,
                 Description = description,
                 Price = price,
-                ImageUrl = imageUrl
+                ImageUrl = imageUrl,
+                Category = category
             };
 
             this.data.Templates.Add(newTemplate);

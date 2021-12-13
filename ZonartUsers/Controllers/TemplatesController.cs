@@ -24,42 +24,39 @@ namespace ZonartUsers.Controllers
             this.service = service;
         }
 
-        //[ResponseCache(Duration = 3600)]
-        public IActionResult All()
+        public IActionResult All(string searchTerm)
         {
-            //var latestTemplates = this.cache.Get<List<TemplateListingViewModel>>//(TemplatesCacheKey);
-            //
-            //if (latestTemplates == null)
-            //{
-            //    latestTemplates = this.data.Templates
-            //    .Select(t => new TemplateListingViewModel
-            //    {
-            //        Id = t.Id,
-            //        Name = t.Name,
-            //        ImageUrl = t.ImageUrl,
-            //        Price = t.Price
-            //    })
-            //    .ToList();
-            //
-            //    var cacheOptions = new MemoryCacheEntryOptions()
-            //        .SetAbsoluteExpiration(TimeSpan.FromMinutes(60));
-            //
-            //    this.cache.Set(TemplatesCacheKey, latestTemplates, cacheOptions);
-            //}
-            //
-            //return View(latestTemplates);
+            var templatesQuery = this.data.Templates.AsQueryable();
 
-            var templates = this.data.Templates
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                templatesQuery = templatesQuery
+                    .Where(t => t.Description.ToLower().Contains(searchTerm.ToLower())
+                    || t.Name.ToLower().Contains(searchTerm.ToLower()));
+
+                if (templatesQuery.Count() == 0)
+                {
+
+                }
+            }
+
+            var templates = templatesQuery
+                .OrderByDescending(t => t.Id)
                 .Select(t => new TemplateListingViewModel
                 {
                     Id = t.Id,
                     Name = t.Name,
                     ImageUrl = t.ImageUrl,
-                    Price = t.Price
+                    Price = t.Price, 
+                    Description = t.Description
                 })
                 .ToList();
             
-            return View(templates);
+            return View(new AllTemplatesModel 
+            { 
+                Templates = templates,
+                SearchTerm = searchTerm
+            });
         }
 
 
@@ -90,6 +87,7 @@ namespace ZonartUsers.Controllers
                     Price = t.Price,
                     ImageUrl = t.ImageUrl, 
                     Description = t.Description,
+                    Category = t.Category,
                     Id = id
                 })
                 .FirstOrDefault();
@@ -112,6 +110,7 @@ namespace ZonartUsers.Controllers
                 template.Name,
                 template.Price,
                 template.Description,
+                template.Category,
                 template.ImageUrl);
 
             if (!edited)
@@ -147,7 +146,7 @@ namespace ZonartUsers.Controllers
                 return View(template);
             }
 
-            this.service.Add(template.Name, template.Price, template.Description, template.ImageUrl);
+            this.service.Add(template.Name, template.Price, template.Description, template.ImageUrl, template.Category);
 
             TempData[GlobalMessageKey] = TemplateAdded;
 

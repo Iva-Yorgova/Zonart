@@ -18,5 +18,8 @@ namespace ZonartUsers.Data.Models
 
         [Required]
         public string Description { get; set; }
+
+        [Required]
+        public string Category { get; set; }
     }
 }

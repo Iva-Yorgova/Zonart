@@ -9,12 +9,14 @@ namespace ZonartUsers.Models.Templates
 
         public string Category { get; set; }
 
-        [Display(Name = "Search by text")]
+        [Display(Name = "Search")]
         public string SearchTerm { get; set; }
 
         public int CurrentPage { get; set; } = 1;
 
         public int TotalTemplates { get; set; }
+
+        public TemplateSorting Sorting { get; set; }
 
         public IEnumerable<string> Categories { get; set; }
 

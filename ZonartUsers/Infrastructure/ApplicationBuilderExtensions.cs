@@ -39,13 +39,13 @@ namespace ZonartUsers.Infrastructure
 
             data.Templates.AddRange(new[]
             {
-            new Template { Name = Templates.FirstTemplateName, Price = Templates.TemplateFirstPrice, ImageUrl = Templates.TemplateFirstImg, Description = Templates.TemplateFirstDescription },
-            new Template { Name = Templates.SecondTemplateName, Price = Templates.TemplateSecondPrice, ImageUrl = Templates.TemplateSecondImg, Description = Templates.TemplateSecondDescription },
-            new Template { Name = Templates.ThirdTemplateName, Price = Templates.TemplateThirdPrice, ImageUrl = Templates.TemplateThirdImg, Description = Templates.TemplateThirdDescription },
-            new Template { Name = Templates.FourthTemplateName, Price = Templates.TemplateFourthPrice, ImageUrl = Templates.TemplateFourthImg, Description = Templates.TemplateFourthDescription },
-            new Template { Name = Templates.FifthTemplateName, Price = Templates.TemplateFifthPrice, ImageUrl = Templates.TemplateFifthImg, Description = Templates.TemplateFifthDescription },
-            new Template { Name = Templates.SixthTemplateName, Price = Templates.TemplateSixthPrice, ImageUrl = Templates.TemplateSixthImg, Description = Templates.TemplateSixthDescription },
-            new Template { Name = Templates.SeventhTemplateName, Price = Templates.TemplateSeventhPrice, ImageUrl = Templates.TemplateSeventhImg, Description = Templates.TemplateSeventhDescription }
+            new Template { Name = Templates.FirstTemplateName, Price = Templates.TemplateFirstPrice, ImageUrl = Templates.TemplateFirstImg, Description = Templates.TemplateFirstDescription, Category = "Web" },
+            new Template { Name = Templates.SecondTemplateName, Price = Templates.TemplateSecondPrice, ImageUrl = Templates.TemplateSecondImg, Description = Templates.TemplateSecondDescription, Category = "Web" },
+            new Template { Name = Templates.ThirdTemplateName, Price = Templates.TemplateThirdPrice, ImageUrl = Templates.TemplateThirdImg, Description = Templates.TemplateThirdDescription, Category = "Web" },
+            new Template { Name = Templates.FourthTemplateName, Price = Templates.TemplateFourthPrice, ImageUrl = Templates.TemplateFourthImg, Description = Templates.TemplateFourthDescription, Category = "Web" },
+            new Template { Name = Templates.FifthTemplateName, Price = Templates.TemplateFifthPrice, ImageUrl = Templates.TemplateFifthImg, Description = Templates.TemplateFifthDescription, Category = "Print" },
+            new Template { Name = Templates.SixthTemplateName, Price = Templates.TemplateSixthPrice, ImageUrl = Templates.TemplateSixthImg, Description = Templates.TemplateSixthDescription, Category = "Print" },
+            new Template { Name = Templates.SeventhTemplateName, Price = Templates.TemplateSeventhPrice, ImageUrl = Templates.TemplateSeventhImg, Description = Templates.TemplateSeventhDescription, Category = "Print" }
              });
 
             data.SaveChanges();

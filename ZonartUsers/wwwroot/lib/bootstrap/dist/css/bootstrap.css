@@ -193,6 +193,10 @@ img {
   border-style: none;
 }
 
+.not-found-img {
+    width: 10%;
+}
+
 svg {
   overflow: hidden;
 }
@@ -2394,6 +2398,11 @@ select.form-group {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+.my-search-button {
+    padding-top: 2.5em;
+    padding-bottom: 2.5em;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .btn {
     transition: none;
@@ -4551,7 +4560,11 @@ input[type="button"].btn-block {
     background-clip: border-box;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
     border-radius: 0.25rem;
+    transition: transform .2s; /* Animation */
 }
+    .card:hover {
+        transform: scale(1.06);
+    }
 
 .card > hr {
   margin-right: 0;
@@ -4572,6 +4585,10 @@ input[type="button"].btn-block {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding: 1.25rem;
+}
+
+.card-body:hover {
+    background-color: lightgray;
 }
 
 .card-title {
