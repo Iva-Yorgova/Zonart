@@ -19,8 +19,8 @@
                     <a data-type="all" href="#0">All</a> <!-- selected option on mobile -->
                 </li>
                 <li class="filter"><a class="selected" href="#0" data-type="all">All</a></li>
-                <li class="filter" data-filter=".color-1"><a href="#0" data-type="color-1">Color 1</a></li>
-                <li class="filter" data-filter=".color-2"><a href="#0" data-type="color-2">Color 2</a></li>
+                <li class="filter" data-filter=".color-1"><a href="#0" data-type="color-1">Art 1</a></li>
+                <li class="filter" data-filter=".color-2"><a href="#0" data-type="color-2">Art 2</a></li>
             </ul> <!-- cd-filters -->
         </div> <!-- cd-tab-filter -->
     </div> <!-- cd-tab-filter-wrapper -->
@@ -28,10 +28,17 @@
     <section class="cd-gallery">
         <ul>
             <li class="mix color-1 check1 radio2 option3">
-                <a asp-controller="Projects" asp-action="Logos"><img src="img/img-1.jpg" alt="Image 1"></a>
+                <a asp-controller="Projects" asp-action="Posters">
+                <img src="img/img-1.jpg" alt="Image 1"></a>
             </li>
-            <li class="mix color-2 check2 radio2 option2"><img src="img/img-2.jpg" alt="Image 2"></li>
-            <li class="mix color-1 check3 radio3 option1"><img src="img/img-3.jpg" alt="Image 3"></li>
+            <li class="mix color-2 check2 radio2 option2">
+                <a asp-controller="Projects" asp-action="Variety">
+                <img src="img/img-2.jpg" alt="Image 2"></a>
+            </li>
+            <li class="mix color-1 check3 radio3 option1">
+                <a asp-controller="Projects" asp-action="Kids">
+                <img src="img/img-3.jpg" alt="Image 3"></a>
+                </li>
             <li class="mix color-1 check3 radio2 option4"><img src="img/img-4.jpg" alt="Image 4"></li>
             <li class="mix color-1 check1 radio3 option2"><img src="img/img-5.jpg" alt="Image 5"></li>
             <li class="mix color-2 check2 radio3 option3"><img src="img/img-6.jpg" alt="Image 6"></li>
