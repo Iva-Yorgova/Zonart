@@ -1267,15 +1267,15 @@ p {
 
 
 .btn {
-    border: 2px solid black;
+    /*border: 2px solid black;*/
     border-radius: 0px;
-    background-color: white;
+    /*background-color: white;*/
     color: black;
     padding: 10px;
     font-size: 16px;
     cursor: pointer;
     font-family: 'Jost';
-    letter-spacing: 4px;
+    letter-spacing: 0px;
 }
 
 .default {

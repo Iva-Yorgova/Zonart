@@ -22,21 +22,21 @@ namespace ZonartUsers.Controllers
             this.service = service;
         }
 
-        public IActionResult All(string searchTerm, string category, TemplateSorting sorting)
+        public IActionResult All([FromQuery]AllTemplatesModel query)
         {
             var templatesQuery = this.data.Templates.AsQueryable();
 
-            if (!string.IsNullOrWhiteSpace(category))
+            if (!string.IsNullOrWhiteSpace(query.Category))
             {
                 templatesQuery = templatesQuery
-                    .Where(t => t.Category == category);
+                    .Where(t => t.Category == query.Category);
             }
 
-            if (!string.IsNullOrWhiteSpace(searchTerm))
+            if (!string.IsNullOrWhiteSpace(query.SearchTerm))
             {
                 templatesQuery = templatesQuery
-                    .Where(t => t.Description.ToLower().Contains(searchTerm.ToLower())
-                    || t.Name.ToLower().Contains(searchTerm.ToLower()));
+                    .Where(t => t.Description.ToLower().Contains(query.SearchTerm.ToLower())
+                    || t.Name.ToLower().Contains(query.SearchTerm.ToLower()));
             }
 
             var categories = this.data.Templates
@@ -44,14 +44,17 @@ namespace ZonartUsers.Controllers
                 .Distinct()
                 .ToList();
 
-            templatesQuery = sorting switch
+            templatesQuery = query.Sorting switch
             {
                 TemplateSorting.Price => templatesQuery.OrderByDescending(t => t.Price),
                 TemplateSorting.Category => templatesQuery.OrderBy(t => t.Category),
                 TemplateSorting.DateCreated or _ => templatesQuery.OrderByDescending(t => t.Id)
             };
+            var totalTemplates = templatesQuery.Count();
 
             var templates = templatesQuery
+                .Skip((query.CurrentPage - 1) * AllTemplatesModel.TemplatesPerPage)
+                .Take(AllTemplatesModel.TemplatesPerPage)
                 .Select(t => new TemplateListingViewModel
                 {
                     Id = t.Id,
@@ -62,15 +65,12 @@ namespace ZonartUsers.Controllers
                     Category = t.Category
                 })
                 .ToList();
+
+            query.Categories = categories;
+            query.Templates = templates;
+            query.TotalTemplates = totalTemplates;     
             
-            return View(new AllTemplatesModel 
-            { 
-                Templates = templates,
-                SearchTerm = searchTerm,
-                Categories = categories,
-                Category = category,
-                Sorting = sorting
-            });
+            return View(query);
         }
 
 
