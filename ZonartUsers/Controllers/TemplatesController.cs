@@ -14,48 +14,62 @@ namespace ZonartUsers.Controllers
     public class TemplatesController : Controller
     {
         private readonly ZonartUsersDbContext data;
-        private readonly IMemoryCache cache;
         private readonly ITemplateService service;
 
-        public TemplatesController(ZonartUsersDbContext data, IMemoryCache cache, ITemplateService service)
+        public TemplatesController(ZonartUsersDbContext data, ITemplateService service)
         {
             this.data = data;
-            this.cache = cache;
             this.service = service;
         }
 
-        public IActionResult All(string searchTerm)
+        public IActionResult All(string searchTerm, string category, TemplateSorting sorting)
         {
             var templatesQuery = this.data.Templates.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(category))
+            {
+                templatesQuery = templatesQuery
+                    .Where(t => t.Category == category);
+            }
 
             if (!string.IsNullOrWhiteSpace(searchTerm))
             {
                 templatesQuery = templatesQuery
                     .Where(t => t.Description.ToLower().Contains(searchTerm.ToLower())
                     || t.Name.ToLower().Contains(searchTerm.ToLower()));
-
-                if (templatesQuery.Count() == 0)
-                {
-
-                }
             }
 
+            var categories = this.data.Templates
+                .Select(t => t.Category)
+                .Distinct()
+                .ToList();
+
+            templatesQuery = sorting switch
+            {
+                TemplateSorting.Price => templatesQuery.OrderByDescending(t => t.Price),
+                TemplateSorting.Category => templatesQuery.OrderBy(t => t.Category),
+                TemplateSorting.DateCreated or _ => templatesQuery.OrderByDescending(t => t.Id)
+            };
+
             var templates = templatesQuery
-                .OrderByDescending(t => t.Id)
                 .Select(t => new TemplateListingViewModel
                 {
                     Id = t.Id,
                     Name = t.Name,
                     ImageUrl = t.ImageUrl,
                     Price = t.Price, 
-                    Description = t.Description
+                    Description = t.Description,
+                    Category = t.Category
                 })
                 .ToList();
             
             return View(new AllTemplatesModel 
             { 
                 Templates = templates,
-                SearchTerm = searchTerm
+                SearchTerm = searchTerm,
+                Categories = categories,
+                Category = category,
+                Sorting = sorting
             });
         }
 
@@ -68,7 +82,9 @@ namespace ZonartUsers.Controllers
                 {
                     Id = id,
                     Name = t.Name,
-                    Description = t.Description
+                    Description = t.Description,
+                    Category = t.Category,
+                    Price = t.Price
                 })
                 .FirstOrDefault();
 

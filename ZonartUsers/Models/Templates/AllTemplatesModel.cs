@@ -5,7 +5,7 @@ namespace ZonartUsers.Models.Templates
 {
     public class AllTemplatesModel
     {  
-        public const int TemplatesPerPage = 10;
+        public const int TemplatesPerPage = 3;
 
         public string Category { get; set; }
 

@@ -3,8 +3,8 @@ for details on configuring this project to bundle and minify static web assets. 
 
 
 
-.not-found-img {
-    width: 10%;
+.order-img {
+    max-width: 20%;
 }
 
 .welcome-message {
@@ -2648,7 +2648,6 @@ footer {
 /* Full-width input fields */
 input[type=text], input[type=password] {
     width: 100%;
-    margin: 5px 0 22px 0;
     outline: none;
     background: white;
 }
