@@ -1,5 +1,8 @@
 ﻿
 
+using System.Collections.Generic;
+using ZonartUsers.Models.Templates;
+
 namespace ZonartUsers.Services.Templates
 {
     public interface ITemplateService
@@ -21,5 +24,7 @@ namespace ZonartUsers.Services.Templates
 
         bool Delete(
             int templateId);
+
+        List<TemplateListingViewModel> GetTemplates();
     }
 }

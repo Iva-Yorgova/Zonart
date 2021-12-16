@@ -1,7 +1,10 @@
 ﻿
+using MySql.Data.MySqlClient;
+using System.Collections.Generic;
 using System.Linq;
 using ZonartUsers.Data;
 using ZonartUsers.Data.Models;
+using ZonartUsers.Models.Templates;
 
 namespace ZonartUsers.Services.Templates
 {
@@ -70,6 +73,35 @@ namespace ZonartUsers.Services.Templates
 
             this.data.Templates.Add(newTemplate);
             this.data.SaveChanges();
+        }
+
+        public List<TemplateListingViewModel> GetTemplates()
+        {
+            List<TemplateListingViewModel> dbTemplates = new List<TemplateListingViewModel>();
+
+            using (MySqlConnection connection = new MySqlConnection("server=pepe.rdb.superhosting.bg;port=3306;user=yorgovan_ivayorgova;password=noahnoah7777;database=yorgovan_yorgovaDB"))
+            {
+                connection.Open();
+
+                MySqlCommand cmd = new MySqlCommand("select * from Templates", connection);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    TemplateListingViewModel dbTemplate = new TemplateListingViewModel();
+
+                    dbTemplate.Id = int.Parse(reader["Id"].ToString());
+                    dbTemplate.Name = reader["Name"].ToString();
+                    dbTemplate.Category = reader["Category"].ToString();
+                    dbTemplate.Description = reader["Description"].ToString();
+                    dbTemplate.Price = int.Parse(reader["Price"].ToString());
+
+                    dbTemplates.Add(dbTemplate);
+                }
+                reader.Close();
+            }
+            return dbTemplates;
         }
     }
 }

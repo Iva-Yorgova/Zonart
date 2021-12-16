@@ -21,5 +21,7 @@ namespace ZonartUsers.Models.Templates
         public IEnumerable<string> Categories { get; set; }
 
         public IEnumerable<TemplateListingViewModel> Templates { get; set; }
+
+        public IEnumerable<TemplateListingViewModel> DbTemplates { get; set; }
     }
 }

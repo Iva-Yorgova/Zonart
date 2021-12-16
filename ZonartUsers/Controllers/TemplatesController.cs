@@ -69,7 +69,8 @@ namespace ZonartUsers.Controllers
             query.Categories = categories;
             query.Templates = templates;
             query.TotalTemplates = totalTemplates;     
-            
+            query.DbTemplates = service.GetTemplates();
+
             return View(query);
         }
 
