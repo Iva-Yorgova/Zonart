@@ -143,8 +143,7 @@ namespace ZonartUsers.Controllers
 
         [Authorize]
         public IActionResult Add()
-        {
-           
+        {      
             return View(new AddTemplateModel());
         }
 
@@ -171,16 +170,16 @@ namespace ZonartUsers.Controllers
 
         }
 
-        [HttpPost]
+
         [Authorize]
-        public IActionResult Delete(int templateId)
+        public IActionResult Delete(int id)
         {
             if (!User.IsAdmin())
             {
                 return BadRequest(InvalidCredentials);
             }
 
-            var deleted = this.service.Delete(templateId);
+            var deleted = this.service.Delete(id);
 
             if (!deleted)
             {

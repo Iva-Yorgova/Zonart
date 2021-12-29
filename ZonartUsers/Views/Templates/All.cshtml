@@ -112,6 +112,7 @@
 
     @foreach (var template in Model.Templates)
     {
+
         <a class="template-card" asp-controller="Templates" asp-action="Details" asp-route-id="@template.Id">
             <div class="col-md-4">
                 <div class="card mb-3 mt-2" style="border-radius: 0">
@@ -129,7 +130,8 @@
                                 </div>
 
                                 <div class="col pb-0" style="padding-right:0; padding-left:0">
-                                    <a asp-controller="Users" asp-action="Delete" asp-route-id="@template.Id" class="details-button mt-lg-30 mt-30 btn btn-block spacing-lg text-white pt-1 pb-0" style="background-color:orangered; border:none; width:100%">Delete</a>
+                                    <a asp-controller="Templates" asp-action="Delete" asp-route-id="@template.Id" class="details-button mt-lg-30 mt-30 btn btn-block spacing-lg text-white pt-1 pb-0" style="background-color:orangered; border:none; width:100%">Delete</a>
+
                                 </div>
 
                             </div>
