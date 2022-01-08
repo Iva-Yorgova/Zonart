@@ -13,7 +13,6 @@ namespace ZonartUsers.Controllers
 {
     using static WebConstants;
 
-
     public class UsersController : Controller
     {
         private readonly UserManager<User> userManager;
