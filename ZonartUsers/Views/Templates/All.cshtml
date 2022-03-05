@@ -95,7 +95,8 @@
                asp-route-currentPage="@(Model.CurrentPage - 1)"
                asp-route-category="@Model.Category"
                asp-route-searchTerm="@Model.SearchTerm"
-               asp-route-sorting="@((int)Model.Sorting)"><span class="small">&#10094;&#10094 </span> Previous</a>
+               asp-route-sorting="@((int)Model.Sorting)">
+            <span class="small">&#10094;&#10094 </span> Previous</a>
         </div>
         <div class="col-md-6 text-right w-50">
             <a class="btn @(Model.CurrentPage == maxPage ? "disabled" : string.Empty)" asp-controller="Templates"
@@ -103,7 +104,8 @@
                asp-route-currentPage="@(Model.CurrentPage + 1)"
                asp-route-category="@Model.Category"
                asp-route-searchTerm="@Model.SearchTerm"
-               asp-route-sorting="@((int)Model.Sorting)">Next <span class="small">&#10095;&#10095; </span></a>
+               asp-route-sorting="@((int)Model.Sorting)">Next 
+            <span class="small">&#10095;&#10095; </span></a>
         </div>
     </div>
 }
@@ -154,15 +156,18 @@
            asp-route-currentPage="@(Model.CurrentPage - 1)"
            asp-route-category="@Model.Category"
            asp-route-searchTerm="@Model.SearchTerm"
-           asp-route-sorting="@((int)Model.Sorting)"><span class="small">&#10094;&#10094 </span> Previous</a>
+           asp-route-sorting="@((int)Model.Sorting)">
+        <span class="small">&#10094;&#10094 </span> Previous</a>
     </div>
     <div class="col-md-6 text-right w-50">
-        <a class="btn @(Model.CurrentPage == maxPage ? "disabled" : string.Empty)" asp-controller="Templates"
+        <a class="btn @(Model.CurrentPage == maxPage ? "disabled" : string.Empty)" 
+           asp-controller="Templates"
            asp-action="All"
            asp-route-currentPage="@(Model.CurrentPage + 1)"
            asp-route-category="@Model.Category"
            asp-route-searchTerm="@Model.SearchTerm"
-           asp-route-sorting="@((int)Model.Sorting)">Next <span class="small">&#10095;&#10095; </span></a>
+           asp-route-sorting="@((int)Model.Sorting)">Next 
+        <span class="small">&#10095;&#10095; </span></a>
     </div>
 
     <table class="table table-hover table-bordered bg-light ml-4 mr-4 shadow-sm">

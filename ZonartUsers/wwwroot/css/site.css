@@ -3,6 +3,10 @@ for details on configuring this project to bundle and minify static web assets. 
 
 
 
+.logos-link section p {
+    color: orangered;
+}
+
 .order-img {
     max-width: 20%;
 }
@@ -464,7 +468,7 @@ button.accordion::after {
 
 
 * {
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 /* Set height of body and the document to 100% */

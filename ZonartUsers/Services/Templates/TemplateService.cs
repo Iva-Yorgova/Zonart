@@ -101,6 +101,7 @@ namespace ZonartUsers.Services.Templates
                 }
                 reader.Close();
             }
+            
             return dbTemplates;
         }
     }
