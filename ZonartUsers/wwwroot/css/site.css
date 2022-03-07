@@ -3,10 +3,6 @@ for details on configuring this project to bundle and minify static web assets. 
 
 
 
-.logos-link section p {
-    color: orangered;
-}
-
 .order-img {
     max-width: 20%;
 }
@@ -968,12 +964,7 @@ container-fluid {
     margin: 50px 55px 50px 55px
 }
 
-@media (min-width: 100em) {
-    .hover-direction-gallery {
-        display: grid;
-        grid-template-columns: 1fr 3fr;
-    }
-}
+
 
 
 

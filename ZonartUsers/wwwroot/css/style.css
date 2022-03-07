@@ -18,6 +18,11 @@ body {
 }
 
 
+.logos-link section p {
+    color: orangered;
+    font-family: Jost;
+    letter-spacing: 1px;
+}
 
 
 
@@ -49,6 +54,10 @@ SITE LOGO
   max-width: 200px;
 }
 #site-logo a:hover {
+}
+
+.navigation {
+    z-index: 2000;
 }
 
 /* 
